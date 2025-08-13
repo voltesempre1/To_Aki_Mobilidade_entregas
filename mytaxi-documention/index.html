@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Documentation</title>
+        <meta name="description" content="Author: Elaynetech, Support: info@elaynetech.com">
+        <meta name="author" content="Elaynetech">
+        <meta name="copyright" content="Elaynetech">
+        <meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+        <META NAME="robots" CONTENT="noindex,nofollow">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+        	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+		<link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" media="screen">
+		<script src="assets/js/google-code-prettify/prettify.js"></script>
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/jquery.scrollTo.js"></script>
+		<script src="assets/js/jquery.easing.js"></script>
+		<script>document.createElement('section'); var duration = '500', easing = 'swing';</script>
+		<script src="assets/js/script.js"></script>
+    </head>
+</head>
+
+<body class="documenter-project-folder">
+    <div id="documenter_sidebar">
+        <a href="#documenter_cover" id="documenter_logo">
+            <img src="./assets/images/logo.svg" height="80" width = "220" />
+        </a>
+        <ul id="documenter_nav">
+            <li><a class="current" href="#introduction" title="Home">Home</a></li>
+            <li>
+                <a href="#setting-up-flutter" title="Setting Up Flutter">Setting Up Flutter</a>
+            </li>
+            <li><a href="#changing-application-name-in-flutter-for-android-iOS-and-web"
+                    title="Changing Application Name">Changing
+                    Application Name
+                </a></li>
+            <li>
+                <a href="#changing-package-name-in-flutter" title="Changing Package Name">Changing Package
+                    Name</a>
+            </li>
+            <li>
+                <a href="#changing-application-logo" title="Changing Application Logo">Changing Application Logo</a>
+            </li>
+            <li>
+                <a href="#setting-up-firebase" title="Setting up Firebase">Setting up Firebase using the
+                    command-line</a>
+            </li>
+            <li>
+                <a href="#setting-up-firebase-manually" title="Setting up Firebase">Setting up Firebase manually</a>
+            </li>
+            <li>
+                <a href="#enabling-authentication-firebase-console"
+                    title="Enabling authentication Firebase console">Enabling authentication Firebase console</a>
+            </li>
+            <li>
+                <a href="#import-firebase-cloud-function" title="How to Import
+                    Firebase Cloud Function">How to Import
+                    Firebase Cloud Function</a>
+            </li>
+            <li>
+                <a href="#firestore-database-collection-import-export"
+                    title="Firestore Database Collection Import Export">Firestore Database Collection Import Export</a>
+            </li>
+            <li>
+                <a href="#firestore-database-indexing-import" title="Firestore Database Indexing import ">Firestore
+                    Database Indexing import </a>
+            </li>
+            <li>
+                <a href="#create-a-google-maps-api-key-and-integrate"
+                    title="Create a Google Maps API key and integrate ">Create a Google Maps API key and integrate </a>
+            </li>
+            <li>
+                <a href="#generate-keys" title="Generate SHA-1 and SHA-256 keys & enter them into the
+Firebase Console">Generate SHA-1 and SHA-256 keys & enter them into the
+                    Firebase Console</a>
+            </li>
+            <li>
+                <a href="#deploy-admin-panel-in-firebase" title="Deploy Admin Panel In Firebase">Deploy Admin Panel In
+                    Firebase </a>
+            </li>
+            <li>
+                <a href="#to-run-a-flutter-application" title="To run a Flutter application">To run a Flutter
+                    application </a>
+            </li>
+            <li>
+                <a href="#get-notification"
+                    title="How to Get Notification SenderId and Json File to Add in Admin Panel">How to Get Notification
+                    SenderId and Json File to Add in Admin Panel </a>
+            </li>
+        </ul>
+        <div id="documenter_copyright">© ScanEats. All Rights Reserved.</div>
+    </div>
+    <div id="documenter_content">
+        <section id="introduction">
+            <h1>Mytaxi Documentation</h1>
+            <hr>
+            <ul>
+                <li><b>Author:</b> Elaynetech</li>
+                <li><b>WhatsApp Number:</b> <a href="tel:+91 99046 97433" title="Elaynetech">+91 99046 97433</a>
+                </li>
+                <li><b>Support Email:</b> <a href="mailto:info@elaynetech.com">info@elaynetech.com</a></li>
+            </ul>
+        </section>
+        <section id="setting-up-flutter">
+            <div class="page-header">
+                <h2>Setting Up Flutter on Windows and MacOS</h2>
+                <hr class="notop">
+            </div>
+            <p>
+                To set up Flutter on both Windows and Mac OS, follow these step-by-step instructions:
+            </p>
+        </section>
+        <section id="flutter-on-windows">
+            <h3>Setting Up Flutter on Windows</h3>
+            <h5>➼ System Requirements</h5>
+            <ul>
+                <li><span>Operating System : </span>Windows 10 or later (64-bit)</li>
+                <li><span>Storage : </span>Windows 10 or later (64-bit)</li>
+                <li><span>Required Tool : </span>Git for Windows </li>
+            </ul>
+            <h5>➼ Download Flutter SDK</h5>
+            <ul>
+                <li>Visit the official Flutter website</li>
+                <li>Download the latest <span>stable version</span> of the Flutter SDK (ZIP file).</li>
+                <li>Extract the ZIP and move the flutter folder to a preferred location e.g.,C:\src\flutter.</li>
+            </ul>
+            <h5>➼ Add Flutter to System Path</h5>
+            <ul>
+                <li>Open Start Menu, search for <span>“Environment Variables”</span>, and click <span>“Edit the system
+                        environment variables”</span>.</li>
+                <li>In the <span>System Properties</span> window, click <span>Environment Variables</span>.</li>
+                <li>Under <span>User variables</span>, locate the <span class="green">Path</span> variable</li>
+                <li>If it exists, click <span>Edit</span> and append the path to <span class="green">flutter\bin</span>
+                    (e.g., <span class="green">C:\src\flutter\bin</span>) at the end, separated by a ;.</li>
+                <li>If it doesn’t exist, click <span>New</span>, name it <span class="green">Path</span>, and enter the
+                    path to <span class="green">flutter\bin</span>.</li>
+                <li>Verify Installation with Flutter Doctor.</li>
+                <li>Open <span>Command Prompt</span>.<br />
+                    Run the command: <span class="green">flutter doctor</span></li>
+                <li>This will analyze your environment and report missing dependencies (like Android Studio or
+                    toolchains).</li>
+            </ul>
+            <h5>➼ Install Android Studio</h5>
+            <ul>
+                <li>Download Android Studio from <a
+                        href="https://developer.android.com/studio">developer.android.com</a></li>
+                <li>Launch the installer and complete the setup wizard, which installs:</li>
+                <ul>
+                    <li>Android SDK</li>
+                    <li>Android SDK Command-line Tools</li>
+                    <li>Android SDK Build-Tools</li>
+                </ul>
+                <li>After installation:</li>
+                <li>Go to <span>Android Studio > Settings (or Preferences on macOS) > Plugins</span></li>
+                <li>Search and install both <span>Flutter</span> and <span>Dart</span> plugins.</li>
+            </ul>
+            <h5>➼ Set Up an Android Emulator</h5>
+            <ul>
+                <li>Open Android Studio</li>
+                <li>Go to <span>Tools > AVD Manager</span></li>
+                <li>ollow the prompts to create and configure a new Android Virtual Device
+                    (AVD).</li>
+            </ul>
+            <h5>➼ Final Setup Check</h5>
+            <ul>
+                <li>Run the following again to ensure everything is set up: <span class="green">flutter doctor</span>
+                </li>
+                <li>Resolve any remaining issues shown in the output</span></li>
+            </ul>
+        </section>
+        <section id="flutter-on-macos">
+            <h3>Setting Up Flutter on MacOS</h3>
+            <h5>➼ System Requirements</h5>
+            <ul>
+                <li><span>Operating System : </span>macOS 10.14 (Mojave) or newer</li>
+                <li><span>Storage : </span>At least 2.8 GB (excluding IDE/tools)</li>
+            </ul>
+            <h5>➼ Install Flutter SDK</h5>
+            <ul>
+                <li>Go to the official Flutter website: <a href="https://flutter.dev/docs/getstarted/install/macos"
+                        target="_blank">https://flutter.dev/docs/getstarted/install/macos</a></li>
+                <li>Download the latest <span>stable version</span> of the Flutter SDK (ZIP format).</li>
+                <li>Extract the ZIP file and move the <span class="green">flutter</span> directory to a desired
+                    location,
+                    e.g., <span class="green">~/flutter</span>.</li>
+            </ul>
+            <h5>➼ Add Flutter to Your System PATH</h5>
+            <ul>
+                <li>Open your terminal.</li>
+                <li>Open (or create) the <span class="green"></span>~/.zshrc file in a text editor: <span
+                        class="green">nano ~/.zshrc</span></li>
+                <li>Add the following line to include Flutter’s binary in your path: <span>export
+                        PATH="$PATH:$HOME/flutter/bin"</span></li>
+                <li>Save the file and run: <span class="green">source ~/.zshrc</span></li>
+                <li>This applies the changes to your current terminal session.</li>
+            </ul>
+            <h5>➼ Verify Installation with Flutter Doctor</h5>
+            <ul>
+                <li>Run the following command: <span class="green">flutter doctor</span></li>
+                <li>This tool checks your system setup and reports any missing</li>
+                <li>dependencies (like Xcode or Android Studio)</li>
+            </ul>
+            <h5>➼ Install Xcode (for iOS Development)</h5>
+            <ul>
+                <li>Download <span>Xcode</span> from the <span>Mac App Store</span></li>
+                <li>Launch Xcode and complete its initial setup steps.</li>
+            </ul>
+            <h5>➼ Install CocoaPods</h5>
+            <ul>
+                <li>CocoaPods is used to manage iOS project dependencies. Install it via terminal: <span
+                        class="green">sudo gem install cocoapods</span>
+                </li>
+            </ul>
+            <h5>➼ Install Android Studio</h5>
+            <ul>
+                <li>Download Android Studio from <a
+                        href="https://developer.android.com/studio">developer.android.com</a></span>
+                </li>
+                <li>Launch the installer and complete the setup wizard, which installs:</li>
+                <ul>
+                    <li>Android SDK</li>
+                    <li>Android SDK Command-line Tools</li>
+                    <li>Android SDK Build-Tools</li>
+                </ul>
+                <li>After installation:</li>
+                <li>Go to <span>Android Studio > Settings (or Preferences on macOS) > Plugins</span></li>
+                <li>Search and install both <span>Flutter</span> and <span>Dart</span> plugins.</li>
+            </ul>
+            <h5>➼ Set Up iOS Simulator</h5>
+            <ul>
+                <li>Open <span>Xcode</span>.</li>
+                <li>Navigate to <span>Xcode > Preferences > Components</span>.</li>
+                <li>Download the desired <span>iOS Simulator</span> version (usually the latest).</li>
+            </ul>
+            <h5>➼ Set Up Android Emulator</h5>
+            <ul>
+                <li>In <span>Android Studio</span>, go to <span>Tools > AVD Manager</span>.</li>
+                <li>Follow the prompts to create a new <span>Android Virtual Device (AVD)</span>.</li>
+            </ul>
+            <h5>➼ Final Setup Check</h5>
+            <ul>
+                <li>Run Flutter Doctor again: <span class="green">flutter doctor</span></li>
+                <li>Ensure there are no remaining issues in the output.</li>
+            </ul>
+        </section>
+        <section id="changing-application-name-in-flutter-for-android-iOS-and-web">
+            <div class="page-header">
+                <h2>Changing Application Name in Flutter for Android, iOS, and Web</h2>
+                <hr class="notop">
+            </div>
+            <h3>Prerequisites</h3>
+            <ul>
+                <li>Flutter SDK is installed</li>
+                <li>A Flutter project is already created</li>
+                <li>You understand the basic Flutter project structure</li>
+            </ul>
+            <h3>Android</h3>
+            <h5>Update AndroidManifest.xml:</h5>
+            <ul>
+                <li>Navigate to: <span class="green">android/app/src/main/AndroidManifest.xml</span></li>
+                <li>Find the <span class="green">application</span> tag</li>
+                <li>Modify or add the <span class="green">android:label</span> attribute to set your new app name:</li>
+            </ul>
+            <pre><code>&lt;application
+    android:name=&quot;${applicationName}&quot;
+    android:icon=&quot;@mipmap/ic_launcher&quot;
+    android:label=&quot;Customer&quot;
+    ... 
+&lt;/application&gt;</code></pre>
+            <h5>Update strings.xml:</h5>
+            <ul>
+                <li>Open the file at: <span class="green">android/app/src/main/res/values/strings.xml</span></li>
+                <li>Locate the <span class="green">app_name</span> string and update it with your new app name:
+                    <span class="green">
+                        <code>&lt;string name="app_name">Your New App Name&lt;/string&gt;</code>
+                    </span>
+                </li>
+            </ul>
+            <h3>IOS</h3>
+            <h5>Update Info.plist:</h5>
+            <ul>
+                <li>Go to: <span class="green">ios/Runner/Info.plist</span></li>
+                <li>Locate the key for <span class="green">CFBundleName</span> and change its value:</li>
+            </ul>
+            <pre><code>&lt;key&gt;CFBundleName&lt;/key&gt;
+&lt;string&gt;Your New App Name&lt;/string&gt;</code></pre>
+            <h5>Update Display Name in Xcode:</h5>
+            <ul>
+                <li>Open your project in Xcode: <span class="green">ios/Runner.xcodeproj</span> or <span
+                        class="green">ios/Runner.xcworkspace</span></li>
+                <li>In the <span>project navigator</span>, select the <span>Runner</span> project:</li>
+                <li>Click on the <span>General</span> tab.</li>
+                <li>Find the <span>Display Name</span> field and update it to your desired app name.</li>
+            </ul>
+            <h3>Web</h3>
+            <h5>Update HTML Title:</h5>
+            <ul>
+                <li>Open: <span class="green">web/index.html</span></li>
+                <li>Inside the <span class="green">&lt;head&gt;</span> section, update the content of the <span
+                        class="green">&lt;title&gt; tag:</span></li>
+            </ul>
+            <pre><code>&lt;head&gt;
+...
+&lt;title&gt;Your New App Name&lt;/title&gt;
+...
+&lt;/head&gt;</code></pre>
+        </section>
+        <section id="changing-package-name-in-flutter">
+            <div class="page-header">
+                <h2>Changing Package Name in Flutter</h2>
+                <hr class="notop">
+            </div>
+            <p>Changing the package name of a Flutter project involves updating multiple files
+                and configurations for both Android and iOS platforms. Below are the detailed
+                steps to change the package name.</p>
+            <h3>Android</h3>
+            <h5>Update the applicationId in build.gradle:</h5>
+            <ul>
+                <li>Open: <span class="green">android/app/build.gradle</span></li>
+                <li>Inside the <span class="green">defaultConfig</span> block, find the <span
+                        class="green">applicationId</span>.</li>
+                <li>Replace it with your new package name:</li>
+            </ul>
+            <pre><code>defaultConfig{
+    applicationId "com.new.package.name"
+}</code></pre>
+            <h5>Rename Java Package Directories:</h5>
+            <ul>
+                <li>Go to: <span class="green">android/app/src/main/java/</span></li>
+                <li>You’ll see directories reflecting your old package path <br />
+                    (e.g.,<span class="green">com/old/package/name</span>).
+                </li>
+                <li>Rename each subfolder to match the new package structure <br />
+                    (e.g.,<span class="green">com/new/package/name</span>).
+                </li>
+                <li>Make sure the new folder path matches the structure in your updated <span
+                        class="green">applicationId</span>.</li>
+                <li>Update the Package Name in <span class="green">AndroidManifest.xml
+                    </span>.</li>
+            </ul>
+            <h5>Update the Package Name in AndroidManifest.xml:</h5>
+            <ul>
+                <li>Open: <span class="green">android/app/src/main/AndroidManifest.xml</span></li>
+                <li>Update the <span class="green">package</span> attribute in the root <span
+                        class="green">&lt;manifest&gt;</span> tag:</li>
+            </ul>
+            <pre><code>&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.new.package.name">
+&lt;/manifest&gt;</code></pre>
+            <h5>Update Other Manifest Files:</h5>
+            <ul>
+                <li>Also update the: <span class="green">package</span>attribute in the following files: <br />
+                    <span class="green">android/app/src/debug/AndroidManifest.xml</span>
+                    <br />
+                    <span class="green">android/app/src/profile/AndroidManifest.xml</span>
+                </li>
+                <li>Use the same new package name.</li>
+            </ul>
+            <h3>IOS</h3>
+            <h5>Update PRODUCT_BUNDLE_IDENTIFIER in Xcode:</h5>
+            <ul>
+                <li>Open the iOS project in Xcode: <span class="green">ios/Runner.xcodeproj</span>OR <span
+                        class="green">ios/Runner.xcworkspace</span></li>
+                <li>In the project navigator, select the<span class="green">Runner</span> project.</li>
+                <li>Click on the <span>Runner target</span>, then go to the <span>Build Settings</span> tab</li>
+                <li>Search for <span class="green">PRODUCT_BUNDLE_IDENTIFIER</span></li>
+            </ul>
+            <p>Replace it with your new iOS bundle identifier (e.g., <span class="green">com.new.package.name</span>).
+            </p>
+            <h5>Update Bundle Identifier in Info.plist:</h5>
+            <ul>
+                <li>Open the file: <span class="green">ios/Runner/Info.plist</span></li>
+                <li>Locate the<span class="green">CFBundleIdentifier</span> key.</li>
+            </ul>
+            <pre><code>&lt;key&gt;CFBundleName&lt;/key&gt;
+&lt;string&gt;Your New App Name&lt;/string&gt;</code></pre>
+        </section>
+        <section id="changing-application-logo">
+            <div class="page-header">
+                <h2>Changing Application Logo in Flutter</h2>
+                <hr class="notop">
+            </div>
+            <h3>Android</h3>
+            <h5>Replace Default Icons:</h5>
+            <ul>
+                <li>Create your custom app icons in various densities</li>
+                <li>Sizes typically needed: <span class="green">mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi</span> <br />
+                    Navigate to: <span class="green">android/app/src/main/res/</span>
+                    Inside the <span class="green">res</span> folder, locate the following directories:
+                </li>
+                <ul>
+                    <li>Mipmap-mdpi</li>
+                    <li>Mipmap-hdpi</li>
+                    <li>Mipmap-xhdpi</li>
+                    <li>Mipmap-xxhdpi</li>
+                    <li>Mipmap-xxxhdpi</li>
+                </ul>
+                <li>Replace the existing <span class="green">ic_launcher.png</span> files in each of these folders with
+                    your own custom icon (same filename).</li>
+            </ul>
+            <h5>Update Icon Reference in AndroidManifest.xml:</h5>
+            <ul>
+                <li>Open: <span class="green">android/app/src/main/AndroidManifest.xml</span></li>
+                <li>Find the <span class="green">&lt;application&gt;</span> tag.</li>
+                <li>Make sure the <span class="green">android:icon</span> points to your custom icon name (usually still
+                    <span>@mipmap/ic_launcher</span>):
+                </li>
+            </ul>
+            <pre><code>&lt;application
+android:name="io.flutter.app.FlutterApplication";
+android:icon="@mipmap/ic_launcher";
+    ... &gt;
+&lt;/application&gt;</code></pre>
+            <h3>IOS</h3>
+            <h5>Replace AppIcon Set:</h5>
+            <ul>
+                <li>Prepare your custom icons in iOS-specific sizes and formats.</li>
+                <li>Replace the contents of the folder: <br />
+                    <span class="green">ios/Runner/Assets.xcassets/AppIcon.appiconset/</span><br />
+                    Ensure your icon set follows Apple’s size and naming requirements.
+                </li>
+            </ul>
+            <h5>Update Icon Name in Info.plist:</h5>
+            <ul>
+                <li>Open: <span class="green">ios/Runner/Info.plist</span></li>
+                <li>Locate the following entry:</li>
+            </ul>
+            <pre><code>&lt;key&gt;CFBundleName&lt;/key&gt;
+&lt;string&gt;Your New App Name&lt;/string&gt;</code></pre>
+            <ul>
+                <li>Make sure the string matches the name of your icon set (usually <span class="green">AppIcon</span>).
+                </li>
+            </ul>
+            <h3>Flutter Web</h3>
+            <p>For Flutter web, you typically use the favicon to represent your application. To
+                change the favicon:</p>
+            <h5>Replace Favicon:</h5>
+            <ul>
+                <li>Design your favicon in proper size and format (typically <span class="green">favicon.ico</span> or
+                    PNG).</li>
+                <li>Go to your Flutter project’s <span class="green">web/</span> directory.<br />
+                    Replace the existing <span class="green">favicon.png</span> or <span
+                        class="green">favicon.ico</span> with your own file using the
+                    <span>same name</span> to maintain reference.
+                </li>
+            </ul>
+        </section>
+        <section id="setting-up-firebase">
+            <div class="page-header">
+                <h2>Setting up Firebase in a Flutter app using the command-line interface (CLI)</h2>
+                <hr class="notop">
+            </div>
+            <div class="warning-box info-box">
+                <h5>Notes:</h5>
+                <span>This All setup are Same apply for Admin Panel.</span>
+            </div>
+            <h3>1. Install Firebase CLI Tools</h3>
+            <ul>
+                <li>To use Firebase tools from the command line, make sure the Firebase CLI is installed globally:</li>
+            </ul>
+            <pre><code>npm install -g firebase-tools</code></pre>
+            <h3>2. Authenticate Firebase CLI</h3>
+            <ul>
+                <li>Run the following command to log in to your Firebase account:</li>
+            </ul>
+            <pre><code>firebase login</code></pre>
+            <ul>
+                <li>A browser window will open to complete authentication with your Google account.</li>
+            </ul>
+            <h3>3. Create a Firebase Project </h3>
+            <ul>
+                <li>If you haven’t set up a Firebase project yet, you can create one directly from the terminal:</li>
+            </ul>
+            <pre><code>firebase projects:create</code></pre>
+            <ul>
+                <li>You’ll be prompted to enter a name and other details for your new Firebase project.</li>
+            </ul>
+            <h3 style="text-align: center;">OR</h3>
+            <ul>
+                <li>You can create one via the Firebase Console.</li>
+            </ul>
+            <img src="./assets/images/create-firebase-project.jpeg" />
+            <img src="./assets/images/lets-start.jpeg" />
+            <ul>
+                <li>Enter name and press <span class="green">Continue</span>. After press <span>create Project</span>.
+                    And it will create your project in firebase.</li>
+                <li>Now Add app in Firebase :</li>
+                <ul>
+                    <li>Click on Flutter Icon to add app after it show two Command to add
+                        firebase in your app.</li>
+                    <img src="./assets/images/project-overview.jpeg" />
+                    <li>Apply below command in project folder terminal one by one:</li>
+                    <img src="./assets/images/add-firebase-to-flutter.jpeg" />
+                    <li>After apply It click on <span class="green">Next</span>. And <span class="green">Continue to
+                            console</span>.</li>
+                </ul>
+            </ul>
+            <h3>4. Initialize Firebase in Your Flutter App </h3>
+            <ul>
+                <li>Open your terminal and navigate to the root directory of your Flutter project.</li>
+                <li>Run the initialization command:</li>
+            </ul>
+            <pre><code>firebase init</code></pre>
+            <h5>Follow the prompts to:</h5>
+            <ul>
+                <li>Select the Firebase services you want to enable (e.g.,
+                    Firestore,Authentication, Hosting, etc.)</li>
+                <li>Choose the Firebase project you want to link with this app.
+                </li>
+            </ul>
+            <h3>5. Use Firebase Services </h3>
+            <ul>
+                <li>Once Firebase is initialized:</li>
+                <li>Add the necessary Firebase packages to your pubspec.yaml, for example:</li>
+                <pre><code>dependencies:
+    firebase_core: ^latest
+    firebase_auth: ^latest</code></pre>
+                <pre><code>flutter pub get</code></pre>
+                <li>Follow the official FlutterFire documentation to configure Firebase for each
+                    platform (Android, iOS, Web).</li>
+            </ul>
+        </section>
+        <section id="setting-up-firebase-manually">
+            <div class="page-header">
+                <h2>Setting up Firebase in a Flutter app manually</h2>
+                <hr class="notop">
+            </div>
+            <h3>1. Create a Firebase Project</h3>
+            <ul>
+                <li>Go to the Firebase Console.</li>
+                <li>Click <span>“Add project”</span>.</li>
+                <li>Follow the guided steps to create a new Firebase project.</li>
+                <li>After setup, you’ll be redirected to the <span>Firebase project dashboard</span>.</li>
+            </ul>
+            <h3>2. Add Your Flutter App to Firebase</h3>
+            <h5>Android Setup:</h5>
+            <ul>
+                <li>From the Firebase Console dashboard, click on the Android icon to register an
+                    Android app.</li>
+                <li>Enter your Android package name (e.g., <span class="green">com.example.myapp</span>). You can find
+                    this in your Flutter project under: <span
+                        class="green">android/app/src/main/AndroidManifest.xml</span>.</li>
+                <li>Download the <span class="green">google-services.json</span> file provided after registration.</li>
+                <li>Move the <span class="green">google-services.json</span> file into your project at: <span
+                        class="green">android/app/</span>.</li>
+            </ul>
+            <h5>IOS Setup:</h5>
+            <ul>
+                <li>In Firebase Console, click on the iOS icon to register your iOS app.</li>
+                <li>Enter your iOS bundle ID (e.g., com.example.myapp). This is found in your
+                    Xcode project settings.</li>
+                <li>Download the <span class="green">GoogleService-Info.plist</span> file provided after setup. In
+                    Xcode:</li>
+                <ul>
+                    <li>Open your Flutter iOS project <span class="green">(ios/Runner.xcworkspace)</span>.</li>
+                    <li>Drag and drop the <span class="green">GoogleService-Info.plist</span> file into the Runner
+                        project in Xcode (make sure to check “Copy items if needed”)</li>
+                </ul>
+            </ul>
+            <h3>3. Start Using Firebase Services</h3>
+            <h5>Once the app is registered and files are added:</h5>
+            <ul>
+                <li>Add Firebase packages to pubspec.yaml based on the services you need, such
+                    as:</li>
+                <pre><code>firebase_core: ^latest
+firebase_auth: ^latest
+cloud_firestore: ^latest</code></pre>
+                <pre><code>flutter pub get</code></pre>
+                <li> Follow FlutterFire documentation for each service.</li>
+            </ul>
+            <h3>4. Configure DefaultFirebaseOptions</h3>
+            <ul>
+                <li>This step ensures that your app selects the correct Firebase config at runtime
+                    depending on the platform (Android, iOS, Web).</li>
+                <li>Generate <span class="green">firebase_options.dart</span></li>
+                <li>Use the official FlutterFire CLI to auto-generate this file:</li>
+                <pre><code>flutterfire configure</code></pre>
+                <li>This command will create <span class="green">lib/firebase_options.dart</span> with your
+                    configuration.</li>
+                <pre><code>import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
+
+class DefaultFirebaseOptions {
+    static FirebaseOptions get currentPlatform {
+        if (kIsWeb) {
+            return const FirebaseOptions(
+                apiKey: 'your-web-apiKey',
+                appId: 'your-web-appId',
+                messagingSenderId: 'your-web-senderId',
+                projectId: 'your-web-projectId',
+                authDomain: 'your-web-authDomain',
+                storageBucket: 'your-web-storageBucket',
+                measurementId: 'your-web-measurementId',
+            )
+        } else if (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.macOS) {
+                return const FirebaseOptions(
+                apiKey: 'your-ios-apiKey',
+                appId: 'your-ios-appId',
+                messagingSenderId: 'your-ios-senderId',
+                projectId: 'your-ios-projectId',
+                storageBucket: 'your-ios-storageBucket',
+                iosClientId: 'your-ios-clientId',
+                iosBundleId: 'your-ios-bundleId',
+            );
+        } else {
+            return const FirebaseOptions(
+                apiKey: 'your-android-apiKey',
+                appId: 'your-android-appId',
+                messagingSenderId: 'your-android-senderId',
+                projectId: 'your-android-projectId',
+                storageBucket: 'your-android-storageBucket',
+            )
+        }
+    }
+};</code></pre>
+            </ul>
+            <h3>5. Initialize Firebase in main.dart</h3>
+            <pre><code>void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+    );
+    runApp(MyApp());
+}
+</code></pre>
+        </section>
+        <section id="enabling-authentication-firebase-console">
+            <div class="page-header">
+                <h2>Enabling authentication Firebase console</h2>
+                <hr class="notop">
+            </div>
+            <h3>1. Enable</h3>
+            <ul>
+                <li>Go to the Firebase Console.</li>
+                <li>Select your project from the dashboard.</li>
+                <li>In the left sidebar, click on <span>“Authentication”</span>.</li>
+                <li>Navigate to the <span>“Sign-in method”</span> tab.</li>
+                <li>Locate <span>“Phone”</span> and click on the edit icon.</li>
+                <li>Toggle the switch to <span>Enable</span> phone authentication.</li>
+                <li>Click <span>Save</span>.</li>
+            </ul>
+            <h3>2. Enable Google Sign-In</h3>
+            <ul>
+                <li>Open the Firebase Console.</li>
+                <li>Choose your Firebase project.</li>
+                <li>Go to the <span>Authentication</span> section from the sidebar.</li>
+                <li>Under the <span>“Sign-in method”</span> tab, find <span>“Google”</span> and click the edit icon.
+                </li>
+                <li>Toggle the <span>Enable</span> switch.</li>
+                <li>If prompted, configure the <span>OAuth consent screen</span> by providing necessary app
+                    info like:</li>
+                <ul>
+                    <li>App name</li>
+                    <li>Support email </li>
+                    <li>Developer contact details</li>
+                </ul>
+                <li>Save your changes.</li>
+            </ul>
+            <h3>3. Enable Apple Sign-In</h3>
+            <ul>
+                <li>Visit the Firebase Console.</li>
+                <li>Select your project.</li>
+                <li>Go to the <span>Authentication > Sign-in method</span>.</li>
+                <li>Scroll to <span>Apple</span> and click the edit icon.</li>
+                <li>Enable the provider and provide the required Apple Developer credentials:</li>
+                <li>Team ID (from Apple Developer account):</li>
+                <ul>
+                    <li>Service ID</li>
+                    <li>Key ID</li>
+                    <li>Private Key (.p8 file)</li>
+                </ul>
+                <li>Save your configuration.</li>
+            </ul>
+        </section>
+        <section id="import-firebase-cloud-function">
+            <div class="page-header">
+                <h2>How to Import Firebase Cloud Function</h2>
+                <hr class="notop">
+            </div>
+            <h3>1. Install Firebase CLI Tools</h3>
+            <ul>
+                <li>To use Firebase functions, ensure the Firebase CLI is installed globally:</li>
+                <pre><code>npm install -g firebase-tools</code></pre>
+                <li>You can verify the installation by checking the version:</li>
+                <pre><code>firebase --version</code></pre>
+            </ul>
+            <h3>2. Firebase Project Setup</h3>
+            <h5>Log in to Firebase:</h5>
+            <ul>
+                <li>Authenticate your CLI session by running:</li>
+                <pre><code>firebase login</code></pre>
+            </ul>
+            <h5>Initialize Firebase (if not already initialized):</h5>
+            <ul>
+                <li>Navigate to your project root and initialize Firebase:</li>
+                <pre><code>firebase init</code></pre>
+            </ul>
+            <h5>During this process:</h5>
+            <ul>
+                <li>Choose Functions when prompted to select Firebase features.</li>
+                <li>Select or create your Firebase project.</li>
+                <li>Set up the language (e.g., JavaScript or TypeScript) for your cloud functions.</li>
+                <li>Optionally enable ESLint and choose whether to install dependencies immediately.</li>
+            </ul>
+            <img src="./assets/images/firebase-setup-1.jpeg" />
+            <img src="./assets/images/firebase-setup-2.jpeg" />
+            <h3>3. Install Function Dependencies</h3>
+            <ul>
+                <li>Navigate to the functions/ directory (created during initialization), and install all
+                    required Node.js packages:</li>
+                <pre><code>cd functions
+npm install</code></pre>
+                <h3>4. Deploy Your Functions</h3>
+                <ul>
+                    <li>Once everything is set up and you're ready to push your functions to Firebase, run:</li>
+                    <pre><code>firebase deploy --only functions</code></pre>
+                    <img src="./assets/images/firebase-setup-3.jpeg" />
+                    <li>This will deploy only the cloud functions to your Firebase project without affecting
+                        other Firebase services.</li>
+                </ul>
+        </section>
+        <section id="firestore-database-collection-import-export">
+            <div class="page-header">
+                <h2>Firestore Database Collection Import Export</h2>
+                <hr class="notop">
+            </div>
+            <h3>1. Install Node.js and npm</h3>
+            <ul>
+                <li>Visit the official Node.js website: <a href="https://nodejs.org"
+                        target="_blank">https://nodejs.org</a></li>
+                <li>Download and install the LTS version compatible with your OS
+                    (Windows/macOS/Linux).</li>
+                <li>After installation, verify the setup using:</li>
+                <pre><code>node -v
+npm -v</code></pre>
+            </ul>
+            <h3>2. Extract Database Files</h3>
+            <ul>
+                <li>Locate your <span class="green">database.zip</span> file.</li>
+                <li>Extract its contents to a folder on your computer using your OS’s zip utility or a
+                    tool like WinRAR/7-Zip.</li>
+            </ul>
+            <h3>3. Open Terminal or Command Prompt</h3>
+            <ul>
+                <li>Navigate into the extracted folder using your terminal or command prompt.</li>
+                <li>Example:</li>
+                <pre><code>cd path/to/extracted/folder</code></pre>
+            </ul>
+            <h3>4. Generate Firebase Service Account Key</h3>
+            <ul>
+                <li>Go to the Firebase Console.</li>
+                <li>Select your project, then go to <span>Project Settings > Service accounts</span>.</li>
+                <img src="./assets/images/project-overview-2.jpeg" />
+                <img src="./assets/images/service-account.jpeg" />
+                <li>Choose <span>Node.js</span> as the target platform.</li>
+                <img src="./assets/images/project-settings.jpeg" />
+                <li>Click <span>Generate new private key</span>.</li>
+                <img src="./assets/images/project-setting-2.jpeg" />
+                <li>A JSON key file will be downloaded automatically.</li>
+                <li><span>Replace</span> the existing <span class="green">config.json</span> in your project folder with
+                    this newly downloaded
+                    file (rename it if needed).</li>
+            </ul>
+            <h3>5. Prepare config.json</h3>
+            <ul>
+                <li>If <span class="green">config.json</span> is not pre-existing:</li>
+                <ul>
+                    <li>In Firebase Console, go to <span>Project Settings > General</span>.</li>
+                    <li>Scroll down to <span>Your Apps > Firebase SDK snippet > Config</span>.</li>
+                    <li>Copy the config object (not the script tag).</li>
+                    <li>In your project folder, create a file named <span class="green">config.json</span>.</li>
+                    <li>Paste the config content inside the file and save it.</li>
+                </ul>
+            </ul>
+            <h3>6. Run Import Command</h3>
+            <pre><code>npx -p node-firestore-import-export firestore-import -a config.json -b database.json</code></pre>
+            <img src="./assets/images/proceed-with-import.jpeg" />
+            <img src="./assets/images/npm-install.jpeg" />
+            <h3>7. Run Export Command</h3>
+            <pre><code>npx -p node-firestore-import-export firestore-export -a config.json -b database.json</code></pre>
+        </section>
+        <section id="firestore-database-indexing-import">
+            <div class="page-header">
+                <h2>Firestore Database Indexing import </h2>
+                <hr class="notop">
+            </div>
+            <h3>1. Navigate to Your Firebase Project Folder</h3>
+            <ul>
+                <li>Open your terminal or command prompt.</li>
+                <li>Use the <span class="green">cd</span> (change directory) command to move into your Firebase project
+                    folder:</li>
+                <li>After installation, verify the setup using:</li>
+                <pre><code>cd path/to/firestore_index</code></pre>
+                <li>Replace path/to/firestore_index with the actual directory path where your
+                    Firestore project files are located.</li>
+            </ul>
+            <h5>1. Open terminal and run the Command : <span class="green">firebase init</span></h5>
+            <ul>
+                <li>Inside your project directory, initialize Firebase if you haven’t already:</li>
+                <pre><code>firebase init</code></pre>
+                <li>Follow the prompts to select services (make sure to enable Firestore if
+                    prompted) and associate the project with your Firebase account.</li>
+                <img src="./assets/images/firebase.jpeg" />
+                <li>When prompted:</li>
+                <ul>
+                    <li><span>Proceed?</span> → Type <span class="green">y</span> or select <span
+                            class="green">Yes</span></li>
+                </ul>
+            </ul>
+            <h5>2. Select Firebase features: Use the <span>arrow keys</span> to navigate and press <span
+                    class="green">Space</span> to select</h5>
+            <ul>
+                <li>Firestore: Configure security rules and indexes files for Firestore.</li>
+                <li>Press <span class="green">Enter</span> to continue.</li>
+            </ul>
+            <img src="./assets/images/firebase-2.jpeg" />
+            <h5>3. Choose Firebase Project</h5>
+            <ul>
+                <li>Select the Firebase project you want to link.</li>
+                <li>Use the arrow keys to choose and press <span class="green">Enter</span>.</li>
+            </ul>
+            <img src="./assets/images/firebase-3.jpeg" />
+            <h5>4. Set Up Firestore Rules and Indexes</h5>
+            <ul>
+                <li>When prompted for Firestore rules file (e.g., firestore.rules), it will download
+                    existing rules from Firebase.</li>
+                <li>If the file already exists, you’ll be asked to overwrite or skip.</li>
+                <li>When prompted for the Firestore indexes file (e.g., firestore.indexes.json),
+                    confirm overwrite if needed.</li>
+                <img src="./assets/images/complete.jpeg" />
+            </ul>
+            <h5>5. Deploy Only Firestore Indexes</h5>
+            <ul>
+                <li>Now that <span class="green">firestore.indexes.json</span> is available in your project folder,
+                    deploy the indexes:</li>
+                <li>Run the following command to deploy indexes defined in your
+                    <span class="green">firestore.indexes.json</span> file:
+                </li>
+                <pre><code>firebase deploy --only firestore:indexes</code></pre>
+                <img src="./assets/images/console.jpeg" />
+            </ul>
+            <h5>6. Deployment Complete</h5>
+            <ul>
+                <li>You’ll see confirmation messages like:</li>
+                <ul>
+                    <li><span class="green">+ Deploy complete!</span></li>
+                </ul>
+            </ul>
+            <div class="warning-box info-box">
+                <h5>Important Notes:</h5>
+                <ul style="margin-bottom: 0;">
+                    <li>Ensure you are <span>inside the correct project directory</span> before running any Firebase CLI
+                        commands.</li>
+                    <li>You must have <span>sufficient permissions</span> (e.g., Editor or Owner role) in your Firebase
+                        project to deploy indexes.</li>
+                    <li>Once deployed, <span>Firestore queries will benefit from better performance</span> as they’ll
+                        use
+                        the optimized indexes you’ve defined.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="create-a-google-maps-api-key-and-integrate">
+            <div class="page-header">
+                <h2>To create a Google Maps API key and integrate it into a Flutter
+                    project </h2>
+                <hr class="notop">
+            </div>
+            <h3>1. Generate a Google Maps API Key</h3>
+            <ul>
+                <li>Go to the Google Cloud Console.</li>
+                <li>Create a new project or select an existing one.</li>
+                <li>Enable the following APIs for your project:</li>
+                <ul>
+                    <li>Maps SDK for Android</li>
+                    <li>Maps SDK for iOS</li>
+                    <li>Maps JavaScript API</li>
+                </ul>
+                <li>Open the navigation menu and go to: <span>APIs & Services > Credentials</span>.</li>
+                <li>Click on <span>"Create Credentials" > "API key"</span>.</li>
+                <li>Copy the newly generated API key — you’ll use it for Android, iOS, and Web setup.</li>
+            </ul>
+            <h3>2. Add API Key to Your Flutter Project</h3>
+            <h5>For Android:</h5>
+            <ul>
+                <li>Open your Flutter project in <span>Android Studio</span> or any code editor.</li>
+                <li>Navigate to the file: <span class="green">android/app/src/main/AndroidManifest.xml</span></li>
+                <li>Inside the &lt;application&gt; tag, add the following:</li>
+            </ul>
+            <pre><code>&lt;application
+ ...
+ android:label="your_app_name">
+ &lt;meta-data
+ android:name="com.google.android.geo.API_KEY"
+ android:value="YOUR_API_KEY"/&gt;
+ ...
+&lt;/application&gt;</code></pre>
+            <h5>For iOS (Swift):</h5>
+            <ul>
+                <li>Open the iOS part of your Flutter project using <span>Xcode</span>.</li>
+                <li>Open: <span class="green">ios/Runner/AppDelegate.swif</span></li>
+                <li>In the <span class="green">application(_:didFinishLaunchingWithOptions:)</span> method, add:</li>
+            </ul>
+            <pre><code>import GoogleMaps
+GMSServices.provideAPIKey("YOUR_API_KEY")</code></pre>
+            <h5>For Flutter Web:</h5>
+            <ul>
+                <li>Open your Flutter web project folder.</li>
+                <li>Open: <span class="green">web/index.html</span></li>
+                <li>Inside the <span class="green">&lt;head&gt;</span> section, add the following <span
+                        class="green">&lt;script&gt;</span>:</li>
+            </ul>
+            <pre><code>&lt;head&gt;
+    ...
+    &lt;script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">&lt;script&gt;
+&lt;/head&gt;</code></pre>
+        </section>
+        <section id="generate-keys">
+            <div class="page-header">
+                <h2>To generate SHA-1 and SHA-256 keys and enter them into the
+                    Firebase Console, follow these steps</h2>
+                <hr class="notop">
+            </div>
+            <h3>1. Generate SHA-1 and SHA-256 Keys</h3>
+            <h5>For Windows (Android Debug Keystore)</h5>
+            <ul>
+                <li>Open Command Prompt.</li>
+                <li>Navigate to the Java JDK bin directory. Usually:<br />
+                    <code>C:\Program Files\Java\jdk<version>\bin</code>
+                </li>
+                <li>Run this command to generate the <span>SHA-1 key</span>:</li>
+                <pre><code>keytool -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android</code></pre>
+                <li>Run this command to generate the <span>SHA-256 key</span>:</li>
+                <pre><code>keytool -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android -v</code></pre>
+            </ul>
+            <h5>For macOS/Linux</h5>
+            <ul>
+                <li>Open Terminal.</li>
+                <li>Run this command to generate the <span>SHA-1 key</span>:</li>
+                <pre><code>keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android</code></pre>
+                <li>Run this command to generate the <span>SHA-256 key</span>:</li>
+                <pre><code>keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android -v</code></pre>
+            </ul>
+            <h3>2. Add SHA Keys to Firebase Console</h3>
+            <ul>
+                <li>Copy the <span>SHA-1</span> and <span>SHA-256</span> keys generated.</li>
+                <li>Open the Firebase Console.Select your project.</li>
+                <li>Go to <span>Project Settings > General</span> tab.</li>
+                <li>Scroll to the <span>“Your apps”</span> section and select your platform (e.g., Android).</li>
+                <li>Click <span>"Add Fingerprint"</span>, paste the SHA-1 and SHA-256 values.</li>
+                <li>Click <span>Save</span> to apply the changes.</li>
+            </ul>
+            <div class="warning-box info-box">
+                <h5>Important Notes:</h5>
+                <ul style="margin-bottom: 0;">
+                    <li>For release builds, use your custom keystore (not the default debug one).</li>
+                    <li>Keep your keystore file secure and never expose it publicly.</li>
+                    <li>You may need to regenerate SHA keys if you change your signing
+                        configuration or keystore.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="deploy-admin-panel-in-firebase">
+            <div class="page-header">
+                <h2>Deploy Admin Panel In Firebase</h2>
+                <hr class="notop">
+            </div>
+            <div class="warning-box info-box">
+                <h5>Important Notes:</h5>
+                <p>This All Command are run project folder and android studio terminal</p>
+            </div>
+            <h3>1. Build and deploy the admin panel using Firebase Hosting</h3>
+            <ul>
+                <li>Install Firebase CLI (if not already installed)</li>
+                <pre><code>npm install -g firebase-tools</code></pre>
+                <li>Login to Firebase</li>
+                <pre><code>firebase login</code></pre>
+                <li>Run this inside your project folder</li>
+                <pre><code>firebase init</code></pre>
+                <img src="./assets/images/deploy-1.jpeg" />
+                <li>When prompted:</li>
+                <ul>
+                    <li><span>Proceed?</span> → Type <span class="green">y</span> or select <span
+                            class="green">Yes</span></li>
+                </ul>
+                <li>Select Firebase features: Use the arrow keys to navigate and press Space to select: </li>
+                <ul>
+                    <li>Hosting: Configure files for Firebase Hosting and (optionally) set up
+                        GitHub Action deploys</li>
+                    <li>Press Enter to continue.</li>
+                </ul>
+                <img src="./assets/images/deploy-2.jpeg" />
+                <li>After it follow below step : </li>
+                <img src="./assets/images/deploy-3.jpeg" />
+                <li>Press Enter to continue. And you see below Complete message:</li>
+                <ul>
+                    <li><span class="green">+ Firbase Initialization complete!</span></li>
+                </ul>
+                <li>After run this Command in terminal:</li>
+                <img src="./assets/images/deploy-4.jpeg" />
+                <li>It Create release build for deployment.</li>
+                <li>After it run this Command to deploy on web:</li>
+                <img src="./assets/images/deploy-5.jpeg" />
+                <img src="./assets/images/deploy-6.jpeg" />
+            </ul>
+        </section>
+        <section id="to-run-a-flutter-application">
+            <div class="page-header">
+                <h2>To run a Flutter application</h2>
+                <hr class="notop">
+            </div>
+
+            <h3>1. Using Command-Line Interface (CLI)</h3>
+            <h5>Open Terminal</h5>
+            <ul>
+                <li>Launch your terminal (or command prompt).</li>
+                <li>Use the cd command to move into your Flutter project directory:</li>
+                <pre><code>cd path/to/your_flutter_project</code></pre>
+            </ul>
+            <h5>Run the Flutter App</h5>
+            <ul>
+                <li>Execute the following command to build and run your app on a connected
+                    device or emulator.</li>
+                <pre><code>flutter run</code></pre>
+            </ul>
+            <h3>Using an Integrated Development Environment (IDE)</h3>
+            <h5>Android Studio</h5>
+            <ul>
+                <li>Open Project:</li>
+                <ul>
+                    <li>Launch Android Studio.</li>
+                    <li>Use the “Open” option to load your Flutter project.</li>
+                </ul>
+                <li>Run the App:</li>
+                <ul>
+                    <li>Click the green Run ▶️ button in the toolbar.</li>
+                    <li>Choose your emulator or physical device from the device dropdownt.</li>
+                    <li>Android Studio will build and launch your app automatically.</li>
+                </ul>
+            </ul>
+            <h5>Visual Studio Code (VS Code)</h5>
+            <li>Open Project:</li>
+            <ul>
+                <li>Launch VS Code.</li>
+                <li>Use File > Open Folder to open your Flutter project.</li>
+            </ul>
+            <li>Run the App:</li>
+            <ul>
+                <li>Press Ctrl + Shift + P (or Cmd + Shift + P on macOS) to open the
+                    Command Palette.</li>
+                <li>Search for and select Flutter: Run.</li>
+                <li>Choose your emulator or connected device from the list.</li>
+            </ul>
+        </section>
+        <section id="get-notification">
+            <div class="page-header">
+                <h2>How to Get Notification SenderId and Json File to Add in Admin Panel</h2>
+                <hr class="notop">
+            </div>
+
+            <h3>1. Get Notification SenderId</h3>
+            <img src="./assets/images/deploy-7.jpeg" />
+            <img src="./assets/images/deploy-8.jpeg" />
+            <h3>2. Get Json File</h3>
+            <ul>
+                <li>Refer to Point 9 (Firestore Database Collection Import Export)</li>
+                <ul>
+                    <li>In this show – 9.4 ( Generate Firebase Service Account Key ) –
+                        this is the step to get Json File.</li>
+                </ul>
+            </ul>
+            <h3>3. where to add in admin Panel ?</h3>
+            <img src="./assets/images/deploy-9.jpeg" />
+        </section>
+
+</body>
+
+</html>

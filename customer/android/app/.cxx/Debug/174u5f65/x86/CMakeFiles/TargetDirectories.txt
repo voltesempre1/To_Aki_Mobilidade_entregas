@@ -1,0 +1,2 @@
+C:/Users/vasvi/Documents/GitHub/MyTaxi/customer/android/app/.cxx/Debug/174u5f65/x86/CMakeFiles/edit_cache.dir
+C:/Users/vasvi/Documents/GitHub/MyTaxi/customer/android/app/.cxx/Debug/174u5f65/x86/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,2 @@
+C:/Users/vasvi/Documents/GitHub/MyTaxi/customer/android/app/.cxx/Debug/174u5f65/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/vasvi/Documents/GitHub/MyTaxi/customer/android/app/.cxx/Debug/174u5f65/armeabi-v7a/CMakeFiles/rebuild_cache.dir

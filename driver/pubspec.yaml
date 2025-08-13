@@ -1,0 +1,94 @@
+name: driver
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  sign_in_with_apple: ^7.0.1
+  google_sign_in: ^6.3.0
+  firebase_auth: ^5.6.2
+
+  firebase_core: ^3.15.1
+  firebase_messaging: ^15.2.9
+  flutterflow_paginate_firestore: ^1.0.3+1
+  firebase_storage: ^12.4.9
+  firebase_app_check: ^0.3.2+9
+
+  shared_preferences: ^2.5.3
+  flutter_local_notifications: ^19.3.0
+
+  flutter_polyline_points: ^2.1.0
+  google_maps_flutter: ^2.12.3
+  googleapis_auth: ^2.0.0
+  geocoding: ^4.0.0
+  location: ^8.0.1
+  geolocator: ^14.0.2
+  geoflutterfire2: ^2.3.15
+  permission_handler: ^12.0.1
+
+  pdf: ^3.11.3
+  open_file: ^3.5.10
+  syncfusion_flutter_datepicker: ^30.1.38
+  excel: ^4.0.6
+
+  get: ^4.7.2
+  provider: ^6.1.5
+  uuid: ^4.5.1
+  dio: ^5.8.0+1
+
+  country_code_picker: ^3.3.0
+  flutter_easyloading: ^3.0.5
+  flutter_svg: ^2.2.0
+  google_fonts: ^6.2.1
+  lottie: ^3.3.0
+
+  pinput: ^5.0.1
+  flutter_overlay_loader: ^2.0.0
+
+  crypto: ^3.0.6
+  intl: ^0.20.2
+
+  timelines_plus: ^1.0.7
+  image_picker: ^1.1.2
+  cached_network_image: ^3.4.1
+  flutter_image_compress: ^2.4.0
+  url_launcher: ^6.3.1
+  http_auth: ^1.0.4
+
+  pie_chart: ^5.4.0
+  auto_size_text_field: ^2.2.4
+  flutter_widget_from_html: ^0.16.0
+
+  #payment_dependencies
+  flutter_stripe: ^11.5.0
+  razorpay_flutter: ^1.4.0
+  mp_integration: ^0.0.1
+  dotted_border: ^3.1.0
+  maps_toolkit: ^3.1.0
+  latlong2: ^0.9.1
+  flutter_map_math: ^0.2.4
+
+dependency_overrides:
+  http: ^1.4.0
+  web: ^1.1.1
+  cloud_firestore: ^5.6.11
+  package_info_plus: ^8.3.0
+
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icon/
+    - assets/animation/

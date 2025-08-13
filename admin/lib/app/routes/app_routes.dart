@@ -1,0 +1,95 @@
+// ignore_for_file: constant_identifier_names
+
+part of 'app_pages.dart';
+
+abstract class Routes {
+  Routes._();
+  static const HOME = _Paths.HOME;
+  static const LOGIN_PAGE = _Paths.LOGIN_PAGE;
+  static const DASHBOARD_SCREEN = _Paths.DASHBOARD_SCREEN;
+  static const CAB_BOOKING_SCREEN = _Paths.CAB_BOOKING_SCREEN;
+  static const INTERCITY_HISTORY_SCREEN = _Paths.INTERCITY_HISTORY_SCREEN;
+  static const PARCEL_HISTORY_SCREEN = _Paths.PARCEL_HISTORY_SCREEN;
+  static const CUSTOMERS_SCREEN = _Paths.CUSTOMERS_SCREEN;
+  static const DRIVER_SCREEN = _Paths.DRIVER_SCREEN;
+  static const VERIFY_DRIVER_SCREEN = _Paths.VERIFY_DRIVER_SCREEN;
+  static const BANNER_SCREEN = _Paths.BANNER_SCREEN;
+  static const DOCUMENT_SCREEN = _Paths.DOCUMENT_SCREEN;
+  static const OFFERS_SCREEN = _Paths.OFFERS_SCREEN;
+  static const VEHICLE_BRAND_SCREEN = _Paths.VEHICLE_BRAND_SCREEN;
+  static const VEHICLE_MODEL_SCREEN = _Paths.VEHICLE_MODEL_SCREEN;
+  static const SETTING_SCREEN = _Paths.SETTING_SCREEN;
+  static const PAYOUT_REQUEST = _Paths.PAYOUT_REQUEST;
+  static const PAYMENT = _Paths.PAYMENT;
+  static const TAX = _Paths.TAX;
+  static const CURRENCY = _Paths.CURRENCY;
+  static const APP_SETTINGS = _Paths.APP_SETTINGS;
+  static const LANGUAGE = _Paths.LANGUAGE;
+  static const ABOUT_APP = _Paths.ABOUT_APP;
+  static const PRIVACY_POLICY = _Paths.PRIVACY_POLICY;
+  static const TERMS_CONDITIONS = _Paths.TERMS_CONDITIONS;
+  static const GENERAL_SETTING = _Paths.GENERAL_SETTING;
+  static const CONTACT_US = _Paths.CONTACT_US;
+  static const CAB_DETAIL = _Paths.CAB_DETAIL;
+  static const PARCEL_DETAIL = _Paths.PARCEL_DETAIL;
+  static const INTERCITY_DETAIL = _Paths.INTERCITY_DETAIL;
+  static const CANCELING_REASON = _Paths.CANCELING_REASON;
+  static const ADMIN_PROFILE = _Paths.ADMIN_PROFILE;
+  static const VEHICLE_TYPE_SCREEN = _Paths.VEHICLE_TYPE_SCREEN;
+  static const ERROR_SCREEN = _Paths.ERROR_SCREEN;
+  static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
+  static const CUSTOMER_DETAIL_SCREEN = _Paths.CUSTOMER_DETAIL_SCREEN;
+  static const DRIVER_DETAIL_SCREEN = _Paths.DRIVER_DETAIL_SCREEN;
+  static const SUPPORT_REASON = _Paths.SUPPORT_REASON;
+  static const SUPPORT_TICKET_SCREEN = _Paths.SUPPORT_TICKET_SCREEN;
+  static const INTERCITY_SERVICE_SCREEN = _Paths.INTERCITY_SERVICE_SCREEN;
+  static const CAB_SERVICE = _Paths.CAB_SERVICE;
+  static const SUBSCRIPTION_PLAN = _Paths.SUBSCRIPTION_PLAN;
+  static const SUBSCRIPTION_HISTORY = _Paths.SUBSCRIPTION_HISTORY;
+}
+
+abstract class _Paths {
+  _Paths._();
+  static const HOME = '/home';
+  static const LOGIN_PAGE = '/login-page';
+  static const DASHBOARD_SCREEN = '/dashboard';
+  static const CAB_BOOKING_SCREEN = '/cab-booking';
+  static const INTERCITY_HISTORY_SCREEN = '/intercity-history';
+  static const PARCEL_HISTORY_SCREEN = '/parcel-history';
+  static const CUSTOMERS_SCREEN = '/customers';
+  static const DRIVER_SCREEN = '/drivers';
+  static const VERIFY_DRIVER_SCREEN = '/verify-driver';
+  static const BANNER_SCREEN = '/banner';
+  static const DOCUMENT_SCREEN = '/document';
+  static const OFFERS_SCREEN = '/offers';
+  static const VEHICLE_BRAND_SCREEN = '/vehicle-brand';
+  static const VEHICLE_MODEL_SCREEN = '/vehicle-model';
+  static const SETTING_SCREEN = '/setting';
+  static const PAYOUT_REQUEST = '/payout-request';
+  static const PAYMENT = '/payment';
+  static const CAB_SERVICE = '/cab-service';
+  static const TAX = '/tax';
+  static const CURRENCY = '/currency';
+  static const APP_SETTINGS = '/app-settings';
+  static const LANGUAGE = '/language';
+  static const ABOUT_APP = '/about-app';
+  static const PRIVACY_POLICY = '/privacy-policy';
+  static const TERMS_CONDITIONS = '/terms-conditions';
+  static const GENERAL_SETTING = '/general-setting';
+  static const CONTACT_US = '/contact-us';
+  static const CAB_DETAIL = '/cab-detail';
+  static const PARCEL_DETAIL = '/parcel-detail';
+  static const INTERCITY_DETAIL = '/intercity-detail';
+  static const CANCELING_REASON = '/canceling-reason';
+  static const ADMIN_PROFILE = '/admin-profile';
+  static const VEHICLE_TYPE_SCREEN = '/vehicle-type';
+  static const ERROR_SCREEN = '/page-not-found';
+  static const SPLASH_SCREEN = '/splash';
+  static const CUSTOMER_DETAIL_SCREEN = '/customer-detail';
+  static const DRIVER_DETAIL_SCREEN = '/driver-detail';
+  static const SUPPORT_REASON = '/support-reason';
+  static const SUPPORT_TICKET_SCREEN = '/support-ticket';
+  static const INTERCITY_SERVICE_SCREEN = '/intercity-service';
+  static const SUBSCRIPTION_PLAN = '/subscription-plan';
+  static const SUBSCRIPTION_HISTORY = '/subscription-history';
+}

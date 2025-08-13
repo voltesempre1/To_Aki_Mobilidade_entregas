@@ -1,0 +1,2 @@
+C:/Users/vasvi/Documents/GitHub/MyTaxi/driver/android/app/.cxx/Debug/134sx566/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/vasvi/Documents/GitHub/MyTaxi/driver/android/app/.cxx/Debug/134sx566/armeabi-v7a/CMakeFiles/rebuild_cache.dir
