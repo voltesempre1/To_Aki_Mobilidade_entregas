@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
-        android:label="MyTaxi Customer"
+        android:label="Tô Aki Mobilidade e Entregas"
         android:name="${applicationName}"
         android:enableOnBackInvokedCallback="false"
         android:icon="@mipmap/ic_launcher"
