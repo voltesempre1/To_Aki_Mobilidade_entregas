@@ -8,7 +8,6 @@ import 'package:admin/app/utils/fire_store_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../routes/app_pages.dart';
 
 class CabDetailController extends GetxController {
   RxString title = "Cab Detail".tr.obs;

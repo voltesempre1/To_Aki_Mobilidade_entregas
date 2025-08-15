@@ -1,19 +1,82 @@
 {
   "project_info": {
-    "project_number": "YOUR_PROJECT_NUMBER",
-    "firebase_url": "https://YOUR_PROJECT_ID.firebaseio.com",
-    "project_id": "YOUR_PROJECT_ID",
-    "storage_bucket": "YOUR_PROJECT_ID.appspot.com"
+    "project_number": "696711203380",
+    "project_id": "to-aki-mobilidade-e-entregas",
+    "storage_bucket": "to-aki-mobilidade-e-entregas.firebasestorage.app"
   },
-  "api_key": [
+  "client": [
     {
-      "current_key": "YOUR_FIREBASE_API_KEY"
+      "client_info": {
+        "mobilesdk_app_id": "1:696711203380:android:424237a05179a437c61861",
+        "android_client_info": {
+          "package_name": "com.mytaxi.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696711203380-m8jqhc6kpdgop6mma0i8m0itu82tj5d4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsx4xC_288Ugxni7DXvckAt2FWb7h4rdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696711203380-m8jqhc6kpdgop6mma0i8m0itu82tj5d4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "696711203380-buktg4dbda0rv4ofkc28avtnkn8nef14.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mytaxi.customers"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696711203380:android:bd3aaef1fa87df88c61861",
+        "android_client_info": {
+          "package_name": "com.toaki.mobilidade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696711203380-m8jqhc6kpdgop6mma0i8m0itu82tj5d4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsx4xC_288Ugxni7DXvckAt2FWb7h4rdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696711203380-m8jqhc6kpdgop6mma0i8m0itu82tj5d4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "696711203380-buktg4dbda0rv4ofkc28avtnkn8nef14.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mytaxi.customers"
+              }
+            }
+          ]
+        }
+      }
     }
   ],
-  "services": {
-    "appinvite_service": {
-      "other_platform_oauth_client": []
-    }
-  },
   "configuration_version": "1"
 }

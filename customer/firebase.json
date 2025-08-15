@@ -1,0 +1,35 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "to-aki-mobilidade-e-entregas",
+          "appId": "1:696711203380:android:424237a05179a437c61861",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "to-aki-mobilidade-e-entregas",
+          "configurations": {
+            "android": "1:696711203380:android:424237a05179a437c61861",
+            "ios": "1:696711203380:ios:4dacc1fda2e5a3b4c61861"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ]
+}

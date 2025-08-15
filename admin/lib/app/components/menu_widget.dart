@@ -1,7 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 import 'package:admin/app/modules/setting_screen/controllers/setting_screen_controller.dart';
 import 'package:admin/app/routes/app_pages.dart';
-import 'package:admin/app/services/shared_preferences/app_preference.dart';
 import 'package:admin/app/utils/app_colors.dart';
 import 'package:admin/app/utils/app_them_data.dart';
 import 'package:admin/app/utils/dark_theme_provider.dart';
@@ -10,7 +9,6 @@ import 'package:admin/widget/container_custom.dart';
 import 'package:admin/widget/global_widgets.dart';
 import 'package:admin/widget/text_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,7 +16,6 @@ import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:provider/provider.dart';
 
-import '../utils/fire_store_utils.dart';
 
 // ignore: must_be_immutable
 class MenuWidget extends StatelessWidget {
