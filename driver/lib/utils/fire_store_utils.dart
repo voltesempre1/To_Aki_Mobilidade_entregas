@@ -9,7 +9,6 @@ import 'package:driver/app/models/booking_model.dart';
 import 'package:driver/app/models/currencies_model.dart';
 import 'package:driver/app/models/documents_model.dart';
 import 'package:driver/app/models/driver_user_model.dart';
-import 'package:driver/app/models/time_slots_charge_model.dart';
 import 'package:driver/app/models/intercity_model.dart';
 import 'package:driver/app/models/language_model.dart';
 import 'package:driver/app/models/notification_model.dart';
@@ -20,6 +19,7 @@ import 'package:driver/app/models/subscription_model.dart';
 import 'package:driver/app/models/subscription_plan_history.dart';
 import 'package:driver/app/models/support_reason_model.dart';
 import 'package:driver/app/models/support_ticket_model.dart';
+import 'package:driver/app/models/time_slots_charge_model.dart';
 import 'package:driver/app/models/transaction_log_model.dart';
 import 'package:driver/app/models/user_model.dart';
 import 'package:driver/app/models/vehicle_brand_model.dart';
@@ -43,7 +43,10 @@ class FireStoreUtils {
 
   static Future<bool> setTransactionLog(TransactionLogModel transactionLogModel) async {
     try {
-      await fireStore.collection(CollectionName.transactionLog).doc(transactionLogModel.id).set(transactionLogModel.toJson());
+      await fireStore
+          .collection(CollectionName.transactionLog)
+          .doc(transactionLogModel.id)
+          .set(transactionLogModel.toJson());
       return true;
     } catch (error) {
       log("Failed to update transaction log: $error");
@@ -229,7 +232,6 @@ class FireStoreUtils {
     }
   }
 
-
   static Stream<IntercityModel?> getInterCityRideDetails(String bookingId) {
     return fireStore
         .collection(CollectionName.interCityRide)
@@ -248,7 +250,8 @@ class FireStoreUtils {
 
   static Future<VehicleTypeModel?> getVehicleTypeById(String vehicleId) async {
     try {
-      final querySnapshot = await fireStore.collection(CollectionName.vehicleType).where("id", isEqualTo: vehicleId).get();
+      final querySnapshot =
+          await fireStore.collection(CollectionName.vehicleType).where("id", isEqualTo: vehicleId).get();
       if (querySnapshot.docs.isNotEmpty) {
         return VehicleTypeModel.fromJson(querySnapshot.docs.first.data());
       }
@@ -423,7 +426,10 @@ class FireStoreUtils {
 
   static Future<bool> setWalletTransaction(WalletTransactionModel walletTransactionModel) async {
     try {
-      await fireStore.collection(CollectionName.walletTransaction).doc(walletTransactionModel.id).set(walletTransactionModel.toJson());
+      await fireStore
+          .collection(CollectionName.walletTransaction)
+          .doc(walletTransactionModel.id)
+          .set(walletTransactionModel.toJson());
       return true;
     } catch (error) {
       log("Failed to update user: $error");
@@ -584,7 +590,8 @@ class FireStoreUtils {
       }
       Stream<QuerySnapshot> stream1 = fireStore
           .collection(CollectionName.bookings)
-          .where('bookingStatus', whereIn: [BookingStatus.bookingAccepted, BookingStatus.bookingPlaced, BookingStatus.bookingOngoing])
+          .where('bookingStatus',
+              whereIn: [BookingStatus.bookingAccepted, BookingStatus.bookingPlaced, BookingStatus.bookingOngoing])
           .where('driverId', isEqualTo: Constant.userModel!.id)
           .snapshots();
       stream1.listen((QuerySnapshot querySnapshot) {
@@ -836,7 +843,8 @@ class FireStoreUtils {
   static Future<List<ReviewModel>?> getReviewList(DriverUserModel driverUserModel) async {
     List<ReviewModel> reviewModelList = [];
     try {
-      final query = await fireStore.collection(CollectionName.review).where("driverId", isEqualTo: driverUserModel.id).get();
+      final query =
+          await fireStore.collection(CollectionName.review).where("driverId", isEqualTo: driverUserModel.id).get();
       for (var element in query.docs) {
         ReviewModel reviewModel = ReviewModel.fromJson(element.data());
         reviewModelList.add(reviewModel);
@@ -909,7 +917,8 @@ class FireStoreUtils {
 
   static Future<int> getTotalRide() async {
     try {
-      final productList = FirebaseFirestore.instance.collection(CollectionName.bookings).where("driverId", isEqualTo: getCurrentUid());
+      final productList =
+          FirebaseFirestore.instance.collection(CollectionName.bookings).where("driverId", isEqualTo: getCurrentUid());
       final query = await productList.count().get();
       log('The number of products: ${query.count}');
       return query.count ?? 0;
@@ -958,7 +967,7 @@ class FireStoreUtils {
         }
       });
     } catch (e, s) {
-      print('FireStoreUtils.firebaseCreateNewUser $e $s');
+      debugPrint('FireStoreUtils.firebaseCreateNewUser $e $s');
       return null;
     }
     return referralModel;
@@ -981,8 +990,9 @@ class FireStoreUtils {
 
   static Future<int> getRejectedRide() async {
     try {
-      final productList =
-          FirebaseFirestore.instance.collection(CollectionName.bookings).where("rejectedDriverId", arrayContains: getCurrentUid());
+      final productList = FirebaseFirestore.instance
+          .collection(CollectionName.bookings)
+          .where("rejectedDriverId", arrayContains: getCurrentUid());
       final query = await productList.count().get();
       log('The number of products: ${query.count}');
       return query.count ?? 0;
@@ -1022,7 +1032,10 @@ class FireStoreUtils {
 
   static Future<bool> addSupportTicket(SupportTicketModel supportTicketModel) async {
     try {
-      await fireStore.collection(CollectionName.supportTicket).doc(supportTicketModel.id).set(supportTicketModel.toJson());
+      await fireStore
+          .collection(CollectionName.supportTicket)
+          .doc(supportTicketModel.id)
+          .set(supportTicketModel.toJson());
       return true;
     } catch (error) {
       log("Failed to add Support Ticket : $error");
@@ -1055,7 +1068,8 @@ class FireStoreUtils {
         .orderBy("createAt", descending: true)
         .snapshots()
         .listen((querySnapshot) {
-          List<IntercityModel> bookingList = querySnapshot.docs.map((doc) => IntercityModel.fromJson(doc.data())).toList();
+          List<IntercityModel> bookingList =
+              querySnapshot.docs.map((doc) => IntercityModel.fromJson(doc.data())).toList();
           onUpdate(bookingList);
         }, onError: (error) {
           log("Error fetching ongoing rides: $error");
@@ -1071,7 +1085,8 @@ class FireStoreUtils {
         .orderBy("createAt", descending: true)
         .snapshots()
         .listen((querySnapshot) {
-          List<IntercityModel> updatedList = querySnapshot.docs.map((doc) => IntercityModel.fromJson(doc.data())).toList();
+          List<IntercityModel> updatedList =
+              querySnapshot.docs.map((doc) => IntercityModel.fromJson(doc.data())).toList();
           onUpdate(updatedList);
         }, onError: (error) {
           log("Error fetching completed rides: $error");
@@ -1088,7 +1103,8 @@ class FireStoreUtils {
         .orderBy("createAt", descending: true)
         .snapshots()
         .listen((querySnapshot) {
-          List<IntercityModel> bookingList = querySnapshot.docs.map((doc) => IntercityModel.fromJson(doc.data())).toList();
+          List<IntercityModel> bookingList =
+              querySnapshot.docs.map((doc) => IntercityModel.fromJson(doc.data())).toList();
           onUpdate(bookingList);
         }, onError: (error) {
           log("Error fetching ongoing rides: $error");

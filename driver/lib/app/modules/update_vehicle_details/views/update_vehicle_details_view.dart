@@ -27,7 +27,9 @@ class UpdateVehicleDetailsView extends StatelessWidget {
         builder: (controller) {
           return Scaffold(
             backgroundColor: themeChange.isDarkTheme() ? AppThemData.black : AppThemData.white,
-            appBar: AppBarWithBorder(title: "Vehicle Details".tr, bgColor: themeChange.isDarkTheme() ? AppThemData.black : AppThemData.white),
+            appBar: AppBarWithBorder(
+                title: "Vehicle Details".tr,
+                bgColor: themeChange.isDarkTheme() ? AppThemData.black : AppThemData.white),
             body: Padding(
               padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
               child: SingleChildScrollView(
@@ -90,7 +92,8 @@ class UpdateVehicleDetailsView extends StatelessWidget {
                                 );
                               }).toList();
                             },
-                            items: controller.vehicleTypeList.map<DropdownMenuItem<VehicleTypeModel>>((VehicleTypeModel value) {
+                            items: controller.vehicleTypeList
+                                .map<DropdownMenuItem<VehicleTypeModel>>((VehicleTypeModel value) {
                               return DropdownMenuItem(
                                 value: value,
                                 child: Column(
@@ -111,7 +114,10 @@ class UpdateVehicleDetailsView extends StatelessWidget {
                                     const SizedBox(
                                       height: 10,
                                     ),
-                                    Visibility(visible: controller.vehicleTypeList.indexOf(value) != (controller.vehicleTypeList.length - 1), child: const Divider())
+                                    Visibility(
+                                        visible: controller.vehicleTypeList.indexOf(value) !=
+                                            (controller.vehicleTypeList.length - 1),
+                                        child: const Divider())
                                   ],
                                 ),
                               );

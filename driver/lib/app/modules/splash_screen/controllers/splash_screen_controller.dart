@@ -13,6 +13,7 @@ import 'package:driver/app/modules/verify_documents/views/verify_documents_view.
 import 'package:driver/constant/constant.dart';
 import 'package:driver/utils/fire_store_utils.dart';
 import 'package:driver/utils/preferences.dart';
+import 'package:flutter/material.dart';
 
 class SplashScreenController extends GetxController {
   @override
@@ -37,8 +38,8 @@ class SplashScreenController extends GetxController {
       if (isLogin == true) {
         DriverUserModel? userModel = await FireStoreUtils.getDriverUserProfile(FireStoreUtils.getCurrentUid());
         if (userModel != null && userModel.isVerified == true) {
-          print("=====>");
-          print(Constant.isSubscriptionEnable);
+          debugPrint("=====>");
+          debugPrint(Constant.isSubscriptionEnable.toString());
           if (Constant.isSubscriptionEnable == true) {
             if (userModel.subscriptionPlanId != null && userModel.subscriptionPlanId!.isNotEmpty) {
               if (userModel.subscriptionExpiryDate!.toDate().isAfter(DateTime.now())) {
