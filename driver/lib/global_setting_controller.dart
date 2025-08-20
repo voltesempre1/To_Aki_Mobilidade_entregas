@@ -13,7 +13,7 @@ import 'package:get/get.dart';
 import 'services/localization_service.dart';
 
 class GlobalSettingController extends GetxController {
-  RxBool isLoading =true.obs;
+  RxBool isLoading = true.obs;
   @override
   void onInit() {
     getData();
@@ -35,12 +35,19 @@ class GlobalSettingController extends GetxController {
   }
 
   Future<void> getCurrentCurrency() async {
-
     await FireStoreUtils().getCurrency().then((value) {
       if (value != null) {
         Constant.currencyModel = value;
       } else {
-        Constant.currencyModel = CurrencyModel(id: "", code: "USD", decimalDigits: 2, active: true, name: "US Dollar", symbol: "\$", symbolAtRight: false);
+        Constant.currencyModel = CurrencyModel(
+          id: "",
+          code: "USD",
+          decimalDigits: 2,
+          active: true,
+          name: "US Dollar",
+          symbol: "\$",
+          symbolAtRight: false,
+        );
       }
     });
     await FireStoreUtils().getAdminCommission();

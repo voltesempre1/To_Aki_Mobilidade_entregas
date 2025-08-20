@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:driver/lang/app_ar.dart';
 import 'package:driver/lang/app_en.dart';
+import 'package:driver/lang/app_pt.dart';
 
 import '../lang/app_hi.dart';
 
 class LocalizationService extends Translations {
   // Default locale
-  static const locale = Locale('en', 'US');
+  static const locale = Locale('pt', 'BR');
 
   static final locales = [
     const Locale('en'),
@@ -31,8 +32,7 @@ class LocalizationService extends Translations {
         // 'ja': jaJP,
         'hi': hiIN,
         // 'de': deGR,
-        // 'pt': ptPO,
-        // 'ru': ruRU,
+        'pt': ptBR,
         'ar': lnAr,
       };
 
