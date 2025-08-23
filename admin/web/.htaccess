@@ -1,11 +1,15 @@
 <IfModule mod_rewrite.c>
-
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
 
+  # Allow direct access to files and folders
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Allow service worker and manifest files
+  RewriteRule ^(sw\.js|manifest\.json|favicon\.png|assets/.*|icons/.*)$ - [L]
+
+  # Route all other requests to index.html
+  RewriteRule ^.*$ /index.html [L]
 </IfModule>

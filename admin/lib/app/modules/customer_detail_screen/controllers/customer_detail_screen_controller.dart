@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../../routes/app_pages.dart';
 
 class CustomerDetailScreenController extends GetxController {
   RxString title = "Customer Detail".tr.obs;

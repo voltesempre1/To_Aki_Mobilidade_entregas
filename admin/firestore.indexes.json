@@ -12,7 +12,8 @@
           "fieldPath": "createAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -26,7 +27,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -44,7 +46,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -62,7 +65,8 @@
           "fieldPath": "createAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -80,7 +84,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -98,7 +103,8 @@
           "fieldPath": "position.geohash",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -112,7 +118,8 @@
           "fieldPath": "id",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -126,7 +133,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -140,7 +148,8 @@
           "fieldPath": "createAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -158,7 +167,8 @@
           "fieldPath": "createdAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -172,7 +182,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "bookings",
@@ -186,7 +197,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "coupon",
@@ -204,7 +216,8 @@
           "fieldPath": "expireAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "drivers",
@@ -218,7 +231,8 @@
           "fieldPath": "email",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "drivers",
@@ -232,7 +246,8 @@
           "fieldPath": "phoneNumber",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "drivers",
@@ -246,7 +261,8 @@
           "fieldPath": "slug",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "drivers",
@@ -264,7 +280,8 @@
           "fieldPath": "position.geohash",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -278,7 +295,8 @@
           "fieldPath": "createAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -292,7 +310,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -310,7 +329,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -328,7 +348,8 @@
           "fieldPath": "createAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -346,7 +367,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -360,7 +382,8 @@
           "fieldPath": "position.geohash",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -382,7 +405,8 @@
           "fieldPath": "position.geohash",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -400,7 +424,8 @@
           "fieldPath": "position.geohash",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -418,7 +443,8 @@
           "fieldPath": "position.geohash",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -432,7 +458,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -450,7 +477,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -464,7 +492,8 @@
           "fieldPath": "createAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "intercity_ride",
@@ -478,7 +507,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "notification",
@@ -492,7 +522,8 @@
           "fieldPath": "createdAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "notification",
@@ -506,7 +537,8 @@
           "fieldPath": "createdAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -520,7 +552,8 @@
           "fieldPath": "createAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -534,7 +567,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -552,7 +586,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -570,7 +605,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -588,7 +624,8 @@
           "fieldPath": "createAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -606,7 +643,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -620,7 +658,8 @@
           "fieldPath": "position.geohash",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -638,7 +677,8 @@
           "fieldPath": "position.geohash",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -652,7 +692,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -670,7 +711,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -684,7 +726,8 @@
           "fieldPath": "createAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "parcel_ride",
@@ -698,7 +741,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "subscription_history",
@@ -712,7 +756,8 @@
           "fieldPath": "createdAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "subscription_history",
@@ -726,7 +771,8 @@
           "fieldPath": "createdAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "subscription_plans",
@@ -740,7 +786,8 @@
           "fieldPath": "createdAt",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "support_ticket",
@@ -754,7 +801,8 @@
           "fieldPath": "createAt",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "users",
@@ -768,7 +816,8 @@
           "fieldPath": "email",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "users",
@@ -782,7 +831,8 @@
           "fieldPath": "phoneNumber",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "users",
@@ -796,7 +846,8 @@
           "fieldPath": "slug",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "vehicle_model",
@@ -810,7 +861,8 @@
           "fieldPath": "title",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "wallet_transaction",
@@ -828,7 +880,8 @@
           "fieldPath": "createdDate",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "withdrawal_history",
@@ -842,7 +895,8 @@
           "fieldPath": "createdDate",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "withdrawal_history",
@@ -860,7 +914,8 @@
           "fieldPath": "createdDate",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "withdrawal_history",
@@ -874,7 +929,8 @@
           "fieldPath": "createdDate",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "withdrawal_history",
@@ -888,7 +944,8 @@
           "fieldPath": "createdDate",
           "order": "DESCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     },
     {
       "collectionGroup": "withdrawal_history",
@@ -902,7 +959,8 @@
           "fieldPath": "createdDate",
           "order": "ASCENDING"
         }
-      ]
+      ],
+      "density": "SPARSE_ALL"
     }
   ],
   "fieldOverrides": []
