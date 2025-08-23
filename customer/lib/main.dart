@@ -22,7 +22,7 @@ Future<void> main() async {
   configLoading();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: 'MyTaxi',
+    title: '"Tô Aki Mobilidade e Entregas"',
     theme: ThemeData(
       primarySwatch: Colors.amber,
       textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1),
@@ -74,7 +74,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               }
             },
             child: GetMaterialApp(
-                title: 'MyTaxi'.tr,
+                title: 'Tô Aki Mobilidade e Entregas'.tr,
                 debugShowCheckedModeBanner: false,
                 theme: Styles.themeData(
                     themeChangeProvider.darkTheme == 0
