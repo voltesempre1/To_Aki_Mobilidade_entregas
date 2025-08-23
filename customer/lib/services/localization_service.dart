@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:customer/lang/app_ar.dart';
+import 'package:customer/lang/app_pt.dart';
+//import 'package:customer/lang/app_ar.dart';
 import 'package:customer/lang/app_en.dart';
-import 'package:customer/lang/app_hi.dart';
+//import 'package:customer/lang/app_hi.dart';
 
 class LocalizationService extends Translations {
   // Default locale
@@ -28,11 +29,11 @@ class LocalizationService extends Translations {
         // 'fr': trFR,
         // 'zh': zhCH,
         // 'ja': jaJP,
-        'hi': hiIN,
+        // 'hi': hiIN,
         // 'de': deGR,
-        // 'pt': ptPO,
+         'pt': ptBR,
         // 'ru': ruRU,
-        'ar': lnAr,
+        // 'ar': lnAr,
       };
 
   // Gets locale from language, and updates the locale

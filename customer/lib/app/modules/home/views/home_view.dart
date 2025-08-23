@@ -192,7 +192,7 @@ class HomeScreenView extends StatelessWidget {
                             children: [
                               SuggestionWidget(
                                 themeChange: themeChange,
-                                title: "Cab".tr,
+                                title: "Táxi".tr,
                                 gifPath: "assets/icon/gif_daily.gif",
                                 onClick: () async {
                                   bool isRideActive = await FireStoreUtils.hasActiveRide();
