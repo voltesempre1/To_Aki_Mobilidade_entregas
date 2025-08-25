@@ -362,8 +362,8 @@ class Constant {
   static Future<LanguageModel> getLanguage() async {
     final String language = await Preferences.getString(Preferences.languageCodeKey);
     if (language.isEmpty) {
-      await Preferences.setString(Preferences.languageCodeKey, json.encode({"active": true, "code": "en", "id": "CcrGiUvJbPTXaU31s5l8", "name": "English"}));
-      return LanguageModel.fromJson({"active": true, "code": "en", "id": "CcrGiUvJbPTXaU31s5l8", "name": "English"});
+      await Preferences.setString(Preferences.languageCodeKey, json.encode({"active": true, "code": "pt", "id": "PTBRLang123", "name": "Português"}));
+      return LanguageModel.fromJson({"active": true, "code": "pt", "id": "PTBRLang123", "name": "Português"});
     }
     Map<String, dynamic> languageMap = jsonDecode(language);
     log(languageMap.toString());

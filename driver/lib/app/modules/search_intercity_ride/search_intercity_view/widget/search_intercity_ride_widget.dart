@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'dart:developer';
+import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:driver/app/models/intercity_model.dart';
 import 'package:driver/app/models/user_model.dart';
@@ -843,7 +844,7 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                                   );
                                                                 } else {
                                                                   ShowToastDialog.showToast(
-                                                                      "You do not have sufficient wallet balance to accept the ride, as the minimum amount required is ${Constant.amountShow(amount: Constant.minimumAmountToAcceptRide)}.");
+                                                                      'insufficient_wallet_balance'.tr.replaceAll('@amount', Constant.amountShow(amount: Constant.minimumAmountToAcceptRide)));
                                                                 }
                                                               },
                                                               size: Size(Responsive.width(40, context), 42),
@@ -1011,7 +1012,7 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                                   );
                                                                 } else {
                                                                   ShowToastDialog.showToast(
-                                                                      "You do not have sufficient wallet balance to accept the ride, as the minimum amount required is ${Constant.amountShow(amount: Constant.minimumAmountToAcceptRide)}.");
+                                                                      'insufficient_wallet_balance'.tr.replaceAll('@amount', Constant.amountShow(amount: Constant.minimumAmountToAcceptRide)));
                                                                 }
                                                               },
                                                               size: Size(Responsive.width(40, context), 42),

@@ -28,6 +28,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -43,7 +44,9 @@ class HomeView extends GetView<HomeController> {
           return Scaffold(
             backgroundColor: themeChange.isDarkTheme() ? AppThemData.black : AppThemData.grey25,
             appBar: AppBar(
-              shape: Border(bottom: BorderSide(color: themeChange.isDarkTheme() ? AppThemData.grey800 : AppThemData.grey100, width: 1)),
+              shape: Border(
+                  bottom: BorderSide(
+                      color: themeChange.isDarkTheme() ? AppThemData.grey800 : AppThemData.grey100, width: 1)),
               title: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -92,9 +95,12 @@ class HomeView extends GetView<HomeController> {
                                               : controller.drawerIndex.value == 9
                                                   ? const StatementView()
                                                   : controller.drawerIndex.value == 10
-                                                      ? HtmlViewScreenView(title: "Privacy & Policy", htmlData: Constant.privacyPolicy)
+                                                      ? HtmlViewScreenView(
+                                                          title: "Privacy & Policy", htmlData: Constant.privacyPolicy)
                                                       : controller.drawerIndex.value == 11
-                                                          ? HtmlViewScreenView(title: "Terms & Condition", htmlData: Constant.termsAndConditions)
+                                                          ? HtmlViewScreenView(
+                                                              title: "Terms & Condition",
+                                                              htmlData: Constant.termsAndConditions)
                                                           : controller.drawerIndex.value == 12
                                                               ? const LanguageView()
                                                               // : controller.drawerIndex.value == 13
@@ -103,16 +109,20 @@ class HomeView extends GetView<HomeController> {
                                                                   ? Constant.loader()
                                                                   : SingleChildScrollView(
                                                                       child: Padding(
-                                                                        padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+                                                                        padding:
+                                                                            const EdgeInsets.fromLTRB(16, 12, 16, 12),
                                                                         child: Column(
                                                                           crossAxisAlignment: CrossAxisAlignment.start,
                                                                           mainAxisAlignment: MainAxisAlignment.start,
                                                                           children: [
                                                                             const SizedBox(height: 8),
                                                                             // if(isParcelAvailable || Constant.intercitySharingDocuments.first.isAvailable ||Constant.intercityPersonalDocuments.first.isAvailable)
-                                                                            if (Constant.parcelDocuments.first.isAvailable ||
-                                                                                Constant.intercitySharingDocuments.first.isAvailable ||
-                                                                                Constant.intercityPersonalDocuments.first.isAvailable)
+                                                                            if (Constant.parcelDocuments.first
+                                                                                    .isAvailable ||
+                                                                                Constant.intercitySharingDocuments.first
+                                                                                    .isAvailable ||
+                                                                                Constant.intercityPersonalDocuments
+                                                                                    .first.isAvailable)
                                                                               GestureDetector(
                                                                                 onTap: () {
                                                                                   Get.to(const SearchRideView());
@@ -120,30 +130,46 @@ class HomeView extends GetView<HomeController> {
                                                                                 child: Container(
                                                                                   width: Responsive.width(100, context),
                                                                                   height: 56,
-                                                                                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
+                                                                                  margin: const EdgeInsets.fromLTRB(
+                                                                                      0, 0, 0, 16),
                                                                                   padding: const EdgeInsets.all(16),
                                                                                   decoration: ShapeDecoration(
-                                                                                    color: themeChange.isDarkTheme() ? AppThemData.black : AppThemData.grey50,
+                                                                                    color: themeChange.isDarkTheme()
+                                                                                        ? AppThemData.black
+                                                                                        : AppThemData.grey50,
                                                                                     shape: RoundedRectangleBorder(
-                                                                                      side: BorderSide(width: 0, color: themeChange.isDarkTheme() ? AppThemData.grey800 : AppThemData.grey100),
-                                                                                      borderRadius: BorderRadius.circular(100),
+                                                                                      side: BorderSide(
+                                                                                          width: 0,
+                                                                                          color: themeChange
+                                                                                                  .isDarkTheme()
+                                                                                              ? AppThemData.grey800
+                                                                                              : AppThemData.grey100),
+                                                                                      borderRadius:
+                                                                                          BorderRadius.circular(100),
                                                                                     ),
                                                                                   ),
                                                                                   child: Row(
                                                                                     mainAxisSize: MainAxisSize.min,
-                                                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                    mainAxisAlignment:
+                                                                                        MainAxisAlignment.start,
+                                                                                    crossAxisAlignment:
+                                                                                        CrossAxisAlignment.center,
                                                                                     children: [
                                                                                       Icon(
                                                                                         Icons.search_rounded,
-                                                                                        color: themeChange.isDarkTheme() ? AppThemData.grey400 : AppThemData.grey500,
+                                                                                        color: themeChange.isDarkTheme()
+                                                                                            ? AppThemData.grey400
+                                                                                            : AppThemData.grey500,
                                                                                       ),
                                                                                       const SizedBox(width: 8),
                                                                                       Expanded(
                                                                                         child: Text(
-                                                                                          'Search Intercity Ride '.tr,
+                                                                                          'Search Intercity Ride'.tr,
                                                                                           style: GoogleFonts.inter(
-                                                                                            color: themeChange.isDarkTheme() ? AppThemData.grey400 : AppThemData.grey500,
+                                                                                            color: themeChange
+                                                                                                    .isDarkTheme()
+                                                                                                ? AppThemData.grey400
+                                                                                                : AppThemData.grey500,
                                                                                             fontSize: 16,
                                                                                             fontWeight: FontWeight.w400,
                                                                                           ),
@@ -160,18 +186,26 @@ class HomeView extends GetView<HomeController> {
                                                                               padding: const EdgeInsets.all(16),
                                                                               margin: const EdgeInsets.only(bottom: 20),
                                                                               decoration: ShapeDecoration(
-                                                                                image: const DecorationImage(image: AssetImage("assets/images/top_banner_background.png"), fit: BoxFit.cover),
+                                                                                image: const DecorationImage(
+                                                                                    image: AssetImage(
+                                                                                        "assets/images/top_banner_background.png"),
+                                                                                    fit: BoxFit.cover),
                                                                                 shape: RoundedRectangleBorder(
-                                                                                  borderRadius: BorderRadius.circular(16),
+                                                                                  borderRadius:
+                                                                                      BorderRadius.circular(16),
                                                                                 ),
                                                                               ),
                                                                               child: Row(
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                mainAxisAlignment:
+                                                                                    MainAxisAlignment.spaceBetween,
+                                                                                crossAxisAlignment:
+                                                                                    CrossAxisAlignment.center,
                                                                                 children: [
                                                                                   Column(
-                                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    mainAxisAlignment:
+                                                                                        MainAxisAlignment.center,
+                                                                                    crossAxisAlignment:
+                                                                                        CrossAxisAlignment.start,
                                                                                     children: [
                                                                                       Text(
                                                                                         'Total Earnings'.tr,
@@ -182,10 +216,18 @@ class HomeView extends GetView<HomeController> {
                                                                                         ),
                                                                                       ),
                                                                                       Container(
-                                                                                        width: Responsive.width(60, context),
-                                                                                        margin: const EdgeInsets.only(top: 6),
+                                                                                        width: Responsive.width(
+                                                                                            60, context),
+                                                                                        margin: const EdgeInsets.only(
+                                                                                            top: 6),
                                                                                         child: Text(
-                                                                                          Constant.amountShow(amount: (controller.userModel.value.totalEarning ?? '0.0').toString()),
+                                                                                          Constant.amountShow(
+                                                                                              amount: (controller
+                                                                                                          .userModel
+                                                                                                          .value
+                                                                                                          .totalEarning ??
+                                                                                                      '0.0')
+                                                                                                  .toString()),
                                                                                           style: GoogleFonts.inter(
                                                                                             color: AppThemData.grey50,
                                                                                             fontSize: 28,
@@ -206,7 +248,9 @@ class HomeView extends GetView<HomeController> {
                                                                             Text(
                                                                               'Total Rides'.tr,
                                                                               style: GoogleFonts.inter(
-                                                                                color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                                                color: themeChange.isDarkTheme()
+                                                                                    ? AppThemData.grey25
+                                                                                    : AppThemData.grey950,
                                                                                 fontSize: 18,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -214,33 +258,54 @@ class HomeView extends GetView<HomeController> {
                                                                             const SizedBox(height: 16),
                                                                             ChartView(themeChange: themeChange),
                                                                             const SizedBox(height: 20),
-                                                                            if (Constant.adminCommission != null && Constant.adminCommission!.active == true)
+                                                                            if (Constant.adminCommission != null &&
+                                                                                Constant.adminCommission!.active ==
+                                                                                    true)
                                                                               Container(
                                                                                 width: double.infinity,
                                                                                 padding: const EdgeInsets.all(16),
                                                                                 decoration: ShapeDecoration(
-                                                                                  color: themeChange.isDarkTheme() ? AppThemData.secondary950 : AppThemData.secondary50,
+                                                                                  color: themeChange.isDarkTheme()
+                                                                                      ? AppThemData.secondary950
+                                                                                      : AppThemData.secondary50,
                                                                                   shape: RoundedRectangleBorder(
-                                                                                    borderRadius: BorderRadius.circular(12),
+                                                                                    borderRadius:
+                                                                                        BorderRadius.circular(12),
                                                                                   ),
                                                                                 ),
                                                                                 child: Column(
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  crossAxisAlignment:
+                                                                                      CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Text(
                                                                                       'Note'.tr,
                                                                                       style: GoogleFonts.inter(
-                                                                                        color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                                                        color: themeChange.isDarkTheme()
+                                                                                            ? AppThemData.grey25
+                                                                                            : AppThemData.grey950,
                                                                                         fontSize: 14,
                                                                                         fontWeight: FontWeight.w600,
                                                                                       ),
                                                                                     ),
                                                                                     const SizedBox(height: 8),
                                                                                     Text(
-                                                                                      'A ${Constant.adminCommission!.isFix == true ? Constant.amountToShow(amount: Constant.adminCommission!.value) : "${Constant.adminCommission!.value}%"} commission fee will be deducted from each ride payment for administrative purposes.'
-                                                                                          .tr,
+                                                                                      'commission_fee_message'
+                                                                                          .tr
+                                                                                          .replaceAll(
+                                                                                            '@amount',
+                                                                                            Constant.adminCommission!
+                                                                                                        .isFix ==
+                                                                                                    true
+                                                                                                ? Constant.amountToShow(
+                                                                                                    amount: Constant
+                                                                                                        .adminCommission!
+                                                                                                        .value)
+                                                                                                : '${Constant.adminCommission!.value}%',
+                                                                                          ),
                                                                                       style: GoogleFonts.inter(
-                                                                                        color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                                                        color: themeChange.isDarkTheme()
+                                                                                            ? AppThemData.grey25
+                                                                                            : AppThemData.grey950,
                                                                                         fontSize: 12,
                                                                                         fontWeight: FontWeight.w500,
                                                                                       ),
@@ -253,24 +318,38 @@ class HomeView extends GetView<HomeController> {
                                                                                 ? SizedBox()
                                                                                 : Visibility(
                                                                                     visible: controller.isOnline.value,
-                                                                                    child: controller.bookingModel.value.id == null
+                                                                                    child: controller.bookingModel.value
+                                                                                                .id ==
+                                                                                            null
                                                                                         ? SizedBox()
                                                                                         : Column(
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            mainAxisAlignment: MainAxisAlignment.start,
+                                                                                            crossAxisAlignment:
+                                                                                                CrossAxisAlignment
+                                                                                                    .start,
+                                                                                            mainAxisAlignment:
+                                                                                                MainAxisAlignment.start,
                                                                                             children: [
                                                                                               Text(
                                                                                                 'New Ride'.tr,
-                                                                                                style: GoogleFonts.inter(
-                                                                                                  color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                                                                style:
+                                                                                                    GoogleFonts.inter(
+                                                                                                  color: themeChange
+                                                                                                          .isDarkTheme()
+                                                                                                      ? AppThemData
+                                                                                                          .grey25
+                                                                                                      : AppThemData
+                                                                                                          .grey950,
                                                                                                   fontSize: 18,
-                                                                                                  fontWeight: FontWeight.w600,
+                                                                                                  fontWeight:
+                                                                                                      FontWeight.w600,
                                                                                                   height: 0.08,
                                                                                                 ),
                                                                                               ),
-                                                                                              const SizedBox(height: 20),
+                                                                                              const SizedBox(
+                                                                                                  height: 20),
                                                                                               NewRideView(
-                                                                                                bookingModel: controller.bookingModel.value,
+                                                                                                bookingModel: controller
+                                                                                                    .bookingModel.value,
                                                                                               ),
                                                                                               const SizedBox(height: 4),
                                                                                             ],
@@ -319,7 +398,8 @@ class HomeView extends GetView<HomeController> {
                                                                             // ),
                                                                             Obx(
                                                                               () => Visibility(
-                                                                                  visible: controller.isOnline.value == false,
+                                                                                  visible: controller.isOnline.value ==
+                                                                                      false,
                                                                                   child: Column(
                                                                                     children: [
                                                                                       goOnlineDialog(
@@ -332,9 +412,13 @@ class HomeView extends GetView<HomeController> {
                                                                                           width: 58,
                                                                                         ),
                                                                                         onClick: () async {
-                                                                                          await FireStoreUtils.updateDriverUserOnline(true);
-                                                                                          controller.isOnline.value = true;
-                                                                                          controller.updateCurrentLocation();
+                                                                                          await FireStoreUtils
+                                                                                              .updateDriverUserOnline(
+                                                                                                  true);
+                                                                                          controller.isOnline.value =
+                                                                                              true;
+                                                                                          controller
+                                                                                              .updateCurrentLocation();
                                                                                         },
                                                                                         string: "Go Online".tr,
                                                                                         themeChange: themeChange,
@@ -345,12 +429,15 @@ class HomeView extends GetView<HomeController> {
                                                                                   )),
                                                                             ),
                                                                             Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                              mainAxisAlignment:
+                                                                                  MainAxisAlignment.spaceBetween,
                                                                               children: [
                                                                                 Text(
                                                                                   'Customer Reviews'.tr,
                                                                                   style: GoogleFonts.inter(
-                                                                                    color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                                                    color: themeChange.isDarkTheme()
+                                                                                        ? AppThemData.grey25
+                                                                                        : AppThemData.grey950,
                                                                                     fontSize: 18,
                                                                                     fontWeight: FontWeight.w600,
                                                                                     height: 0.08,
@@ -378,7 +465,9 @@ class HomeView extends GetView<HomeController> {
                                                                                 child: Text(
                                                                                   'No Customer review found'.tr,
                                                                                   style: GoogleFonts.inter(
-                                                                                    color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                                                    color: themeChange.isDarkTheme()
+                                                                                        ? AppThemData.grey25
+                                                                                        : AppThemData.grey950,
                                                                                     fontSize: 14,
                                                                                     fontWeight: FontWeight.w200,
                                                                                     height: 0.08,
@@ -390,69 +479,118 @@ class HomeView extends GetView<HomeController> {
                                                                               height: 164,
                                                                               child: ListView.builder(
                                                                                 shrinkWrap: true,
-                                                                                itemCount: controller.reviewList.length >= 5 ? 5 : controller.reviewList.length,
+                                                                                itemCount:
+                                                                                    controller.reviewList.length >= 5
+                                                                                        ? 5
+                                                                                        : controller.reviewList.length,
                                                                                 scrollDirection: Axis.horizontal,
                                                                                 itemBuilder: (context, index) {
                                                                                   return Container(
                                                                                     width: 210,
                                                                                     padding: const EdgeInsets.all(16),
-                                                                                    margin: const EdgeInsets.only(right: 16),
+                                                                                    margin: const EdgeInsets.only(
+                                                                                        right: 16),
                                                                                     decoration: ShapeDecoration(
-                                                                                      color: themeChange.isDarkTheme() ? controller.colorDark[index % 4] : controller.color[index % 4],
+                                                                                      color: themeChange.isDarkTheme()
+                                                                                          ? controller
+                                                                                              .colorDark[index % 4]
+                                                                                          : controller.color[index % 4],
                                                                                       shape: RoundedRectangleBorder(
-                                                                                        borderRadius: BorderRadius.circular(12),
+                                                                                        borderRadius:
+                                                                                            BorderRadius.circular(12),
                                                                                       ),
                                                                                     ),
                                                                                     child: Column(
                                                                                       mainAxisSize: MainAxisSize.min,
-                                                                                      mainAxisAlignment: MainAxisAlignment.start,
-                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                      mainAxisAlignment:
+                                                                                          MainAxisAlignment.start,
+                                                                                      crossAxisAlignment:
+                                                                                          CrossAxisAlignment.start,
                                                                                       children: [
                                                                                         FutureBuilder<UserModel?>(
-                                                                                          future: FireStoreUtils.getUserProfile(controller.reviewList[index].customerId.toString()),
-                                                                                          builder: (BuildContext context, AsyncSnapshot<UserModel?> snapshot) {
-                                                                                            switch (snapshot.connectionState) {
-                                                                                              case ConnectionState.waiting:
+                                                                                          future: FireStoreUtils
+                                                                                              .getUserProfile(controller
+                                                                                                  .reviewList[index]
+                                                                                                  .customerId
+                                                                                                  .toString()),
+                                                                                          builder: (BuildContext
+                                                                                                  context,
+                                                                                              AsyncSnapshot<UserModel?>
+                                                                                                  snapshot) {
+                                                                                            switch (snapshot
+                                                                                                .connectionState) {
+                                                                                              case ConnectionState
+                                                                                                    .waiting:
                                                                                                 return const SizedBox();
                                                                                               default:
                                                                                                 if (snapshot.hasError) {
                                                                                                   return Container(
                                                                                                     width: 50,
                                                                                                     height: 50,
-                                                                                                    clipBehavior: Clip.antiAlias,
-                                                                                                    decoration: ShapeDecoration(
-                                                                                                      shape: RoundedRectangleBorder(
-                                                                                                        borderRadius: BorderRadius.circular(200),
+                                                                                                    clipBehavior:
+                                                                                                        Clip.antiAlias,
+                                                                                                    decoration:
+                                                                                                        ShapeDecoration(
+                                                                                                      shape:
+                                                                                                          RoundedRectangleBorder(
+                                                                                                        borderRadius:
+                                                                                                            BorderRadius
+                                                                                                                .circular(
+                                                                                                                    200),
                                                                                                       ),
-                                                                                                      color: AppThemData.white,
-                                                                                                      image: const DecorationImage(
-                                                                                                        image: NetworkImage(Constant.profileConstant),
-                                                                                                        fit: BoxFit.fill,
+                                                                                                      color: AppThemData
+                                                                                                          .white,
+                                                                                                      image:
+                                                                                                          const DecorationImage(
+                                                                                                        image: NetworkImage(
+                                                                                                            Constant
+                                                                                                                .profileConstant),
+                                                                                                        fit:
+                                                                                                            BoxFit.fill,
                                                                                                       ),
                                                                                                     ),
                                                                                                   );
                                                                                                 } else {
-                                                                                                  UserModel? userModel = snapshot.data;
+                                                                                                  UserModel? userModel =
+                                                                                                      snapshot.data;
                                                                                                   return ClipRRect(
-                                                                                                    borderRadius: BorderRadius.circular(60),
-                                                                                                    child: CachedNetworkImage(
+                                                                                                    borderRadius:
+                                                                                                        BorderRadius
+                                                                                                            .circular(
+                                                                                                                60),
+                                                                                                    child:
+                                                                                                        CachedNetworkImage(
                                                                                                       height: 50,
                                                                                                       width: 50,
                                                                                                       fit: BoxFit.cover,
-                                                                                                      imageUrl: userModel!.profilePic.toString(),
-                                                                                                      errorWidget: (context, url, error) {
+                                                                                                      imageUrl: userModel!
+                                                                                                          .profilePic
+                                                                                                          .toString(),
+                                                                                                      errorWidget:
+                                                                                                          (context, url,
+                                                                                                              error) {
                                                                                                         return Container(
                                                                                                           width: 50,
                                                                                                           height: 50,
-                                                                                                          clipBehavior: Clip.antiAlias,
-                                                                                                          decoration: ShapeDecoration(
-                                                                                                            shape: RoundedRectangleBorder(
-                                                                                                              borderRadius: BorderRadius.circular(200),
+                                                                                                          clipBehavior:
+                                                                                                              Clip.antiAlias,
+                                                                                                          decoration:
+                                                                                                              ShapeDecoration(
+                                                                                                            shape:
+                                                                                                                RoundedRectangleBorder(
+                                                                                                              borderRadius:
+                                                                                                                  BorderRadius.circular(
+                                                                                                                      200),
                                                                                                             ),
-                                                                                                            color: AppThemData.white,
-                                                                                                            image: const DecorationImage(
-                                                                                                              image: NetworkImage(Constant.profileConstant),
-                                                                                                              fit: BoxFit.fill,
+                                                                                                            color: AppThemData
+                                                                                                                .white,
+                                                                                                            image:
+                                                                                                                const DecorationImage(
+                                                                                                              image: NetworkImage(
+                                                                                                                  Constant
+                                                                                                                      .profileConstant),
+                                                                                                              fit: BoxFit
+                                                                                                                  .fill,
                                                                                                             ),
                                                                                                           ),
                                                                                                         );
@@ -464,10 +602,19 @@ class HomeView extends GetView<HomeController> {
                                                                                           },
                                                                                         ),
                                                                                         FutureBuilder<UserModel?>(
-                                                                                          future: FireStoreUtils.getUserProfile(controller.reviewList[index].customerId.toString()),
-                                                                                          builder: (BuildContext context, AsyncSnapshot<UserModel?> snapshot) {
-                                                                                            switch (snapshot.connectionState) {
-                                                                                              case ConnectionState.waiting:
+                                                                                          future: FireStoreUtils
+                                                                                              .getUserProfile(controller
+                                                                                                  .reviewList[index]
+                                                                                                  .customerId
+                                                                                                  .toString()),
+                                                                                          builder: (BuildContext
+                                                                                                  context,
+                                                                                              AsyncSnapshot<UserModel?>
+                                                                                                  snapshot) {
+                                                                                            switch (snapshot
+                                                                                                .connectionState) {
+                                                                                              case ConnectionState
+                                                                                                    .waiting:
                                                                                                 return const SizedBox();
                                                                                               default:
                                                                                                 if (snapshot.hasError) {
@@ -475,13 +622,23 @@ class HomeView extends GetView<HomeController> {
                                                                                                     'Error: ${snapshot.error}',
                                                                                                   );
                                                                                                 } else {
-                                                                                                  UserModel? userModel = snapshot.data;
+                                                                                                  UserModel? userModel =
+                                                                                                      snapshot.data;
                                                                                                   return Text(
-                                                                                                    userModel!.fullName.toString(),
-                                                                                                    style: GoogleFonts.inter(
-                                                                                                      color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                                                                    userModel!.fullName
+                                                                                                        .toString(),
+                                                                                                    style: GoogleFonts
+                                                                                                        .inter(
+                                                                                                      color: themeChange
+                                                                                                              .isDarkTheme()
+                                                                                                          ? AppThemData
+                                                                                                              .grey25
+                                                                                                          : AppThemData
+                                                                                                              .grey950,
                                                                                                       fontSize: 14,
-                                                                                                      fontWeight: FontWeight.w600,
+                                                                                                      fontWeight:
+                                                                                                          FontWeight
+                                                                                                              .w600,
                                                                                                     ),
                                                                                                   );
                                                                                                 }
@@ -497,11 +654,17 @@ class HomeView extends GetView<HomeController> {
                                                                                         ),
                                                                                         const SizedBox(height: 4),
                                                                                         Text(
-                                                                                          controller.reviewList[index].comment.toString(),
+                                                                                          controller
+                                                                                              .reviewList[index].comment
+                                                                                              .toString(),
                                                                                           maxLines: 2,
-                                                                                          overflow: TextOverflow.ellipsis,
+                                                                                          overflow:
+                                                                                              TextOverflow.ellipsis,
                                                                                           style: GoogleFonts.inter(
-                                                                                            color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                                                            color: themeChange
+                                                                                                    .isDarkTheme()
+                                                                                                ? AppThemData.grey25
+                                                                                                : AppThemData.grey950,
                                                                                             fontSize: 12,
                                                                                             fontWeight: FontWeight.w400,
                                                                                           ),
@@ -535,7 +698,10 @@ Container goOnlineDialog({
 }) {
   return Container(
     padding: const EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 20),
-    decoration: BoxDecoration(shape: BoxShape.rectangle, color: themeChange.isDarkTheme() ? Colors.black : Colors.white, borderRadius: BorderRadius.circular(20)),
+    decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        color: themeChange.isDarkTheme() ? Colors.black : Colors.white,
+        borderRadius: BorderRadius.circular(20)),
     child: Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[

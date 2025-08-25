@@ -127,7 +127,8 @@ class DrawerView extends StatelessWidget {
                               child: Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(16),
-                                    image: DecorationImage(image: AssetImage("assets/images/subscription_card.png"), fit: BoxFit.cover)),
+                                    image: DecorationImage(
+                                        image: AssetImage("assets/images/subscription_card.png"), fit: BoxFit.cover)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(16.0),
                                   child: Column(
@@ -135,14 +136,16 @@ class DrawerView extends StatelessWidget {
                                     children: [
                                       Text(
                                         "Upgrade to Premium",
-                                        style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.w800, color: AppThemData.white),
+                                        style: GoogleFonts.inter(
+                                            fontSize: 18, fontWeight: FontWeight.w800, color: AppThemData.white),
                                       ),
                                       SizedBox(
                                         height: 4,
                                       ),
                                       Text(
                                         "Get the our exclusive subscription plans. Enjoy more features, better rides.",
-                                        style: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w400, color: AppThemData.white),
+                                        style: GoogleFonts.inter(
+                                            fontSize: 12, fontWeight: FontWeight.w400, color: AppThemData.white),
                                       ),
                                     ],
                                   ),
@@ -154,13 +157,16 @@ class DrawerView extends StatelessWidget {
                         child: Text(
                           'Services'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w600),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                       ListTile(
                         leading: SvgPicture.asset(
                           "assets/icon/ic_online.svg",
-                          colorFilter: ColorFilter.mode(themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(
+                              themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
                         ),
                         trailing: Obx(
                           () => Switch(
@@ -183,7 +189,9 @@ class DrawerView extends StatelessWidget {
                         title: Text(
                           'Online'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                       ),
                       const Padding(
@@ -193,13 +201,16 @@ class DrawerView extends StatelessWidget {
                       ListTile(
                         leading: SvgPicture.asset(
                           "assets/icon/ic_my_rides.svg",
-                          colorFilter: ColorFilter.mode(themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(
+                              themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
                         ),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'Home'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                         onTap: () {
                           Get.back();
@@ -213,7 +224,9 @@ class DrawerView extends StatelessWidget {
                       ),
                       ExpansionTileItem(
                         title: 'My Rides'.tr,
-                        titleColor: (controller.drawerIndex.value == 1 || controller.drawerIndex.value == 2 || controller.drawerIndex.value == 3)
+                        titleColor: (controller.drawerIndex.value == 1 ||
+                                controller.drawerIndex.value == 2 ||
+                                controller.drawerIndex.value == 3)
                             ? AppThemData.warning06
                             : themeChange.isDarkTheme()
                                 ? AppThemData.white
@@ -223,13 +236,17 @@ class DrawerView extends StatelessWidget {
                           "assets/icon/my_ride.svg",
                           width: 20, // Set appropriate width & height
                           height: 17,
-                          color: (controller.drawerIndex.value == 1 || controller.drawerIndex.value == 2 || controller.drawerIndex.value == 3)
+                          color: (controller.drawerIndex.value == 1 ||
+                                  controller.drawerIndex.value == 2 ||
+                                  controller.drawerIndex.value == 3)
                               ? AppThemData.warning06
                               : themeChange.isDarkTheme()
                                   ? AppThemData.white
                                   : AppThemData.black,
                         ),
-                        iconColor: (controller.drawerIndex.value == 1 || controller.drawerIndex.value == 2 || controller.drawerIndex.value == 3)
+                        iconColor: (controller.drawerIndex.value == 1 ||
+                                controller.drawerIndex.value == 2 ||
+                                controller.drawerIndex.value == 3)
                             ? AppThemData.warning06
                             : AppThemData.black,
                         children: [
@@ -344,13 +361,16 @@ class DrawerView extends StatelessWidget {
                       ListTile(
                         leading: SvgPicture.asset(
                           "assets/icon/ic_my_wallet.svg",
-                          colorFilter: ColorFilter.mode(themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(
+                              themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
                         ),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'My Wallet'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                         onTap: () {
                           Get.back();
@@ -367,13 +387,16 @@ class DrawerView extends StatelessWidget {
                         leading: SvgPicture.asset(
                           "assets/icon/ic_subscription.svg",
                           height: 20,
-                          colorFilter: ColorFilter.mode(themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(
+                              themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
                         ),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'Your Subscription'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                         onTap: () {
                           Get.back();
@@ -388,13 +411,16 @@ class DrawerView extends StatelessWidget {
                       ListTile(
                         leading: SvgPicture.asset(
                           "assets/icon/ic_my_bank.svg",
-                          colorFilter: ColorFilter.mode(themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(
+                              themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
                         ),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'My Bank'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                         onTap: () {
                           Get.back();
@@ -410,13 +436,16 @@ class DrawerView extends StatelessWidget {
                       ListTile(
                         leading: SvgPicture.asset(
                           "assets/icon/ic_document_drawer.svg",
-                          colorFilter: ColorFilter.mode(themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(
+                              themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
                         ),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'Document'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                         onTap: () {
                           Get.back();
@@ -434,13 +463,16 @@ class DrawerView extends StatelessWidget {
                         leading: SvgPicture.asset(
                           "assets/icon/ic_support.svg",
                           height: 22,
-                          colorFilter: ColorFilter.mode(themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(
+                              themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
                         ),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'Support'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                         onTap: () {
                           Get.back();
@@ -466,12 +498,15 @@ class DrawerView extends StatelessWidget {
                             throw 'Could not launch store';
                           }
                         },
-                        leading: Icon(Icons.star_border_rounded,color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black),
+                        leading: Icon(Icons.star_border_rounded,
+                            color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'Rate Us'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                       ),
                       const Padding(
@@ -485,13 +520,16 @@ class DrawerView extends StatelessWidget {
                         },
                         leading: SvgPicture.asset(
                           "assets/icon/ic_downlod.svg",
-                          colorFilter: ColorFilter.mode(themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(
+                              themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
                         ),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'Ride Statement'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                       ),
                       const Padding(
@@ -503,7 +541,9 @@ class DrawerView extends StatelessWidget {
                         child: Text(
                           'About'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w600),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                       ListTile(
@@ -512,12 +552,15 @@ class DrawerView extends StatelessWidget {
                           controller.drawerIndex.value = 10;
                           // Get.to(() => HtmlViewScreenView(title: "Privacy & Policy", htmlData: Constant.privacyPolicy));
                         },
-                        leading:  Icon(Icons.privacy_tip_outlined,color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black),
+                        leading: Icon(Icons.privacy_tip_outlined,
+                            color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'Privacy & Policy'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                       ),
                       const Padding(
@@ -530,12 +573,17 @@ class DrawerView extends StatelessWidget {
                           controller.drawerIndex.value = 11;
                           // Get.to(() => HtmlViewScreenView(title: "Terms & Condition", htmlData: Constant.termsAndConditions));
                         },
-                        leading: Icon(Icons.contact_support_outlined,color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,),
+                        leading: Icon(
+                          Icons.contact_support_outlined,
+                          color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                        ),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'Terms & Condition'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                       ),
                       const Padding(
@@ -547,11 +595,16 @@ class DrawerView extends StatelessWidget {
                         child: Text(
                           'App Setting'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w600),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                       ListTile(
-                        leading: Icon(Icons.light_mode_outlined,color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,),
+                        leading: Icon(
+                          Icons.light_mode_outlined,
+                          color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                        ),
                         trailing: Switch(
                           value: !themeChange.isDarkTheme(),
                           activeColor: AppThemData.white,
@@ -563,7 +616,9 @@ class DrawerView extends StatelessWidget {
                         title: Text(
                           'Light Mode'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                       ),
                       const Padding(
@@ -573,18 +628,20 @@ class DrawerView extends StatelessWidget {
                       ListTile(
                         leading: SvgPicture.asset(
                           "assets/icon/ic_language.svg",
-                          colorFilter: ColorFilter.mode(themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(
+                              themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
                         ),
                         trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
                         title: Text(
                           'Language'.tr,
                           style: GoogleFonts.inter(
-                              fontSize: 16, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                         onTap: () {
                           Get.back();
                           controller.drawerIndex.value = 12;
-                          // Get.to(() => const LanguageView());
                         },
                       ),
                       const Padding(
@@ -600,7 +657,9 @@ class DrawerView extends StatelessWidget {
                                 return CustomDialogBox(
                                     themeChange: themeChange,
                                     title: "Delete Account".tr,
-                                    descriptions: "Your account will be deleted permanently. Your Data will not be Restored Again".tr,
+                                    descriptions:
+                                        "Your account will be deleted permanently. Your Data will not be Restored Again"
+                                            .tr,
                                     positiveString: "Delete".tr,
                                     negativeString: "Cancel".tr,
                                     positiveClick: () async {
@@ -626,7 +685,8 @@ class DrawerView extends StatelessWidget {
                         ),
                         title: Text(
                           'Delete Account'.tr,
-                          style: GoogleFonts.inter(fontSize: 16, color: AppThemData.error07, fontWeight: FontWeight.w400),
+                          style:
+                              GoogleFonts.inter(fontSize: 16, color: AppThemData.error07, fontWeight: FontWeight.w400),
                         ),
                       ),
                       const Padding(
