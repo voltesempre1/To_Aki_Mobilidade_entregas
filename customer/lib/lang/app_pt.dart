@@ -26,7 +26,7 @@ const Map<String, String> ptBR = {
   "Please Select": "Por Favor Selecione",
   "Camera": "Câmera",
   "Gallery": "Galeria",
-  "MyTaxi": "MyTaxi",
+  "Tô aki": "Tô aki",
   "Where to?": "Para onde?",
   "Ongoing Ride": "Corrida em Andamento",
   "No Ongoing Ride available.": "Nenhuma corrida em andamento.",

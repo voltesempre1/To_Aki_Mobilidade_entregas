@@ -82,13 +82,13 @@ class IntroScreenView extends StatelessWidget {
                       },
                       children: [
                         IntroScreenPage(
-                          title: "Welcome to MyTaxi".tr,
+                          title: "Welcome to Tô Aki".tr,
                           body: "Your reliable partner for swift and convenient rides. Experience hassle-free transportation at your fingertips.".tr,
                           image: "assets/icon/intro_image_one.svg",
                         ),
                         IntroScreenPage(
                           title: " Fast and Reliable".tr,
-                          body: "MyTaxi ensures prompt and reliable rides, getting you to your destination with speed and efficiency.".tr,
+                          body: "Tô Aki ensures prompt and reliable rides, getting you to your destination with speed and efficiency.".tr,
                           image: "assets/icon/intro_image_two.svg",
                         ),
                         IntroScreenPage(
