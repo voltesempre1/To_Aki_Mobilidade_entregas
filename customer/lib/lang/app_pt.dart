@@ -26,7 +26,7 @@ const Map<String, String> ptBR = {
   "Please Select": "Por Favor Selecione",
   "Camera": "Câmera",
   "Gallery": "Galeria",
-  "Tô aki": "Tô aki",
+  "Tô Aki": "Tô Aki",
   "Where to?": "Para onde?",
   "Ongoing Ride": "Corrida em Andamento",
   "No Ongoing Ride available.": "Nenhuma corrida em andamento.",
@@ -34,15 +34,15 @@ const Map<String, String> ptBR = {
   "Payment is Pending": "Pagamento Pendente",
   "Book Now": "Reservar Agora",
   "Skip": "Pular",
-  "Welcome to MyTaxi": "Bem-vindo ao MyTaxi",
+  "Welcome to Tô Aki": "Bem-vindo ao Tô Aki",
   "Your reliable partner for swift and convenient rides. Experience hassle-free transportation at your fingertips.":
       "Seu parceiro confiável para corridas rápidas e convenientes. Transporte sem complicações ao seu alcance.",
   "Fast and Reliable": "Rápido e Confiável",
-  "MyTaxi ensures prompt and reliable rides, getting you to your destination with speed and efficiency.":
-      "O MyTaxi garante corridas rápidas e confiáveis, levando você ao seu destino com agilidade e eficiência.",
+  "Tô Aki ensures prompt and reliable rides, getting you to your destination with speed and efficiency.":
+      "O Tô Aki garante corridas rápidas e confiáveis, levando você ao seu destino com agilidade e eficiência.",
   "Seamless User Experience": "Experiência do Usuário Sem Interrupções",
-  "Enjoy a user-friendly interface, easy bookings, and secure payments with MyTaxi. Your journey, your way.":
-      "Desfrute de uma interface amigável, reservas fáceis e pagamentos seguros com o MyTaxi. Sua jornada, do seu jeito.",
+  "Enjoy a user-friendly interface, easy bookings, and secure payments with Tô Aki. Your journey, your way.":
+      "Desfrute de uma interface amigável, reservas fáceis e pagamentos seguros com o Tô Aki. Sua jornada, do seu jeito.",
   "Get Started": "Começar",
   "Language": "Idioma",
   "Login": "Entrar",
@@ -110,8 +110,8 @@ const Map<String, String> ptBR = {
   "Cancelled": "Cancelada",
   "Pickup Point": "Ponto de Coleta",
   "No Rides Found": "Nenhuma Corrida Encontrada",
-  "Your ride history is currently empty. Start your journey with MyTaxi by booking your first ride now!":
-      "Seu histórico de corridas está vazio. Comece sua jornada com o MyTaxi reservando sua primeira corrida agora!",
+  "Your ride history is currently empty. Start your journey with Tô Aki by booking your first ride now!":
+      "Seu histórico de corridas está vazio. Comece sua jornada com o Tô Aki reservando sua primeira corrida agora!",
   "Dropout Point": "Ponto de Destino",
   "Services": "Serviços",
   "Light Mode": "Modo Claro",
@@ -168,7 +168,7 @@ const Map<String, String> ptBR = {
   "Please Select Start Time": "Selecione o horário de início",
   "Select Payment Methods": "Selecione o Método de Pagamento",
   "Please select both pickup and drop locations.": "Selecione os locais de coleta e destino.",
-  "My Taxi Intercity": "MyTaxi Entre Cidades",
+  "My Taxi Intercity": "Tô Aki Entre Cidades",
   "For long distance trip between select cities": "Para viagens de longa distância entre cidades selecionadas",
   "Convenient and affordable rides": "Corridas convenientes e acessíveis",
   "Priority chat support post trip": "Suporte prioritário via chat após a corrida",

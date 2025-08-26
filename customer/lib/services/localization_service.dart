@@ -7,7 +7,7 @@ import 'package:customer/lang/app_en.dart';
 
 class LocalizationService extends Translations {
   // Default locale
-  static const locale = Locale('en', 'US');
+  static const locale = Locale('pt', 'BR');
 
   static final locales = [
     const Locale('en'),
