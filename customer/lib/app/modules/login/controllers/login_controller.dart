@@ -18,7 +18,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class LoginController extends GetxController {
-  TextEditingController countryCodeController = TextEditingController(text: '+91');
+  TextEditingController countryCodeController = TextEditingController(text: '+55');
   TextEditingController phoneNumberController = TextEditingController();
   Rx<GlobalKey<FormState>> formKey = GlobalKey<FormState>().obs;
 
