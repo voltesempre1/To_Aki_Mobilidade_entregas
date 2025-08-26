@@ -12,13 +12,8 @@ class LocalizationService extends Translations {
 
   static final locales = [
     const Locale('en'),
-    const Locale('fr'),
-    const Locale('zh'),
-    const Locale('ja'),
+    const Locale('pt', 'BR'),
     const Locale('hi'),
-    const Locale('de'),
-    const Locale('pt'),
-    const Locale('ru'),
     const Locale('ar'),
   ];
 
@@ -38,6 +33,10 @@ class LocalizationService extends Translations {
 
   // Gets locale from language, and updates the locale
   void changeLocale(String lang) {
-    Get.updateLocale(Locale(lang));
+    if (lang == 'pt') {
+      Get.updateLocale(const Locale('pt', 'BR'));
+    } else {
+      Get.updateLocale(Locale(lang));
+    }
   }
 }

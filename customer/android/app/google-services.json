@@ -31,10 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "696711203380-9dlo0qhbc3rabsc6tlnffvqjg6k8g4mv.apps.googleusercontent.com",
+              "client_id": "696711203380-58gfr601p95b1pvtlcrpsd1cum0a61am.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.admin"
+                "bundle_id": "com.toaki.customer"
               }
             }
           ]
@@ -58,6 +58,14 @@
           }
         },
         {
+          "client_id": "696711203380-rav3ovfmb5vk4gsiiuukvt28dpbh7h1a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mytaxi.driver",
+            "certificate_hash": "048b279f798314e696406ffa9dddcc841359fca8"
+          }
+        },
+        {
           "client_id": "696711203380-m8jqhc6kpdgop6mma0i8m0itu82tj5d4.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -75,10 +83,10 @@
               "client_type": 3
             },
             {
-              "client_id": "696711203380-9dlo0qhbc3rabsc6tlnffvqjg6k8g4mv.apps.googleusercontent.com",
+              "client_id": "696711203380-58gfr601p95b1pvtlcrpsd1cum0a61am.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.admin"
+                "bundle_id": "com.toaki.customer"
               }
             }
           ]
@@ -93,6 +101,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "696711203380-bnf73m0un22fout4mpbrea1kuaeqmmbt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.toaki.customer",
+            "certificate_hash": "674ee1ac6db7c072673ea6b1b7978cb71768b5a2"
+          }
+        },
         {
           "client_id": "696711203380-uil4rghoe2bhqrgov73c5ii1bt07tlqb.apps.googleusercontent.com",
           "client_type": 1,
@@ -119,10 +135,10 @@
               "client_type": 3
             },
             {
-              "client_id": "696711203380-9dlo0qhbc3rabsc6tlnffvqjg6k8g4mv.apps.googleusercontent.com",
+              "client_id": "696711203380-58gfr601p95b1pvtlcrpsd1cum0a61am.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.admin"
+                "bundle_id": "com.toaki.customer"
               }
             }
           ]
