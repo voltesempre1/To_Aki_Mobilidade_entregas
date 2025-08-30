@@ -1,10 +1,4 @@
-
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get/get.dart';
 import 'package:driver/app/modules/splash_screen/views/splash_screen_view.dart';
 import 'package:driver/app/routes/app_pages.dart';
 import 'package:driver/constant/constant.dart';
@@ -14,6 +8,11 @@ import 'package:driver/services/localization_service.dart';
 import 'package:driver/theme/styles.dart';
 import 'package:driver/utils/dark_theme_provider.dart';
 import 'package:driver/utils/fire_store_utils.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -25,7 +24,7 @@ Future<void> main() async {
   configLoading();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: 'MyTaxi',
+    title: 'Tô aki Mobilidade',
     theme: ThemeData(
       primarySwatch: Colors.amber,
       textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1),
@@ -110,7 +109,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               }
             },
             child: GetMaterialApp(
-                title: 'MyTaxi'.tr,
+                title: 'Tô aki Mobilidade'.tr,
                 debugShowCheckedModeBanner: false,
                 theme: Styles.themeData(
                     themeChangeProvider.darkTheme == 0

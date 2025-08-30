@@ -35,7 +35,10 @@ class LoginView extends StatelessWidget {
             },
             child: Scaffold(
               backgroundColor: themeChange.isDarkTheme() ? AppThemData.black : AppThemData.white,
-              appBar: AppBar(forceMaterialTransparency: true, backgroundColor: themeChange.isDarkTheme() ? AppThemData.black : AppThemData.white, automaticallyImplyLeading: false),
+              appBar: AppBar(
+                  forceMaterialTransparency: true,
+                  backgroundColor: themeChange.isDarkTheme() ? AppThemData.black : AppThemData.white,
+                  automaticallyImplyLeading: false),
               body: Container(
                 width: Responsive.width(100, context),
                 height: Responsive.height(100, context),
@@ -48,21 +51,33 @@ class LoginView extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(bottom: 32),
-                        child: Center(child: SvgPicture.asset(themeChange.isDarkTheme() ? "assets/icon/splash_logo.svg" : "assets/icon/logo_black.svg")),
+                        child: Center(
+                          child: SvgPicture.asset(
+                              themeChange.isDarkTheme() ? "assets/icon/splash_logo.svg" : "assets/icon/splash_logo.svg",
+                              height: 75,
+                              width: 75),
+                        ),
                       ),
                       Text(
                         "Login".tr,
-                        style: GoogleFonts.inter(fontSize: 24, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w700),
+                        style: GoogleFonts.inter(
+                            fontSize: 24,
+                            color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                            fontWeight: FontWeight.w700),
                       ),
                       Text(
                         "Please login to continue".tr,
-                        style: GoogleFonts.inter(fontSize: 14, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                        style: GoogleFonts.inter(
+                            fontSize: 14,
+                            color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                            fontWeight: FontWeight.w400),
                       ),
                       Container(
                         height: 110,
                         width: Responsive.width(100, context),
                         margin: const EdgeInsets.only(top: 36, bottom: 48),
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), border: Border.all(color: AppThemData.grey100)),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12), border: Border.all(color: AppThemData.grey100)),
                         child: Form(
                           key: controller.formKey.value,
                           child: Column(
@@ -88,7 +103,8 @@ class LoginView extends StatelessWidget {
                                   cursorColor: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
                                   keyboardType: TextInputType.number,
                                   controller: controller.phoneNumberController,
-                                  validator: (value) => validateMobile(value, controller.countryCodeController.value.text),
+                                  validator: (value) =>
+                                      validateMobile(value, controller.countryCodeController.value.text),
                                   inputFormatters: <TextInputFormatter>[
                                     FilteringTextInputFormatter.allow(RegExp("[0-9]")),
                                   ],
@@ -134,7 +150,8 @@ class LoginView extends StatelessWidget {
                             ),
                             Text(
                               "Continue with".tr,
-                              style: GoogleFonts.inter(fontSize: 12, color: AppThemData.grey400, fontWeight: FontWeight.w400),
+                              style: GoogleFonts.inter(
+                                  fontSize: 12, color: AppThemData.grey400, fontWeight: FontWeight.w400),
                             ),
                             Container(
                               width: 52,
@@ -168,7 +185,9 @@ class LoginView extends StatelessWidget {
                                     "assets/icon/ic_apple.svg",
                                     height: 24,
                                     width: 24,
-                                    colorFilter: ColorFilter.mode(themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, BlendMode.srcIn),
+                                    colorFilter: ColorFilter.mode(
+                                        themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                                        BlendMode.srcIn),
                                   ),
                                   const SizedBox(width: 12),
                                   Text(

@@ -58,7 +58,8 @@ class IntroScreenView extends StatelessWidget {
                           children: [
                             Text(
                               "Skip".tr,
-                              style: GoogleFonts.inter(fontSize: 16.0, color: AppThemData.grey950, fontWeight: FontWeight.w500),
+                              style: GoogleFonts.inter(
+                                  fontSize: 16.0, color: AppThemData.grey950, fontWeight: FontWeight.w500),
                             ),
                             const Icon(
                               Icons.arrow_forward_ios_outlined,
@@ -83,18 +84,21 @@ class IntroScreenView extends StatelessWidget {
                       },
                       children: [
                         IntroScreenPage(
-                          title: "Welcome to MyTaxi".tr,
-                          body: "Your reliable partner for swift and convenient rides. Experience hassle-free transportation at your fingertips.",
+                          title: "Welcome to Tô aki Mobilidade".tr,
+                          body:
+                              "Your reliable partner for swift and convenient rides. Experience hassle-free transportation at your fingertips.",
                           image: "assets/icon/intro_image_one.svg",
                         ),
                         IntroScreenPage(
                           title: " Fast and Reliable".tr,
-                          body: "MyTaxi ensures prompt and reliable rides, getting you to your destination with speed and efficiency.",
+                          body:
+                              "MyTaxi ensures prompt and reliable rides, getting you to your destination with speed and efficiency.",
                           image: "assets/icon/intro_image_two.svg",
                         ),
                         IntroScreenPage(
                           title: "Seamless User Experience".tr,
-                          body: "Enjoy a user-friendly interface, easy bookings, and secure payments with MyTaxi. Your journey, your way.",
+                          body:
+                              "Enjoy a user-friendly interface, easy bookings, and secure payments with Tô aki Mobilidade. Your journey, your way.",
                           image: "assets/icon/intro_image_three.svg",
                         ),
                       ],
@@ -118,7 +122,8 @@ class IntroScreenView extends StatelessWidget {
                         child: Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(color: AppThemData.primary500, borderRadius: BorderRadius.circular(50)),
+                          decoration:
+                              BoxDecoration(color: AppThemData.primary500, borderRadius: BorderRadius.circular(50)),
                           child: const Icon(Icons.arrow_forward_rounded),
                         ),
                       ),

@@ -51,10 +51,10 @@ class HomeView extends GetView<HomeController> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset("assets/icon/logo_only.svg"),
+                  SvgPicture.asset("assets/icon/logo_only.svg", width: 24, height: 24),
                   const SizedBox(width: 10),
                   Text(
-                    'MyTaxi'.tr,
+                    'Tô aki Mobilidade'.tr,
                     style: GoogleFonts.inter(
                       color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
                       fontSize: 20,

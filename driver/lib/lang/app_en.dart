@@ -1,8 +1,9 @@
 const Map<String, String> enUS = {
   'please_wait': "Please wait",
-  "Upload all required documents.":"Upload all required documents.",
+  "Upload all required documents.": "Upload all required documents.",
   "Do you want to start this Ride?": "Do you want to start this Ride?",
-  "Ask the customer for an OTP so that you can start this ride": "Ask the customer for an OTP so that you can start this ride",
+  "Ask the customer for an OTP so that you can start this ride":
+      "Ask the customer for an OTP so that you can start this ride",
   "Cancel": "Cancel",
   "Ask for OTP": "Ask for OTP",
   "Ride Detail": "Ride Detail",
@@ -10,7 +11,8 @@ const Map<String, String> enUS = {
   "Complete Ride": "Complete Ride",
   "Payment of this ride is Remaining From Customer": "Payment of this ride is Remaining From Customer",
   "Confirm Cash Payment": "Confirm Cash Payment",
-  "Are you sure you want complete the  ride with a cash payment?": "Are you sure you want complete the  ride with a cash payment?",
+  "Are you sure you want complete the  ride with a cash payment?":
+      "Are you sure you want complete the  ride with a cash payment?",
   "Complete": "Complete",
   "Track Ride": "Track Ride",
   "Ride Status": "Ride Status",
@@ -50,7 +52,7 @@ const Map<String, String> enUS = {
   "Go Online": "Go Online",
   "Customer Reviews": "Customer Reviews",
   "View all": "View all",
-  "Welcome to MyTaxi": "Welcome to MyTaxi",
+  "Welcome to Tô aki Mobilidade": "Welcome to Tô aki Mobilidade",
   "Your reliable partner for swift and convenient rides. Experience hassle-free transportation at your fingertips.":
       "Your reliable partner for swift and convenient rides. Experience hassle-free transportation at your fingertips.",
   "Fast and Reliable": "Fast and Reliable",
@@ -58,8 +60,8 @@ const Map<String, String> enUS = {
       "MyTaxi ensures prompt and reliable rides, getting you to your destination with speed and efficiency.",
   "Skip": "Skip",
   "Seamless User Experience": "Seamless User Experience",
-  "Enjoy a user-friendly interface, easy bookings, and secure payments with MyTaxi. Your journey, your way.":
-      "Enjoy a user-friendly interface, easy bookings, and secure payments with MyTaxi. Your journey, your way.",
+  "Enjoy a user-friendly interface, easy bookings, and secure payments with Tô aki Mobilidade. Your journey, your way.":
+      "Enjoy a user-friendly interface, easy bookings, and secure payments with Tô aki Mobilidade. Your journey, your way.",
   "Get Started": "Get Started",
   "Language": "Language",
   "Login": "Login",
@@ -128,7 +130,8 @@ const Map<String, String> enUS = {
   "Browse": "Browse",
   "Back Side": "Back Side",
   "Upload clear pictures of both sides of": "Upload clear pictures of both sides of",
-  "The uploaded image should be in .jpg, .png, or .pdf format.": "The uploaded image should be in .jpg, .png, or .pdf format.",
+  "The uploaded image should be in .jpg, .png, or .pdf format.":
+      "The uploaded image should be in .jpg, .png, or .pdf format.",
   "Date of Birth": "Date of Birth",
   "Enter Date of Birth": "Enter Date of Birth",
   "camera": "camera",
@@ -143,12 +146,13 @@ const Map<String, String> enUS = {
   "Verified": "Verified",
   "Not Verified": "Not Verified",
   "Verify Your Phone Number": "Verify Your Phone Number",
-  "Enter  6-digit code sent to your mobile number to complete verification.": "Enter  6-digit code sent to your mobile number to complete verification.",
+  "Enter  6-digit code sent to your mobile number to complete verification.":
+      "Enter  6-digit code sent to your mobile number to complete verification.",
   "Did’t Receive a code ?": "Did’t Receive a code ?",
   "Resend Code": "Resend Code",
   "No Rides Found": "No Rides Found",
-  "Your ride history is currently empty. Start your journey with MyTaxi by riding your first ride now!":
-      "Your ride history is currently empty. Start your journey with MyTaxi by riding your first ride now!",
+  "Your ride history is currently empty. Start your journey with Tô aki Mobilidade by riding your first ride now!":
+      "Your ride history is currently empty. Start your journey with Tô aki Mobilidade by riding your first ride now!",
   "Pickup Point": "Pickup Point",
   "Dropout Point": "Dropout Point",
   "Marcado Pago Payment": "Marcado Pago Payment",
@@ -184,7 +188,8 @@ const Map<String, String> enUS = {
   "Support": "Support",
   "Create Ticket": "Create Ticket",
   "Search Intercity Ride": "Search Intercity Ride",
-  "commission_fee_message": "A commission of @amount will be deducted from each ride payment for administrative purposes.",
+  "commission_fee_message":
+      "A commission of @amount will be deducted from each ride payment for administrative purposes.",
   "Title": "Title",
   "Select Title": "Select Title",
   "Subject": "Subject",
@@ -204,7 +209,8 @@ const Map<String, String> enUS = {
   "No Available Any Bid": "No Available Any Bid",
   "Closed": "Closed",
   "Active": "Active",
-  "insufficient_wallet_balance": "You do not have sufficient wallet balance to accept the ride, as the minimum amount required is @amount.",
+  "insufficient_wallet_balance":
+      "You do not have sufficient wallet balance to accept the ride, as the minimum amount required is @amount.",
   "Ride Sharing": "Ride Sharing",
   "Price Details": "Price Details",
   "Amount": "Amount",
@@ -230,7 +236,8 @@ const Map<String, String> enUS = {
   "Parcel Rides": "Parcel Rides",
   "Ride Statement": "Ride Statement",
   "Download Ride Statement": "Download Ride Statement",
-  "Select your preferred cab type, choose a date range and download your ride statement": "Select your preferred cab type, choose a date range and download your ride statement",
+  "Select your preferred cab type, choose a date range and download your ride statement":
+      "Select your preferred cab type, choose a date range and download your ride statement",
   "Select Ride Type": "Select Ride Type",
   "Select Star date to End Date": "Select Star date to End Date",
   "Download": "Download",
@@ -238,7 +245,8 @@ const Map<String, String> enUS = {
   "clear": "clear",
   "OK": "OK",
   "Delete account": "Delete account",
-  "Your account will be deleted permanently. Your Data will not be Restored Again": "Your account will be deleted permanently. Your Data will not be Restored Again",
+  "Your account will be deleted permanently. Your Data will not be Restored Again":
+      "Your account will be deleted permanently. Your Data will not be Restored Again",
   "Account Deleted Successfully..": "Account Deleted Successfully..",
   "Delete": "Delete",
   "Your Subscription": "Your Subscription",

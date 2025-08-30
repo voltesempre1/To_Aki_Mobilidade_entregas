@@ -1,4 +1,4 @@
-package com.mytaxi.driver
+package com.toakimobilidade.driver
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragmentActivity

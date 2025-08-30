@@ -9,7 +9,8 @@ const Map<String, String> hiIN = {
   "Complete Ride": "सवारी पूरी करें",
   "Payment of this ride is Remaining From Customer": "इस सवारी का भुगतान ग्राहक से शेष है",
   "Confirm Cash Payment": "नकद भुगतान की पुष्टि करें",
-  "Are you sure you want complete the  ride with a cash payment?": "क्या आप नकद भुगतान के साथ सवारी पूरी करना चाहते हैं?",
+  "Are you sure you want complete the  ride with a cash payment?":
+      "क्या आप नकद भुगतान के साथ सवारी पूरी करना चाहते हैं?",
   "Complete": "पूरी करें",
   "Track Ride": "सवारी ट्रैक करें",
   "Ride Status": "सवारी की स्थिति",
@@ -50,7 +51,7 @@ const Map<String, String> hiIN = {
   "Go Online": "ऑनलाइन जाएं",
   "Customer Reviews": "ग्राहक समीक्षा",
   "View all": "सभी देखें",
-  "Welcome to MyTaxi": "मेरीटैक्सी में आपका स्वागत है",
+  "Welcome to Tô aki Mobilidade": "मेरीटैक्सी में आपका स्वागत है",
   "Your reliable partner for swift and convenient rides. Experience hassle-free transportation at your fingertips.":
       "स्विफ्ट और सुविधाजनक सवारी के लिए आपका विश्वसनीय साथी। अपनी उंगलियों पर परेशानी मुक्त परिवहन का अनुभव करें।",
   "Fast and Reliable": "तेज और विश्वसनीय",
@@ -58,7 +59,7 @@ const Map<String, String> hiIN = {
       "मेरीटैक्सी समय पर और विश्वसनीय सवारी सुनिश्चित करती है, आपको तेजी और कुशलता से आपके गंतव्य तक पहुंचाती है।",
   "Skip": "छोड़ें",
   "Seamless User Experience": "सहज उपयोगकर्ता अनुभव",
-  "Enjoy a user-friendly interface, easy bookings, and secure payments with MyTaxi. Your journey, your way.":
+  "Enjoy a user-friendly interface, easy bookings, and secure payments with Tô aki Mobilidade. Your journey, your way.":
       "मेरीटैक्सी के साथ उपयोगकर्ता-अनुकूल इंटरफ़ेस, आसान बुकिंग और सुरक्षित भुगतान का आनंद लें। आपकी यात्रा, आपके तरीके।",
   "Get Started": "शुरू करें",
   "Language": "भाषा",
@@ -127,25 +128,29 @@ const Map<String, String> hiIN = {
   "Browse": "ब्राउज़ करें",
   "Back Side": "पीछे का हिस्सा",
   "Upload clear pictures of both sides of": "दोनों पक्षों की स्पष्ट तस्वीरें अपलोड करें",
-  "The uploaded image should be in .jpg, .png, or .pdf format.": "अपलोड की गई छवि .jpg, .png, या .pdf प्रारूप में होनी चाहिए।",
+  "The uploaded image should be in .jpg, .png, or .pdf format.":
+      "अपलोड की गई छवि .jpg, .png, या .pdf प्रारूप में होनी चाहिए।",
   "Date of Birth": "जन्म तिथि",
   "Enter Date of Birth": "जन्म तिथि दर्ज करें",
   "camera": "कैमरा",
   "gallery": "गैलरी",
   "Verify your details": "अपनी जानकारी सत्यापित करें",
   "Check Status": "स्थिति जांचें",
-  "User disabled by administrator, Please contact to admin": "व्यवस्थापक द्वारा उपयोगकर्ता अक्षम किया गया है, कृपया व्यवस्थापक से संपर्क करें",
+  "User disabled by administrator, Please contact to admin":
+      "व्यवस्थापक द्वारा उपयोगकर्ता अक्षम किया गया है, कृपया व्यवस्थापक से संपर्क करें",
   "Upload Your Documents": "अपने दस्तावेज़ अपलोड करें",
-  "Securely upload required documents for identity verification and account authentication": "पहचान सत्यापन और खाता प्रमाणीकरण के लिए आवश्यक दस्तावेज़ सुरक्षित रूप से अपलोड करें",
+  "Securely upload required documents for identity verification and account authentication":
+      "पहचान सत्यापन और खाता प्रमाणीकरण के लिए आवश्यक दस्तावेज़ सुरक्षित रूप से अपलोड करें",
   "Add Your Vehicle Details": "अपने वाहन का विवरण जोड़ें",
   "Verified": "सत्यापित",
   "Not Verified": "सत्यापित नहीं",
   "Verify Your Phone Number": "अपना फोन नंबर सत्यापित करें",
-  "Enter  6-digit code sent to your mobile number to complete verification.": "सत्यापन पूरा करने के लिए अपने मोबाइल नंबर पर भेजा गया 6-अंकीय कोड दर्ज करें।",
+  "Enter  6-digit code sent to your mobile number to complete verification.":
+      "सत्यापन पूरा करने के लिए अपने मोबाइल नंबर पर भेजा गया 6-अंकीय कोड दर्ज करें।",
   "Did’t Receive a code ?": "कोड प्राप्त नहीं हुआ?",
   "Resend Code": "कोड पुनः भेजें",
   "No Rides Found": "कोई सवारी नहीं मिली",
-  "Your ride history is currently empty. Start your journey with MyTaxi by riding your first ride now!":
+  "Your ride history is currently empty. Start your journey with Tô aki Mobilidade by riding your first ride now!":
       "आपका सवारी इतिहास वर्तमान में खाली है। अभी अपनी पहली सवारी के साथ मेरीटैक्सी के साथ अपनी यात्रा शुरू करें!",
   "Pickup Point": "पिकअप पॉइंट",
   "Dropout Point": "ड्रॉपआउट पॉइंट",
@@ -179,7 +184,6 @@ const Map<String, String> hiIN = {
   "My Bank": "मेरा बैंक",
   "please_select": "कृपया चुनें",
   "No Customer review found": "कोई ग्राहक समीक्षा नहीं मिली",
-
   "Support": "सहायता",
   "Create Ticket": "टिकट बनाएं",
   "Title": "शीर्षक",
@@ -226,7 +230,8 @@ const Map<String, String> hiIN = {
   "Parcel Rides": "पार्सल सवारी",
   "Ride Statement": "सवारी विवरण",
   "Download Ride Statement": "सवारी विवरण डाउनलोड करें",
-  "Select your preferred cab type, choose a date range and download your ride statement": "अपनी पसंदीदा कैब प्रकार चुनें, तारीख सीमा चुनें और अपनी सवारी विवरण डाउनलोड करें",
+  "Select your preferred cab type, choose a date range and download your ride statement":
+      "अपनी पसंदीदा कैब प्रकार चुनें, तारीख सीमा चुनें और अपनी सवारी विवरण डाउनलोड करें",
   "Select Ride Type": "सवारी प्रकार चुनें",
   "Select Star date to End Date": "प्रारंभ तिथि से समाप्ति तिथि चुनें",
   "Download": "डाउनलोड करें",
@@ -234,7 +239,8 @@ const Map<String, String> hiIN = {
   "clear": "साफ करें",
   "OK": "ठीक है",
   "Delete account": "खाता हटा दो",
-  "Your account will be deleted permanently. Your Data will not be Restored Again": "आपका खाता स्थायी रूप से हटा दिया जाएगा. आपका डेटा दोबारा बहाल नहीं किया जाएगा",
+  "Your account will be deleted permanently. Your Data will not be Restored Again":
+      "आपका खाता स्थायी रूप से हटा दिया जाएगा. आपका डेटा दोबारा बहाल नहीं किया जाएगा",
   "Account Deleted Successfully..": "खाता सफलतापूर्वक हटा दिया गया..",
   "Delete": "मिटाना",
   "Your Subscription": "आपकी सदस्यता",

@@ -52,16 +52,16 @@ const Map<String, String> ptBR = {
   "Go Online": "Ficar Online",
   "Customer Reviews": "Avaliações dos Clientes",
   "View all": "Ver todos",
-  "Welcome to MyTaxi": "Bem-vindo ao MyTaxi",
+  "Welcome to Tô aki Mobilidade": "Bem-vindo ao Tô aki Mobilidade",
   "Your reliable partner for swift and convenient rides. Experience hassle-free transportation at your fingertips.":
       "Seu parceiro confiável para corridas rápidas e convenientes. Experimente transporte sem complicações na palma da sua mão.",
   "Fast and Reliable": "Rápido e Confiável",
   "MyTaxi ensures prompt and reliable rides, getting you to your destination with speed and efficiency.":
-      "O MyTaxi garante corridas rápidas e confiáveis, levando você ao seu destino com velocidade e eficiência.",
+      "O Tô aki Mobilidade garante corridas rápidas e confiáveis, levando você ao seu destino com velocidade e eficiência.",
   "Skip": "Pular",
   "Seamless User Experience": "Experiência do Usuário Perfeita",
-  "Enjoy a user-friendly interface, easy bookings, and secure payments with MyTaxi. Your journey, your way.":
-      "Desfrute de uma interface amigável, reservas fáceis e pagamentos seguros com o MyTaxi. Sua jornada, do seu jeito.",
+  "Enjoy a user-friendly interface, easy bookings, and secure payments with Tô aki Mobilidade. Your journey, your way.":
+      "Desfrute de uma interface amigável, reservas fáceis e pagamentos seguros com o Tô aki Mobilidade. Sua jornada, do seu jeito.",
   "Get Started": "Começar",
   "Language": "Idioma",
   "Login": "Entrar",
@@ -152,8 +152,8 @@ const Map<String, String> ptBR = {
   "Did't Receive a code ?": "Não recebeu o código?",
   "Resend Code": "Reenviar Código",
   "No Rides Found": "Nenhuma Corrida Encontrada",
-  "Your ride history is currently empty. Start your journey with MyTaxi by riding your first ride now!":
-      "Seu histórico de corridas está vazio atualmente. Comece sua jornada com o MyTaxi fazendo sua primeira corrida agora!",
+  "Your ride history is currently empty. Start your journey with Tô aki Mobilidade by riding your first ride now!":
+      "Seu histórico de corridas está vazio atualmente. Comece sua jornada com o Tô aki Mobilidade fazendo sua primeira corrida agora!",
   "Pickup Point": "Ponto de Embarque",
   "Dropout Point": "Ponto de Desembarque",
   "Marcado Pago Payment": "Pagamento Mercado Pago",
@@ -189,7 +189,8 @@ const Map<String, String> ptBR = {
   "Support": "Suporte",
   "Create Ticket": "Criar Ticket",
   "Search Intercity Ride": "Procurar Corrida Intermunicipal",
-  "commission_fee_message": "Uma comissão de @amount será deduzida de cada pagamento de corrida para fins administrativos.",
+  "commission_fee_message":
+      "Uma comissão de @amount será deduzida de cada pagamento de corrida para fins administrativos.",
   "Title": "Título",
   "Select Title": "Selecionar Título",
   "Subject": "Assunto",
@@ -209,7 +210,8 @@ const Map<String, String> ptBR = {
   "No Available Any Bid": "Nenhum Lance Disponível",
   "Closed": "Fechado",
   "Active": "Ativo",
-  "insufficient_wallet_balance": "Você não tem saldo suficiente na carteira para aceitar a corrida, o valor mínimo exigido é @amount.",
+  "insufficient_wallet_balance":
+      "Você não tem saldo suficiente na carteira para aceitar a corrida, o valor mínimo exigido é @amount.",
   "Ride Sharing": "Compartilhamento de Corrida",
   "Price Details": "Detalhes do Preço",
   "Amount": "Valor",

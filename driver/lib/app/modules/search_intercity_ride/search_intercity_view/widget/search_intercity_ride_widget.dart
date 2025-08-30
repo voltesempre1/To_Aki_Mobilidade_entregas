@@ -1,8 +1,10 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'dart:developer';
-import 'package:get/get.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
+// ignore_for_file: depend_on_referenced_packages
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:driver/app/models/intercity_model.dart';
 import 'package:driver/app/models/user_model.dart';
 import 'package:driver/app/modules/intercity_booking_details/views/intercity_booking_details_view.dart';
@@ -29,8 +31,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:timelines_plus/timelines_plus.dart';
-// ignore_for_file: depend_on_referenced_packages
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SearchInterCityRideWidget extends StatelessWidget {
   const SearchInterCityRideWidget({super.key});
@@ -66,7 +66,9 @@ class SearchInterCityRideWidget extends StatelessWidget {
                     builder: TimelineTileBuilder.connected(
                       contentsAlign: ContentsAlign.basic,
                       indicatorBuilder: (context, index) {
-                        return index == 0 ? SvgPicture.asset("assets/icon/ic_pick_up.svg") : SvgPicture.asset("assets/icon/ic_drop_in.svg");
+                        return index == 0
+                            ? SvgPicture.asset("assets/icon/ic_pick_up.svg")
+                            : SvgPicture.asset("assets/icon/ic_drop_in.svg");
                       },
                       connectorBuilder: (context, index, connectorType) {
                         return DashedLineConnector(
@@ -76,7 +78,8 @@ class SearchInterCityRideWidget extends StatelessWidget {
                       contentsBuilder: (context, index) => Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: GooglePlaceAutoCompleteTextFieldOnlyCity(
-                          textEditingController: index == 0 ? controller.pickupLocationController : controller.dropLocationController,
+                          textEditingController:
+                              index == 0 ? controller.pickupLocationController : controller.dropLocationController,
                           googleAPIKey: Constant.mapAPIKey,
                           boxDecoration: BoxDecoration(
                             color: themeChange.isDarkTheme() ? AppThemData.grey800 : AppThemData.white,
@@ -122,13 +125,15 @@ class SearchInterCityRideWidget extends StatelessWidget {
                           focusNode: index == 0 ? controller.pickUpFocusNode : controller.dropFocusNode,
                           getPlaceDetailWithLatLng: (Prediction prediction) {
                             if (index == 0) {
-                              controller.sourceLocation = LatLng(double.parse(prediction.lat ?? '0.00'), double.parse(prediction.lng ?? '0.00'));
+                              controller.sourceLocation = LatLng(
+                                  double.parse(prediction.lat ?? '0.00'), double.parse(prediction.lng ?? '0.00'));
                               controller.intercityPickUpAddress.value = prediction.description!;
                               log("Pickup Location :: ${controller.sourceLocation}");
                               // controller.updateData();
                             } else {
                               // controller.isFetchingDropLatLng.value = true;
-                              controller.destination = LatLng(double.parse(prediction.lat ?? '0.00'), double.parse(prediction.lng ?? '0.00'));
+                              controller.destination = LatLng(
+                                  double.parse(prediction.lat ?? '0.00'), double.parse(prediction.lng ?? '0.00'));
                               controller.intercityDropAddress.value = prediction.description!;
                               log("Drop Location :: ${controller.destination}");
                               // controller.isFetchingDropLatLng.value = false;
@@ -220,7 +225,9 @@ class SearchInterCityRideWidget extends StatelessWidget {
                             children: [
                               Obx(
                                 () => Text(
-                                  controller.selectedDate.value == null ? "Select Date" : controller.selectedDate.value!.dateMonthYear(),
+                                  controller.selectedDate.value == null
+                                      ? "Select Date"
+                                      : controller.selectedDate.value!.dateMonthYear(),
                                   style: GoogleFonts.inter(
                                     color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.grey950,
                                     fontSize: 16,
@@ -420,7 +427,9 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                 margin: const EdgeInsets.only(top: 12, left: 0, right: 0),
                                 decoration: ShapeDecoration(
                                   shape: RoundedRectangleBorder(
-                                    side: BorderSide(width: 1, color: themeChange.isDarkTheme() ? AppThemData.grey800 : AppThemData.grey100),
+                                    side: BorderSide(
+                                        width: 1,
+                                        color: themeChange.isDarkTheme() ? AppThemData.grey800 : AppThemData.grey100),
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                 ),
@@ -435,9 +444,12 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
                                         Text(
-                                          bookingModel.bookingTime == null ? "" : bookingModel.bookingTime!.toDate().dateMonthYear(),
+                                          bookingModel.bookingTime == null
+                                              ? ""
+                                              : bookingModel.bookingTime!.toDate().dateMonthYear(),
                                           style: GoogleFonts.inter(
-                                            color: themeChange.isDarkTheme() ? AppThemData.grey400 : AppThemData.grey500,
+                                            color:
+                                                themeChange.isDarkTheme() ? AppThemData.grey400 : AppThemData.grey500,
                                             fontSize: 14,
                                             fontWeight: FontWeight.w400,
                                           ),
@@ -450,7 +462,9 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                               side: BorderSide(
                                                 width: 1,
                                                 strokeAlign: BorderSide.strokeAlignCenter,
-                                                color: themeChange.isDarkTheme() ? AppThemData.grey800 : AppThemData.grey100,
+                                                color: themeChange.isDarkTheme()
+                                                    ? AppThemData.grey800
+                                                    : AppThemData.grey100,
                                               ),
                                             ),
                                           ),
@@ -458,9 +472,12 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                         const SizedBox(width: 8),
                                         Expanded(
                                           child: Text(
-                                            bookingModel.bookingTime == null ? "" : bookingModel.bookingTime!.toDate().time(),
+                                            bookingModel.bookingTime == null
+                                                ? ""
+                                                : bookingModel.bookingTime!.toDate().time(),
                                             style: GoogleFonts.inter(
-                                              color: themeChange.isDarkTheme() ? AppThemData.grey400 : AppThemData.grey500,
+                                              color:
+                                                  themeChange.isDarkTheme() ? AppThemData.grey400 : AppThemData.grey500,
                                               fontSize: 14,
                                               fontWeight: FontWeight.w400,
                                             ),
@@ -479,7 +496,8 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                           },
                                           child: Icon(
                                             Icons.keyboard_arrow_right_sharp,
-                                            color: themeChange.isDarkTheme() ? AppThemData.grey400 : AppThemData.grey500,
+                                            color:
+                                                themeChange.isDarkTheme() ? AppThemData.grey400 : AppThemData.grey500,
                                           ),
                                         )
                                       ],
@@ -541,20 +559,24 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                 margin: const EdgeInsets.only(right: 10),
                                                 clipBehavior: Clip.antiAlias,
                                                 decoration: ShapeDecoration(
-                                                  color: themeChange.isDarkTheme() ? AppThemData.grey950 : AppThemData.white,
+                                                  color: themeChange.isDarkTheme()
+                                                      ? AppThemData.grey950
+                                                      : AppThemData.white,
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius: BorderRadius.circular(200),
                                                   ),
                                                 ),
                                                 child: CachedNetworkImage(
-                                                  imageUrl: (customerModel.profilePic != null && customerModel.profilePic!.isNotEmpty)
+                                                  imageUrl: (customerModel.profilePic != null &&
+                                                          customerModel.profilePic!.isNotEmpty)
                                                       ? customerModel.profilePic!
                                                       : Constant.profileConstant,
                                                   fit: BoxFit.cover,
                                                   placeholder: (context, url) => Center(
                                                     child: CustomLoader(),
                                                   ),
-                                                  errorWidget: (context, url, error) => Image.asset(Constant.userPlaceHolder),
+                                                  errorWidget: (context, url, error) =>
+                                                      Image.asset(Constant.userPlaceHolder),
                                                 ),
                                               );
                                             },
@@ -570,7 +592,9 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                 Text(
                                                   'ID: ${bookingModel.id!.substring(0, 5)}',
                                                   style: GoogleFonts.inter(
-                                                    color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                    color: themeChange.isDarkTheme()
+                                                        ? AppThemData.grey25
+                                                        : AppThemData.grey950,
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -579,7 +603,9 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                 Text(
                                                   'Ride Start Date: ${Constant.formatDate(Constant.parseDate(bookingModel.startDate))}',
                                                   style: GoogleFonts.inter(
-                                                    color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                    color: themeChange.isDarkTheme()
+                                                        ? AppThemData.grey25
+                                                        : AppThemData.grey950,
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.w400,
                                                   ),
@@ -602,11 +628,15 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                             crossAxisAlignment: CrossAxisAlignment.end,
                                             children: [
                                               Text(
-                                                Constant.amountToShow(amount: Constant.calculateInterCityFinalAmount(bookingModel).toString()),
+                                                Constant.amountToShow(
+                                                    amount: Constant.calculateInterCityFinalAmount(bookingModel)
+                                                        .toString()),
                                                 // amount: Constant.calculateInterCityFinalAmount(bookingModel).toStringAsFixed(2)),
                                                 textAlign: TextAlign.right,
                                                 style: GoogleFonts.inter(
-                                                  color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,
+                                                  color: themeChange.isDarkTheme()
+                                                      ? AppThemData.grey25
+                                                      : AppThemData.grey950,
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -663,50 +693,73 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                                       return CustomDialogBox(
                                                                           themeChange: themeChange,
                                                                           title: "Cancel Ride".tr,
-                                                                          negativeButtonColor:
-                                                                              themeChange.isDarkTheme() ? AppThemData.grey950 : AppThemData.grey50,
+                                                                          negativeButtonColor: themeChange.isDarkTheme()
+                                                                              ? AppThemData.grey950
+                                                                              : AppThemData.grey50,
                                                                           negativeButtonTextColor:
-                                                                              themeChange.isDarkTheme() ? AppThemData.grey50 : AppThemData.grey950,
+                                                                              themeChange.isDarkTheme()
+                                                                                  ? AppThemData.grey50
+                                                                                  : AppThemData.grey950,
                                                                           positiveButtonColor: AppThemData.danger500,
                                                                           positiveButtonTextColor: AppThemData.grey25,
-                                                                          descriptions: "Are you sure you want cancel this ride?".tr,
+                                                                          descriptions:
+                                                                              "Are you sure you want cancel this ride?"
+                                                                                  .tr,
                                                                           positiveString: "Cancel Ride".tr,
                                                                           negativeString: "Cancel".tr,
                                                                           positiveClick: () async {
                                                                             Navigator.pop(context);
-                                                                            List rejectedId = bookingModel.rejectedDriverId ?? [];
-                                                                            rejectedId.add(FireStoreUtils.getCurrentUid());
-                                                                            bookingModel.bookingStatus = BookingStatus.bookingRejected;
+                                                                            List rejectedId =
+                                                                                bookingModel.rejectedDriverId ?? [];
+                                                                            rejectedId
+                                                                                .add(FireStoreUtils.getCurrentUid());
+                                                                            bookingModel.bookingStatus =
+                                                                                BookingStatus.bookingRejected;
                                                                             bookingModel.rejectedDriverId = rejectedId;
                                                                             bookingModel.updateAt = Timestamp.now();
-                                                                            FireStoreUtils.setInterCityBooking(bookingModel).then((value) async {
+                                                                            FireStoreUtils.setInterCityBooking(
+                                                                                    bookingModel)
+                                                                                .then((value) async {
                                                                               if (value == true) {
-                                                                                ShowToastDialog.showToast("Ride cancelled successfully!");
-                                                                                controller.searchIntercityList.removeAt(index);
+                                                                                ShowToastDialog.showToast(
+                                                                                    "Ride cancelled successfully!");
+                                                                                controller.searchIntercityList
+                                                                                    .removeAt(index);
                                                                                 // DriverUserModel? driverModel =
                                                                                 //     await FireStoreUtils.getDriverUserProfile(bookingModel!.driverId.toString());
-                                                                                UserModel? receiverUserModel = await FireStoreUtils.getUserProfile(
-                                                                                    bookingModel.customerId.toString());
-                                                                                Map<String, dynamic> playLoad = <String, dynamic>{
+                                                                                UserModel? receiverUserModel =
+                                                                                    await FireStoreUtils.getUserProfile(
+                                                                                        bookingModel.customerId
+                                                                                            .toString());
+                                                                                Map<String, dynamic> playLoad =
+                                                                                    <String, dynamic>{
                                                                                   "bookingId": bookingModel.id
                                                                                 };
 
-                                                                                await SendNotification.sendOneNotification(
-                                                                                    type: "order",
-                                                                                    token: receiverUserModel!.fcmToken.toString(),
-                                                                                    title: 'Your Ride is Rejected',
-                                                                                    customerId: receiverUserModel.id,
-                                                                                    senderId: FireStoreUtils.getCurrentUid(),
-                                                                                    bookingId: bookingModel.id.toString(),
-                                                                                    driverId: bookingModel.driverId.toString(),
-                                                                                    body:
-                                                                                        'Your ride #${bookingModel.id.toString().substring(0, 5)} has been Rejected by Driver.',
-                                                                                    // body: 'Your ride has been rejected by ${driverModel!.fullName}.',
-                                                                                    payload: playLoad);
+                                                                                await SendNotification
+                                                                                    .sendOneNotification(
+                                                                                        type: "order",
+                                                                                        token: receiverUserModel!
+                                                                                            .fcmToken
+                                                                                            .toString(),
+                                                                                        title: 'Your Ride is Rejected',
+                                                                                        customerId:
+                                                                                            receiverUserModel.id,
+                                                                                        senderId: FireStoreUtils
+                                                                                            .getCurrentUid(),
+                                                                                        bookingId:
+                                                                                            bookingModel.id.toString(),
+                                                                                        driverId: bookingModel.driverId
+                                                                                            .toString(),
+                                                                                        body:
+                                                                                            'Your ride #${bookingModel.id.toString().substring(0, 5)} has been Rejected by Driver.',
+                                                                                        // body: 'Your ride has been rejected by ${driverModel!.fullName}.',
+                                                                                        payload: playLoad);
 
                                                                                 Navigator.pop(context);
                                                                               } else {
-                                                                                ShowToastDialog.showToast("Something went wrong!");
+                                                                                ShowToastDialog.showToast(
+                                                                                    "Something went wrong!");
                                                                                 Navigator.pop(context);
                                                                               }
                                                                             });
@@ -731,8 +784,10 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                               buttonColor: AppThemData.primary500,
                                                               buttonTextColor: AppThemData.black,
                                                               onTap: () {
-                                                                if (double.parse(Constant.userModel!.walletAmount.toString()) >=
-                                                                    double.parse(Constant.minimumAmountToAcceptRide.toString())) {
+                                                                if (double.parse(
+                                                                        Constant.userModel!.walletAmount.toString()) >=
+                                                                    double.parse(Constant.minimumAmountToAcceptRide
+                                                                        .toString())) {
                                                                   showDialog(
                                                                     context: context,
                                                                     builder: (context) {
@@ -748,15 +803,21 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                                           ),
                                                                           positiveClick: () async {
                                                                             if (Constant.isSubscriptionEnable == true) {
-                                                                              if (Constant.userModel!.subscriptionPlanId != null &&
-                                                                                  Constant.userModel!.subscriptionPlanId!.isNotEmpty) {
-                                                                                if (Constant.userModel!.subscriptionTotalBookings == '0') {
+                                                                              if (Constant.userModel!
+                                                                                          .subscriptionPlanId !=
+                                                                                      null &&
+                                                                                  Constant.userModel!
+                                                                                      .subscriptionPlanId!.isNotEmpty) {
+                                                                                if (Constant.userModel!
+                                                                                        .subscriptionTotalBookings ==
+                                                                                    '0') {
                                                                                   Navigator.pop(context);
                                                                                   showDialog(
                                                                                       context: context,
                                                                                       builder: (context) {
                                                                                         return SubscriptionAlertDialog(
-                                                                                          title: "You can't accept more Rides.Upgrade your Plan.",
+                                                                                          title:
+                                                                                              "You can't accept more Rides.Upgrade your Plan.",
                                                                                           cancelText: "Cancel",
                                                                                           confirmText: "Upgrade",
                                                                                           themeChange: themeChange,
@@ -766,8 +827,11 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                                                   return;
                                                                                 }
                                                                               }
-                                                                              if (Constant.userModel!.subscriptionExpiryDate != null &&
-                                                                                  Constant.userModel!.subscriptionExpiryDate!
+                                                                              if (Constant.userModel!
+                                                                                          .subscriptionExpiryDate !=
+                                                                                      null &&
+                                                                                  Constant.userModel!
+                                                                                      .subscriptionExpiryDate!
                                                                                       .toDate()
                                                                                       .isBefore(DateTime.now())) {
                                                                                 Navigator.pop(context);
@@ -787,48 +851,74 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                                               }
                                                                             }
 
-                                                                            bookingModel.driverId = FireStoreUtils.getCurrentUid();
-                                                                            bookingModel.bookingStatus = BookingStatus.bookingAccepted;
+                                                                            bookingModel.driverId =
+                                                                                FireStoreUtils.getCurrentUid();
+                                                                            bookingModel.bookingStatus =
+                                                                                BookingStatus.bookingAccepted;
                                                                             bookingModel.updateAt = Timestamp.now();
 
                                                                             if (Constant.isSubscriptionEnable == true &&
-                                                                                Constant.userModel!.subscriptionPlanId != null &&
-                                                                                Constant.userModel!.subscriptionPlanId!.isNotEmpty &&
-                                                                                Constant.userModel!.subscriptionTotalBookings != '0' &&
-                                                                                Constant.userModel!.subscriptionTotalBookings != '-1' &&
-                                                                                Constant.userModel!.subscriptionTotalBookings != null) {
-                                                                              int remainingBookings =
-                                                                                  int.parse(Constant.userModel!.subscriptionTotalBookings!) - 1;
-                                                                              Constant.userModel!.subscriptionTotalBookings =
+                                                                                Constant.userModel!
+                                                                                        .subscriptionPlanId !=
+                                                                                    null &&
+                                                                                Constant.userModel!.subscriptionPlanId!
+                                                                                    .isNotEmpty &&
+                                                                                Constant.userModel!.subscriptionTotalBookings !=
+                                                                                    '0' &&
+                                                                                Constant.userModel!
+                                                                                        .subscriptionTotalBookings !=
+                                                                                    '-1' &&
+                                                                                Constant.userModel!
+                                                                                        .subscriptionTotalBookings !=
+                                                                                    null) {
+                                                                              int remainingBookings = int.parse(Constant
+                                                                                      .userModel!
+                                                                                      .subscriptionTotalBookings!) -
+                                                                                  1;
+                                                                              Constant.userModel!
+                                                                                      .subscriptionTotalBookings =
                                                                                   remainingBookings.toString();
-                                                                              await FireStoreUtils.updateDriverUser(Constant.userModel!);
+                                                                              await FireStoreUtils.updateDriverUser(
+                                                                                  Constant.userModel!);
                                                                             }
 
-                                                                            FireStoreUtils.setInterCityBooking(bookingModel).then((value) async {
+                                                                            FireStoreUtils.setInterCityBooking(
+                                                                                    bookingModel)
+                                                                                .then((value) async {
                                                                               if (value == true) {
-                                                                                ShowToastDialog.showToast("Ride accepted successfully!".tr);
-                                                                                controller.searchIntercityList.removeAt(index);
+                                                                                ShowToastDialog.showToast(
+                                                                                    "Ride accepted successfully!".tr);
+                                                                                controller.searchIntercityList
+                                                                                    .removeAt(index);
 
-                                                                                UserModel? receiverUserModel = await FireStoreUtils.getUserProfile(
-                                                                                    bookingModel.customerId.toString());
-                                                                                Map<String, dynamic> playLoad = <String, dynamic>{
+                                                                                UserModel? receiverUserModel =
+                                                                                    await FireStoreUtils.getUserProfile(
+                                                                                        bookingModel.customerId
+                                                                                            .toString());
+                                                                                Map<String, dynamic> playLoad =
+                                                                                    <String, dynamic>{
                                                                                   "bookingId": bookingModel.id
                                                                                 };
 
                                                                                 await SendNotification.sendOneNotification(
                                                                                     type: "order",
-                                                                                    token: receiverUserModel!.fcmToken.toString(),
+                                                                                    token: receiverUserModel!.fcmToken
+                                                                                        .toString(),
                                                                                     title: 'Your Ride is Accepted',
                                                                                     customerId: receiverUserModel.id,
-                                                                                    senderId: FireStoreUtils.getCurrentUid(),
-                                                                                    bookingId: bookingModel.id.toString(),
-                                                                                    driverId: bookingModel.driverId.toString(),
+                                                                                    senderId:
+                                                                                        FireStoreUtils.getCurrentUid(),
+                                                                                    bookingId:
+                                                                                        bookingModel.id.toString(),
+                                                                                    driverId: bookingModel.driverId
+                                                                                        .toString(),
                                                                                     body:
                                                                                         'Your ride #${bookingModel.id.toString().substring(0, 5)} has been confirmed.',
                                                                                     payload: playLoad);
                                                                                 Navigator.pop(context);
                                                                               } else {
-                                                                                ShowToastDialog.showToast("Something went wrong!".tr);
+                                                                                ShowToastDialog.showToast(
+                                                                                    "Something went wrong!".tr);
                                                                                 Navigator.pop(context);
                                                                               }
                                                                             });
@@ -844,7 +934,11 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                                   );
                                                                 } else {
                                                                   ShowToastDialog.showToast(
-                                                                      'insufficient_wallet_balance'.tr.replaceAll('@amount', Constant.amountShow(amount: Constant.minimumAmountToAcceptRide)));
+                                                                      'insufficient_wallet_balance'.tr.replaceAll(
+                                                                          '@amount',
+                                                                          Constant.amountShow(
+                                                                              amount:
+                                                                                  Constant.minimumAmountToAcceptRide)));
                                                                 }
                                                               },
                                                               size: Size(Responsive.width(40, context), 42),
@@ -887,50 +981,73 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                                       return CustomDialogBox(
                                                                           themeChange: themeChange,
                                                                           title: "Cancel Ride".tr,
-                                                                          negativeButtonColor:
-                                                                              themeChange.isDarkTheme() ? AppThemData.grey950 : AppThemData.grey50,
+                                                                          negativeButtonColor: themeChange.isDarkTheme()
+                                                                              ? AppThemData.grey950
+                                                                              : AppThemData.grey50,
                                                                           negativeButtonTextColor:
-                                                                              themeChange.isDarkTheme() ? AppThemData.grey50 : AppThemData.grey950,
+                                                                              themeChange.isDarkTheme()
+                                                                                  ? AppThemData.grey50
+                                                                                  : AppThemData.grey950,
                                                                           positiveButtonColor: AppThemData.danger500,
                                                                           positiveButtonTextColor: AppThemData.grey25,
-                                                                          descriptions: "Are you sure you want cancel this ride?".tr,
+                                                                          descriptions:
+                                                                              "Are you sure you want cancel this ride?"
+                                                                                  .tr,
                                                                           positiveString: "Cancel Ride".tr,
                                                                           negativeString: "Cancel".tr,
                                                                           positiveClick: () async {
                                                                             Navigator.pop(context);
-                                                                            List rejectedId = bookingModel.rejectedDriverId ?? [];
-                                                                            rejectedId.add(FireStoreUtils.getCurrentUid());
-                                                                            bookingModel.bookingStatus = BookingStatus.bookingRejected;
+                                                                            List rejectedId =
+                                                                                bookingModel.rejectedDriverId ?? [];
+                                                                            rejectedId
+                                                                                .add(FireStoreUtils.getCurrentUid());
+                                                                            bookingModel.bookingStatus =
+                                                                                BookingStatus.bookingRejected;
                                                                             bookingModel.rejectedDriverId = rejectedId;
                                                                             bookingModel.updateAt = Timestamp.now();
-                                                                            FireStoreUtils.setInterCityBooking(bookingModel).then((value) async {
+                                                                            FireStoreUtils.setInterCityBooking(
+                                                                                    bookingModel)
+                                                                                .then((value) async {
                                                                               if (value == true) {
-                                                                                ShowToastDialog.showToast("Ride cancelled successfully!");
-                                                                                controller.searchIntercityList.removeAt(index);
+                                                                                ShowToastDialog.showToast(
+                                                                                    "Ride cancelled successfully!");
+                                                                                controller.searchIntercityList
+                                                                                    .removeAt(index);
                                                                                 // DriverUserModel? driverModel =
                                                                                 //     await FireStoreUtils.getDriverUserProfile(bookingModel!.driverId.toString());
-                                                                                UserModel? receiverUserModel = await FireStoreUtils.getUserProfile(
-                                                                                    bookingModel.customerId.toString());
-                                                                                Map<String, dynamic> playLoad = <String, dynamic>{
+                                                                                UserModel? receiverUserModel =
+                                                                                    await FireStoreUtils.getUserProfile(
+                                                                                        bookingModel.customerId
+                                                                                            .toString());
+                                                                                Map<String, dynamic> playLoad =
+                                                                                    <String, dynamic>{
                                                                                   "bookingId": bookingModel.id
                                                                                 };
 
-                                                                                await SendNotification.sendOneNotification(
-                                                                                    type: "order",
-                                                                                    token: receiverUserModel!.fcmToken.toString(),
-                                                                                    title: 'Your Ride is Rejected',
-                                                                                    customerId: receiverUserModel.id,
-                                                                                    senderId: FireStoreUtils.getCurrentUid(),
-                                                                                    bookingId: bookingModel.id.toString(),
-                                                                                    driverId: bookingModel.driverId.toString(),
-                                                                                    body:
-                                                                                        'Your ride #${bookingModel.id.toString().substring(0, 5)} has been Rejected by Driver.',
-                                                                                    // body: 'Your ride has been rejected by ${driverModel!.fullName}.',
-                                                                                    payload: playLoad);
+                                                                                await SendNotification
+                                                                                    .sendOneNotification(
+                                                                                        type: "order",
+                                                                                        token: receiverUserModel!
+                                                                                            .fcmToken
+                                                                                            .toString(),
+                                                                                        title: 'Your Ride is Rejected',
+                                                                                        customerId:
+                                                                                            receiverUserModel.id,
+                                                                                        senderId: FireStoreUtils
+                                                                                            .getCurrentUid(),
+                                                                                        bookingId:
+                                                                                            bookingModel.id.toString(),
+                                                                                        driverId: bookingModel.driverId
+                                                                                            .toString(),
+                                                                                        body:
+                                                                                            'Your ride #${bookingModel.id.toString().substring(0, 5)} has been Rejected by Driver.',
+                                                                                        // body: 'Your ride has been rejected by ${driverModel!.fullName}.',
+                                                                                        payload: playLoad);
 
                                                                                 Navigator.pop(context);
                                                                               } else {
-                                                                                ShowToastDialog.showToast("Something went wrong!");
+                                                                                ShowToastDialog.showToast(
+                                                                                    "Something went wrong!");
                                                                                 Navigator.pop(context);
                                                                               }
                                                                             });
@@ -955,8 +1072,10 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                               buttonColor: AppThemData.primary500,
                                                               buttonTextColor: AppThemData.black,
                                                               onTap: () {
-                                                                if (double.parse(Constant.userModel!.walletAmount.toString()) >=
-                                                                    double.parse(Constant.minimumAmountToAcceptRide.toString())) {
+                                                                if (double.parse(
+                                                                        Constant.userModel!.walletAmount.toString()) >=
+                                                                    double.parse(Constant.minimumAmountToAcceptRide
+                                                                        .toString())) {
                                                                   showDialog(
                                                                     context: context,
                                                                     builder: (context) {
@@ -971,32 +1090,46 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                                             width: 58,
                                                                           ),
                                                                           positiveClick: () {
-                                                                            bookingModel.driverId = FireStoreUtils.getCurrentUid();
-                                                                            bookingModel.bookingStatus = BookingStatus.bookingAccepted;
+                                                                            bookingModel.driverId =
+                                                                                FireStoreUtils.getCurrentUid();
+                                                                            bookingModel.bookingStatus =
+                                                                                BookingStatus.bookingAccepted;
                                                                             bookingModel.updateAt = Timestamp.now();
-                                                                            FireStoreUtils.setInterCityBooking(bookingModel).then((value) async {
+                                                                            FireStoreUtils.setInterCityBooking(
+                                                                                    bookingModel)
+                                                                                .then((value) async {
                                                                               if (value == true) {
-                                                                                ShowToastDialog.showToast("Ride accepted successfully!");
-                                                                                controller.searchIntercityList.removeAt(index);
-                                                                                UserModel? receiverUserModel = await FireStoreUtils.getUserProfile(
-                                                                                    bookingModel.customerId.toString());
-                                                                                Map<String, dynamic> playLoad = <String, dynamic>{
+                                                                                ShowToastDialog.showToast(
+                                                                                    "Ride accepted successfully!");
+                                                                                controller.searchIntercityList
+                                                                                    .removeAt(index);
+                                                                                UserModel? receiverUserModel =
+                                                                                    await FireStoreUtils.getUserProfile(
+                                                                                        bookingModel.customerId
+                                                                                            .toString());
+                                                                                Map<String, dynamic> playLoad =
+                                                                                    <String, dynamic>{
                                                                                   "bookingId": bookingModel.id
                                                                                 };
                                                                                 await SendNotification.sendOneNotification(
                                                                                     type: "order",
-                                                                                    token: receiverUserModel!.fcmToken.toString(),
+                                                                                    token: receiverUserModel!.fcmToken
+                                                                                        .toString(),
                                                                                     title: 'Your Ride is Accepted',
                                                                                     customerId: receiverUserModel.id,
-                                                                                    senderId: FireStoreUtils.getCurrentUid(),
-                                                                                    bookingId: bookingModel.id.toString(),
-                                                                                    driverId: bookingModel.driverId.toString(),
+                                                                                    senderId:
+                                                                                        FireStoreUtils.getCurrentUid(),
+                                                                                    bookingId:
+                                                                                        bookingModel.id.toString(),
+                                                                                    driverId: bookingModel.driverId
+                                                                                        .toString(),
                                                                                     body:
                                                                                         'Your ride #${bookingModel.id.toString().substring(0, 5)} has been confirmed.',
                                                                                     payload: playLoad);
                                                                                 Navigator.pop(context);
                                                                               } else {
-                                                                                ShowToastDialog.showToast("Something went wrong!".tr);
+                                                                                ShowToastDialog.showToast(
+                                                                                    "Something went wrong!".tr);
                                                                                 Navigator.pop(context);
                                                                               }
                                                                             });
@@ -1012,7 +1145,11 @@ class SearchInterCityRideWidget extends StatelessWidget {
                                                                   );
                                                                 } else {
                                                                   ShowToastDialog.showToast(
-                                                                      'insufficient_wallet_balance'.tr.replaceAll('@amount', Constant.amountShow(amount: Constant.minimumAmountToAcceptRide)));
+                                                                      'insufficient_wallet_balance'.tr.replaceAll(
+                                                                          '@amount',
+                                                                          Constant.amountShow(
+                                                                              amount:
+                                                                                  Constant.minimumAmountToAcceptRide)));
                                                                 }
                                                               },
                                                               size: Size(Responsive.width(40, context), 42),

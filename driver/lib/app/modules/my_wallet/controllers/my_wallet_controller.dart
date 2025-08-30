@@ -25,7 +25,6 @@ import 'package:driver/payments/paypal/PaypalPayment.dart';
 import 'package:driver/theme/app_them_data.dart';
 import 'package:driver/utils/fire_store_utils.dart';
 import 'package:flutter/material.dart';
-
 // import 'package:flutter_paypal_native/flutter_paypal_native.dart';
 // import 'package:flutter_paypal_native/models/custom/currency_code.dart';
 // import 'package:flutter_paypal_native/models/custom/environment.dart';
@@ -34,7 +33,6 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_paypal_native/models/custom/user_action.dart';
 // import 'package:flutter_paypal_native/str_helper.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-
 // import 'package:flutterwave_standard/flutterwave.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -84,7 +82,7 @@ class MyWalletController extends GetxController {
         paymentModel.value = value;
         if (paymentModel.value.strip!.isActive == true) {
           Stripe.publishableKey = paymentModel.value.strip!.clientPublishableKey.toString();
-          Stripe.merchantIdentifier = 'MyTaxi';
+          Stripe.merchantIdentifier = 'Tô aki Mobilidade';
           Stripe.instance.applySettings();
         }
         if (paymentModel.value.paypal!.isActive == true) {
@@ -195,7 +193,7 @@ class MyWalletController extends GetxController {
                       primary: AppThemData.primary500,
                     ),
                   ),
-                  merchantDisplayName: 'MyTaxi'));
+                  merchantDisplayName: 'Tô aki Mobilidade'));
           displayStripePaymentSheet(amount: amount, client_secret: paymentIntentData['client_secret']);
         }
       } catch (e, s) {
@@ -246,8 +244,9 @@ class MyWalletController extends GetxController {
       };
       log(paymentModel.value.strip!.stripeSecret.toString());
       var stripeSecret = paymentModel.value.strip!.stripeSecret;
-      var response =
-          await http.post(Uri.parse('https://api.stripe.com/v1/payment_intents'), body: body, headers: {'Authorization': 'Bearer $stripeSecret', 'Content-Type': 'application/x-www-form-urlencoded'});
+      var response = await http.post(Uri.parse('https://api.stripe.com/v1/payment_intents'),
+          body: body,
+          headers: {'Authorization': 'Bearer $stripeSecret', 'Content-Type': 'application/x-www-form-urlencoded'});
 
       return jsonDecode(response.body);
     } catch (e) {
@@ -364,7 +363,10 @@ class MyWalletController extends GetxController {
     ShowToastDialog.showToast("Payment Successfully");
     log('=================> RazorPay  payFastPayment ========> ${response.paymentId}');
     completeOrder(response.paymentId ?? DateTime.now().millisecondsSinceEpoch.toString());
-    setTransactionLog(isCredit: true, transactionId: response.paymentId.toString(), transactionLog: {response.paymentId, response.paymentId, response.data, response.orderId, response.signature});
+    setTransactionLog(
+        isCredit: true,
+        transactionId: response.paymentId.toString(),
+        transactionLog: {response.paymentId, response.paymentId, response.data, response.orderId, response.signature});
     log('================> Payment Success: $response');
     log('================> Payment Success: ${response.data}');
     log('================> Payment Success: ${response.paymentId}');
@@ -480,7 +482,10 @@ class MyWalletController extends GetxController {
 
   Future<void> payStackPayment(String totalAmount) async {
     await PayStackURLGen.payStackURLGen(
-            amount: (double.parse(totalAmount) * 100).toString(), currency: "NGN", secretKey: paymentModel.value.payStack!.payStackSecret.toString(), userModel: userModel.value)
+            amount: (double.parse(totalAmount) * 100).toString(),
+            currency: "NGN",
+            secretKey: paymentModel.value.payStack!.payStackSecret.toString(),
+            userModel: userModel.value)
         .then((value) async {
       if (value != null) {
         PayStackUrlModel payStackModel = value;
@@ -548,7 +553,11 @@ class MyWalletController extends GetxController {
         {"title": "Wallet TopUp", "quantity": 1, "unit_price": double.parse(amount)}
       ],
       "auto_return": "all",
-      "back_urls": {"failure": "${Constant.paymentCallbackURL}/failure", "pending": "${Constant.paymentCallbackURL}/pending", "success": "${Constant.paymentCallbackURL}/success"},
+      "back_urls": {
+        "failure": "${Constant.paymentCallbackURL}/failure",
+        "pending": "${Constant.paymentCallbackURL}/pending",
+        "success": "${Constant.paymentCallbackURL}/success"
+      },
     };
 
     var result = await mp.createPreference(pref);
@@ -558,7 +567,9 @@ class MyWalletController extends GetxController {
   // ::::::::::::::::::::::::::::::::::::::::::::Pay Fast::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   void payFastPayment({required BuildContext context, required String amount}) {
-    PayStackURLGen.getPayHTML(payFastSettingData: paymentModel.value.payFast!, amount: amount.toString(), userModel: userModel.value).then((String? value) async {
+    PayStackURLGen.getPayHTML(
+            payFastSettingData: paymentModel.value.payFast!, amount: amount.toString(), userModel: userModel.value)
+        .then((String? value) async {
       bool isDone = await Get.to(PayFastScreen(htmlData: value!, payFastSettingData: paymentModel.value.payFast!));
       if (isDone) {
         Get.back();

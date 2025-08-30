@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:driver/theme/app_them_data.dart';
 import 'package:driver/theme/responsive.dart';
 import 'package:driver/utils/dark_theme_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NoRidesView extends StatelessWidget {
@@ -37,7 +37,7 @@ class NoRidesView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 4, bottom: 24),
             child: Text(
-              'Your ride history is currently empty. Start your journey with MyTaxi by riding your first ride now!',
+              'Your ride history is currently empty. Start your journey with Tô aki Mobilidade by riding your first ride now!',
               textAlign: TextAlign.center,
               style: GoogleFonts.inter(
                 color: themeChange.isDarkTheme() ? AppThemData.grey25 : AppThemData.grey950,

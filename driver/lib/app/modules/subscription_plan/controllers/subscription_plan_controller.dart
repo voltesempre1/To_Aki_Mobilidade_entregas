@@ -5,6 +5,8 @@ import 'dart:developer';
 import 'dart:io';
 import 'dart:math' as maths;
 
+// ignore_for_file: depend_on_referenced_packages
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:driver/app/models/driver_user_model.dart';
 import 'package:driver/app/models/payment_method_model.dart';
 import 'package:driver/app/models/payment_model/stripe_failed_model.dart';
@@ -23,13 +25,11 @@ import 'package:driver/utils/fire_store_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
-
-// ignore_for_file: depend_on_referenced_packages
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:http/http.dart' as http;
 import 'package:mp_integration/mp_integration.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart' as RazorpayFlutter;
 import 'package:razorpay_flutter/razorpay_flutter.dart';
-import 'package:http/http.dart' as http;
+
 import '../../../../payments/pay_stack/paystack_url_generator.dart';
 import '../../../../theme/app_them_data.dart';
 
@@ -67,7 +67,7 @@ class SubscriptionPlanController extends GetxController {
         paymentModel.value = payment;
         if (paymentModel.value.strip!.isActive == true) {
           Stripe.publishableKey = paymentModel.value.strip!.clientPublishableKey.toString();
-          Stripe.merchantIdentifier = 'MyTaxi';
+          Stripe.merchantIdentifier = 'Tô aki Mobilidade';
           Stripe.instance.applySettings();
         }
       }
@@ -90,7 +90,9 @@ class SubscriptionPlanController extends GetxController {
     ShowToastDialog.showLoader("Please Wait");
 
     driverModel.value.subscriptionPlanId = selectedSubscription.value.id;
-    driverModel.value.subscriptionExpiryDate = selectedSubscription.value.expireDays == "-1" ? null : Constant().addDayInTimestamp(days: selectedSubscription.value.expireDays, date: Timestamp.now());
+    driverModel.value.subscriptionExpiryDate = selectedSubscription.value.expireDays == "-1"
+        ? null
+        : Constant().addDayInTimestamp(days: selectedSubscription.value.expireDays, date: Timestamp.now());
     driverModel.value.subscriptionPlan = selectedSubscription.value;
     driverModel.value.subscriptionTotalBookings = selectedSubscription.value.features!.bookings;
     await FireStoreUtils.updateDriverUser(driverModel.value);
@@ -100,7 +102,9 @@ class SubscriptionPlanController extends GetxController {
     subscriptionPlanHistory.driverId = driverModel.value.id;
     subscriptionPlanHistory.subscriptionPlan = selectedSubscription.value;
     subscriptionPlanHistory.createdAt = Timestamp.now();
-    subscriptionPlanHistory.expiryDate = selectedSubscription.value.expireDays == "-1" ? null : Constant().addDayInTimestamp(days: selectedSubscription.value.expireDays, date: Timestamp.now());
+    subscriptionPlanHistory.expiryDate = selectedSubscription.value.expireDays == "-1"
+        ? null
+        : Constant().addDayInTimestamp(days: selectedSubscription.value.expireDays, date: Timestamp.now());
     subscriptionPlanHistory.paymentType = selectedPaymentMethod.value;
     await FireStoreUtils.setSubscriptionHistory(subscriptionPlanHistory).then((value) {
       if (value == true) {
@@ -184,7 +188,7 @@ class SubscriptionPlanController extends GetxController {
                     primary: AppThemData.primary500,
                   ),
                 ),
-                merchantDisplayName: 'MyTaxi'));
+                merchantDisplayName: 'Tô aki Mobilidade'));
         displayStripePaymentSheet(amount: amount);
       }
     } catch (e, s) {
@@ -227,8 +231,9 @@ class SubscriptionPlanController extends GetxController {
       };
       log(paymentModel.value.strip!.stripeSecret.toString());
       var stripeSecret = paymentModel.value.strip!.stripeSecret;
-      var response =
-          await http.post(Uri.parse('https://api.stripe.com/v1/payment_intents'), body: body, headers: {'Authorization': 'Bearer $stripeSecret', 'Content-Type': 'application/x-www-form-urlencoded'});
+      var response = await http.post(Uri.parse('https://api.stripe.com/v1/payment_intents'),
+          body: body,
+          headers: {'Authorization': 'Bearer $stripeSecret', 'Content-Type': 'application/x-www-form-urlencoded'});
 
       return jsonDecode(response.body);
     } catch (e) {
@@ -303,7 +308,10 @@ class SubscriptionPlanController extends GetxController {
   // ************** PayStack
   Future<void> payStackPayment(String totalAmount) async {
     await PayStackURLGen.payStackURLGen(
-            amount: (double.parse(totalAmount) * 100).toString(), currency: "NGN", secretKey: paymentModel.value.payStack!.payStackSecret.toString(), userModel: driverModel.value)
+            amount: (double.parse(totalAmount) * 100).toString(),
+            currency: "NGN",
+            secretKey: paymentModel.value.payStack!.payStackSecret.toString(),
+            userModel: driverModel.value)
         .then((value) async {
       if (value != null) {
         PayStackUrlModel payStackModel = value;
@@ -370,7 +378,11 @@ class SubscriptionPlanController extends GetxController {
         {"title": "Wallet TopUp", "quantity": 1, "unit_price": double.parse(amount)}
       ],
       "auto_return": "all",
-      "back_urls": {"failure": "${Constant.paymentCallbackURL}/failure", "pending": "${Constant.paymentCallbackURL}/pending", "success": "${Constant.paymentCallbackURL}/success"},
+      "back_urls": {
+        "failure": "${Constant.paymentCallbackURL}/failure",
+        "pending": "${Constant.paymentCallbackURL}/pending",
+        "success": "${Constant.paymentCallbackURL}/success"
+      },
     };
 
     var result = await mp.createPreference(pref);
@@ -400,7 +412,9 @@ class SubscriptionPlanController extends GetxController {
 
   // ************** PayFast
   void payFastPayment({required BuildContext context, required String amount}) {
-    PayStackURLGen.getPayHTML(payFastSettingData: paymentModel.value.payFast!, amount: amount.toString(), userModel: driverModel.value).then((String? value) async {
+    PayStackURLGen.getPayHTML(
+            payFastSettingData: paymentModel.value.payFast!, amount: amount.toString(), userModel: driverModel.value)
+        .then((String? value) async {
       bool isDone = await Get.to(PayFastScreen(htmlData: value!, payFastSettingData: paymentModel.value.payFast!));
       if (isDone) {
         Get.back();
