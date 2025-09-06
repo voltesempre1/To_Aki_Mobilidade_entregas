@@ -57,14 +57,20 @@ class VerifyOtpView extends StatelessWidget {
                   children: [
                     Text(
                       "Verify Your Phone Number".tr,
-                      style: GoogleFonts.inter(fontSize: 24, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w700),
+                      style: GoogleFonts.inter(
+                          fontSize: 24,
+                          color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                          fontWeight: FontWeight.w700),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8, bottom: 33),
                       child: Text(
                         "Enter  6-digit code sent to your mobile number to complete verification.".tr,
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.inter(fontSize: 14, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                        style: GoogleFonts.inter(
+                            fontSize: 14,
+                            color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                            fontWeight: FontWeight.w400),
                       ),
                     ),
                     Pinput(
@@ -103,7 +109,8 @@ class VerifyOtpView extends StatelessWidget {
                       onCompleted: (pin) async {
                         if (pin.length == 6) {
                           ShowToastDialog.showLoader("verify_OTP".tr);
-                          PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: controller.verificationId.value, smsCode: pin);
+                          PhoneAuthCredential credential = PhoneAuthProvider.credential(
+                              verificationId: controller.verificationId.value, smsCode: pin);
                           await FirebaseAuth.instance.signInWithCredential(credential).then((value) async {
                             if (value.additionalUserInfo!.isNewUser) {
                               String fcmToken = await NotificationService.getToken();
@@ -122,13 +129,17 @@ class VerifyOtpView extends StatelessWidget {
                               await FireStoreUtils.userExistOrNot(value.user!.uid).then((userExit) async {
                                 ShowToastDialog.closeLoader();
                                 if (userExit == true) {
-                                  DriverUserModel? userModel = await FireStoreUtils.getDriverUserProfile(value.user!.uid);
+                                  DriverUserModel? userModel =
+                                      await FireStoreUtils.getDriverUserProfile(value.user!.uid);
                                   if (userModel != null) {
                                     if (userModel.isActive == true) {
                                       if (userModel.isVerified ?? false) {
                                         if (Constant.isSubscriptionEnable == true) {
-                                          if (Constant.userModel!.subscriptionPlanId != null && Constant.userModel!.subscriptionPlanId!.isNotEmpty) {
-                                            if (Constant.userModel!.subscriptionExpiryDate!.toDate().isAfter(DateTime.now())) {
+                                          if (Constant.userModel!.subscriptionPlanId != null &&
+                                              Constant.userModel!.subscriptionPlanId!.isNotEmpty) {
+                                            if (Constant.userModel!.subscriptionExpiryDate!
+                                                .toDate()
+                                                .isAfter(DateTime.now())) {
                                               bool permissionGiven = await Constant.isPermissionApplied();
                                               if (permissionGiven) {
                                                 Get.offAll(const HomeView());
@@ -183,14 +194,15 @@ class VerifyOtpView extends StatelessWidget {
                     ),
                     const SizedBox(height: 90),
                     RoundShapeButton(
-                        size: const Size(200, 45),
+                        size: Size(MediaQuery.of(context).size.width - 40, 45),
                         title: "verify_OTP".tr,
                         buttonColor: AppThemData.primary500,
-                        buttonTextColor: AppThemData.black,
+                        buttonTextColor: AppThemData.white,
                         onTap: () async {
                           if (controller.otpCode.value.length == 6) {
                             ShowToastDialog.showLoader("verify_OTP".tr);
-                            PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: controller.verificationId.value, smsCode: controller.otpCode.value);
+                            PhoneAuthCredential credential = PhoneAuthProvider.credential(
+                                verificationId: controller.verificationId.value, smsCode: controller.otpCode.value);
                             String fcmToken = await NotificationService.getToken();
                             await FirebaseAuth.instance.signInWithCredential(credential).then((value) async {
                               if (value.additionalUserInfo!.isNewUser) {
@@ -209,7 +221,8 @@ class VerifyOtpView extends StatelessWidget {
                                 await FireStoreUtils.userExistOrNot(value.user!.uid).then((userExit) async {
                                   ShowToastDialog.closeLoader();
                                   if (userExit == true) {
-                                    DriverUserModel? userModel = await FireStoreUtils.getDriverUserProfile(value.user!.uid);
+                                    DriverUserModel? userModel =
+                                        await FireStoreUtils.getDriverUserProfile(value.user!.uid);
                                     if (userModel != null) {
                                       if (userModel.isActive == true) {
                                         if (userModel.isVerified ?? false) {
@@ -259,11 +272,15 @@ class VerifyOtpView extends StatelessWidget {
                         children: [
                           TextSpan(
                             text: 'Did’t Receive a code ?'.tr,
-                            style: GoogleFonts.inter(fontSize: 14, color: AppThemData.grey400, fontWeight: FontWeight.w400),
+                            style: GoogleFonts.inter(
+                                fontSize: 14, color: AppThemData.grey400, fontWeight: FontWeight.w400),
                           ),
                           TextSpan(
                               text: ' ${'Resend Code'.tr}',
-                              style: GoogleFonts.inter(fontSize: 14, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.grey950, fontWeight: FontWeight.w600),
+                              style: GoogleFonts.inter(
+                                  fontSize: 14,
+                                  color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.grey950,
+                                  fontWeight: FontWeight.w600),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
                                   controller.sendOTP();

@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:driver/app/modules/edit_profile/views/edit_profile_view.dart';
+import 'package:driver/app/modules/change_password/views/change_password_view.dart';
 import 'package:driver/app/modules/home/controllers/home_controller.dart';
 import 'package:driver/app/modules/login/views/login_view.dart';
 import 'package:driver/app/modules/subscription_plan/views/subscription_plan_view.dart';
@@ -643,6 +644,28 @@ class DrawerView extends StatelessWidget {
                           Get.back();
                           controller.drawerIndex.value = 12;
                         },
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 50),
+                        child: Divider(),
+                      ),
+                      ListTile(
+                        onTap: () {
+                          Get.back();
+                          Get.to(() => const ChangePasswordView());
+                        },
+                        leading: Icon(
+                          Icons.lock_outline,
+                          color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                        ),
+                        trailing: const Icon(Icons.keyboard_arrow_right_rounded, size: 30),
+                        title: Text(
+                          'Change Password'.tr,
+                          style: GoogleFonts.inter(
+                              fontSize: 16,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
+                        ),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(left: 50),

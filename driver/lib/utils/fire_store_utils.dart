@@ -371,7 +371,9 @@ class FireStoreUtils {
         Constant.termsAndConditions = data["termsAndConditions"];
         Constant.privacyPolicy = data["privacyPolicy"];
         Constant.aboutApp = data["aboutApp"];
-        Constant.interCityRadius = double.parse(data["interCityRadius"]);
+        Constant.interCityRadius = data["interCityRadius"].toString().isNotEmpty && data["interCityRadius"] != null
+            ? double.parse(data["interCityRadius"] ?? "0")
+            : 0;
         Constant.isSubscriptionEnable = data["isSubscriptionEnable"] ?? false;
         Constant.isDocumentVerificationEnable = data["isDocumentVerificationEnable"] ?? true;
       }

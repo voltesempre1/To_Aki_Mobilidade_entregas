@@ -12,6 +12,9 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const VERIFY_OTP = _Paths.VERIFY_OTP;
   static const SIGNUP = _Paths.SIGNUP;
+  static const EMAIL_SIGNUP = _Paths.EMAIL_SIGNUP;
+  static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
+  static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
   static const UPLOAD_DOCUMENTS = _Paths.UPLOAD_DOCUMENTS;
   static const UPDATE_VEHICLE_DETAILS = _Paths.UPDATE_VEHICLE_DETAILS;
   static const VERIFY_DOCUMENTS = _Paths.VERIFY_DOCUMENTS;
@@ -51,6 +54,9 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const VERIFY_OTP = '/verify-otp';
   static const SIGNUP = '/signup';
+  static const EMAIL_SIGNUP = '/email-signup';
+  static const CHANGE_PASSWORD = '/change-password';
+  static const FORGOT_PASSWORD = '/forgot-password';
   static const UPLOAD_DOCUMENTS = '/upload-documents';
   static const UPDATE_VEHICLE_DETAILS = '/update-vehicle-details';
   static const VERIFY_DOCUMENTS = '/verify-documents';

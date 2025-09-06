@@ -45,12 +45,12 @@ import '../utils/preferences.dart';
 
 class Constant {
   static const String phoneLoginType = "phone";
+  static const String emailLoginType = "email";
   static const String googleLoginType = "google";
   static const String appleLoginType = "apple";
   static const String profileConstant =
       "https://firebasestorage.googleapis.com/v0/b/gocab-a8627.appspot.com/o/constant_assets%2F59.png?alt=media&token=a0b1aebd-9c01-45f6-9569-240c4bc08e23";
-  static const String placeHolder =
-      "https://firebasestorage.googleapis.com/v0/b/to-aki-mobilidade-e-entregas.appspot.com/o/constant_assets%2Fno-image.png?alt=media&token=e3dc71ac-b600-45aa-8161-5eac1f58d68c";
+  static const String placeHolder = 'assets/images/user_placeholder.png';
   static String appName = '';
   static String? appColor;
   static DriverUserModel? userModel;
@@ -435,23 +435,46 @@ class Constant {
   }
 
   static Future<String> uploadDriverDocumentImageToFireStorage(File image, String filePath, String fileName) async {
-    Reference upload = FirebaseStorage.instance.ref().child('$filePath/$fileName');
-    UploadTask uploadTask = upload.putFile(image);
-    var downloadUrl = await (await uploadTask).ref.getDownloadURL();
-    return downloadUrl.toString();
+    try {
+      Reference upload = FirebaseStorage.instance.ref().child('$filePath/$fileName');
+      UploadTask uploadTask = upload.putFile(image);
+      var downloadUrl = await (await uploadTask.whenComplete(() {})).ref.getDownloadURL();
+      return downloadUrl.toString();
+    } catch (e) {
+      log('Erro ao fazer upload do documento: $e');
+      ShowToastDialog.showToast('Erro ao fazer upload do documento. Tente novamente.');
+      return '';
+    }
   }
 
   static Future<String> uploadUserImageToFireStorage(File image, String filePath, String fileName) async {
-    Reference upload = FirebaseStorage.instance.ref().child('$filePath/$fileName');
-    UploadTask uploadTask = upload.putFile(image);
-    var downloadUrl = await (await uploadTask.whenComplete(() {})).ref.getDownloadURL();
-    return downloadUrl.toString();
+    try {
+      Reference upload = FirebaseStorage.instance.ref().child('$filePath/$fileName');
+      UploadTask uploadTask = upload.putFile(image);
+      var downloadUrl = await (await uploadTask.whenComplete(() {})).ref.getDownloadURL();
+      return downloadUrl.toString();
+    } catch (e) {
+      log('Erro ao fazer upload da imagem do usuário: $e');
+      ShowToastDialog.showToast('Erro ao fazer upload da imagem. Tente novamente.');
+      return '';
+    }
   }
 
   static Future<List<String>> uploadSupportImage(List<String> images) async {
-    var imageUrls = await Future.wait(images.map((image) => uploadUserImageToFireStorage(
-        File(image), "supportImages/${FireStoreUtils.getCurrentUid()}", File(image).path.split("/").last)));
-    return imageUrls;
+    try {
+      var imageUrls = await Future.wait(images.map((image) => uploadUserImageToFireStorage(
+          File(image), "supportImages/${FireStoreUtils.getCurrentUid()}", File(image).path.split("/").last)));
+      // Filtra URLs vazias (que indicam falha no upload)
+      imageUrls = imageUrls.where((url) => url.isNotEmpty).toList();
+      if (imageUrls.length < images.length) {
+        ShowToastDialog.showToast('Algumas imagens não puderam ser enviadas. Verifique e tente novamente.');
+      }
+      return imageUrls;
+    } catch (e) {
+      log('Erro ao fazer upload das imagens de suporte: $e');
+      ShowToastDialog.showToast('Erro ao enviar as imagens. Tente novamente.');
+      return [];
+    }
   }
 
   Future<void> commonLaunchUrl(String url, {LaunchMode launchMode = LaunchMode.inAppWebView}) async {

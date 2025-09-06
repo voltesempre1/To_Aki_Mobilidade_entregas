@@ -4,10 +4,6 @@ import 'dart:io';
 
 // ignore_for_file: depend_on_referenced_packages
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
-import 'package:get/get.dart';
 import 'package:driver/app/models/documents_model.dart';
 import 'package:driver/app/models/driver_user_model.dart';
 import 'package:driver/app/models/verify_driver_model.dart';
@@ -17,6 +13,10 @@ import 'package:driver/constant_widgets/network_image_widget.dart';
 import 'package:driver/constant_widgets/show_toast_dialog.dart';
 import 'package:driver/theme/responsive.dart';
 import 'package:driver/utils/fire_store_utils.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UploadDocumentsController extends GetxController {
@@ -47,14 +47,28 @@ class UploadDocumentsController extends GetxController {
     super.onClose();
   }
 
-  void setData(bool isUploaded, String id, BuildContext context) {
+  void setData(bool isUploaded, String id, BuildContext context, [DocumentsModel? document]) {
     imageWidgetList.clear();
+    // Inicializa o verifyDocument com base no documento
+    bool isTwoSide = document?.isTwoSide ?? false;
+
+    // Garante que o array documentImage tenha o tamanho correto
+    if (verifyDocument.value.documentImage.isEmpty) {
+      verifyDocument.value = VerifyDocument(documentImage: isTwoSide ? ['', ''] : ['']);
+    } else if (isTwoSide && verifyDocument.value.documentImage.length < 2) {
+      List<dynamic> updatedImages = List.from(verifyDocument.value.documentImage);
+      updatedImages.add('');
+      verifyDocument.value = VerifyDocument(documentImage: updatedImages);
+    }
+
     VerifyDocumentsController uploadDocumentsController = Get.find<VerifyDocumentsController>();
     if (isUploaded) {
-      int index = uploadDocumentsController.verifyDriverModel.value.verifyDocument!.indexWhere((element) => element.documentId == id);
+      int index = uploadDocumentsController.verifyDriverModel.value.verifyDocument!
+          .indexWhere((element) => element.documentId == id);
       if (index != -1) {
         for (var element in uploadDocumentsController.verifyDriverModel.value.verifyDocument![index].documentImage) {
-          imageList.add(uploadDocumentsController.verifyDriverModel.value.verifyDocument![index].documentImage.indexOf(element));
+          imageList.add(
+              uploadDocumentsController.verifyDriverModel.value.verifyDocument![index].documentImage.indexOf(element));
           imageWidgetList.add(
             Center(
               child: NetworkImageWidget(
@@ -89,9 +103,14 @@ class UploadDocumentsController extends GetxController {
       );
       File compressedFile = File(image.path);
       await compressedFile.writeAsBytes(compressedBytes!);
-      List<dynamic> files = verifyDocument.value.documentImage;
-      files.removeAt(index);
-      files.insert(index, compressedFile.path);
+
+      // Garantir que o array tenha tamanho suficiente para o índice
+      List<dynamic> files = List.from(verifyDocument.value.documentImage);
+      while (files.length <= index) {
+        files.add('');
+      }
+
+      files[index] = compressedFile.path;
       verifyDocument.value = VerifyDocument(documentImage: files);
     } on PlatformException {
       ShowToastDialog.showToast("Failed to pick");

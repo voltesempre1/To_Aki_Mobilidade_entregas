@@ -32,7 +32,7 @@ class UploadDocumentsView extends StatelessWidget {
     return GetBuilder(
         init: UploadDocumentsController(),
         builder: (controller) {
-          controller.setData(isUploaded, document.id, context);
+          controller.setData(isUploaded, document.id, context, document);
           return Scaffold(
             backgroundColor: themeChange.isDarkTheme() ? AppThemData.black : AppThemData.white,
             appBar: AppBarWithBorder(title: document.title, bgColor: themeChange.isDarkTheme() ? AppThemData.black : AppThemData.white),
@@ -168,7 +168,7 @@ class UploadDocumentsView extends StatelessWidget {
                                             shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(12),
                                             ),
-                                            image: controller.verifyDocument.value.documentImage[1].isNotEmpty
+                                            image: controller.verifyDocument.value.documentImage.length > 1 && controller.verifyDocument.value.documentImage[1].isNotEmpty
                                                 ? DecorationImage(
                                                     image: FileImage(
                                                       File(controller.verifyDocument.value.documentImage[1]),
@@ -177,7 +177,9 @@ class UploadDocumentsView extends StatelessWidget {
                                                 : null,
                                           ),
                                           child: Visibility(
-                                            visible: controller.verifyDocument.value.documentImage[1].isEmpty,
+                                            visible: controller.verifyDocument.value.documentImage.length <= 1 || 
+                                                   (controller.verifyDocument.value.documentImage.length > 1 && 
+                                                    controller.verifyDocument.value.documentImage[1].isEmpty),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment: MainAxisAlignment.center,

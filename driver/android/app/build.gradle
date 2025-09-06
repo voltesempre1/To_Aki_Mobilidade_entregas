@@ -89,6 +89,18 @@ android {
             signingConfig signingConfigs.release
         }
     }
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def buildType = variant.buildType.name
+            def versionName = variant.versionName
+            def versionCode = variant.versionCode
+            
+            // Novo padrão dinâmico com sufixo
+            def newApkName = "ToAkiMotorista_${buildType}_V${versionName}+${versionCode}.apk"
+            
+            outputFileName = newApkName
+        }
+    }
 }
 
 flutter {

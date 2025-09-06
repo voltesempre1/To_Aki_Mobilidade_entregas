@@ -45,23 +45,28 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
             floatingActionButton: isFromDrawer
                 ? null
                 : RoundShapeButton(
-                    size: const Size(200, 45),
+                    size: Size(MediaQuery.of(context).size.width - 40, 45),
                     title: "Check Status".tr,
                     buttonColor: AppThemData.primary500,
-                    buttonTextColor: AppThemData.black,
+                    buttonTextColor: AppThemData.white,
                     onTap: () async {
                       var userModel = controller.userModel.value;
-                      if (userModel.driverVehicleDetails != null && userModel.driverVehicleDetails!.brandId!.isNotEmpty) {
+                      if (userModel.driverVehicleDetails != null &&
+                          userModel.driverVehicleDetails!.brandId!.isNotEmpty) {
                         ShowToastDialog.showLoader("Please wait");
                         await controller.getData();
-                        DriverUserModel? userModel = await FireStoreUtils.getDriverUserProfile(FireStoreUtils.getCurrentUid());
+                        DriverUserModel? userModel =
+                            await FireStoreUtils.getDriverUserProfile(FireStoreUtils.getCurrentUid());
                         bool isUserVerified = userModel!.isVerified ?? false;
-                        bool isVehicleDetailsVerified = controller.userModel.value.driverVehicleDetails!.isVerified ?? false;
-                        int index = controller.verifyDriverModel.value.verifyDocument!.indexWhere((element) => element.isVerify == false);
+                        bool isVehicleDetailsVerified =
+                            controller.userModel.value.driverVehicleDetails!.isVerified ?? false;
+                        int index = controller.verifyDriverModel.value.verifyDocument!
+                            .indexWhere((element) => element.isVerify == false);
                         bool isDocumentVerified = index == -1;
                         if (isUserVerified && isVehicleDetailsVerified && isDocumentVerified) {
                           if (Constant.isSubscriptionEnable == true) {
-                            if (Constant.userModel!.subscriptionPlanId != null && Constant.userModel!.subscriptionPlanId!.isNotEmpty) {
+                            if (Constant.userModel!.subscriptionPlanId != null &&
+                                Constant.userModel!.subscriptionPlanId!.isNotEmpty) {
                               if (Constant.userModel!.subscriptionExpiryDate!.toDate().isAfter(DateTime.now())) {
                                 controller.isVerified.value = true;
                                 bool permissionGiven = await Constant.isPermissionApplied();
@@ -87,7 +92,9 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
                           }
                         } else {
                           controller.isVerified.value = false;
-                          if (!isUserVerified) ShowToastDialog.showToast("User disabled by administrator, Please contact to admin");
+                          if (!isUserVerified) {
+                            ShowToastDialog.showToast("User disabled by administrator, Please contact to admin");
+                          }
                         }
                         ShowToastDialog.closeLoader();
                       } else {
@@ -138,9 +145,13 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
                       },
                       child: Obx(
                         () => Container(
-                          padding: controller.userModel.value.driverVehicleDetails != null ? const EdgeInsets.all(16) : EdgeInsets.zero,
+                          padding: controller.userModel.value.driverVehicleDetails != null
+                              ? const EdgeInsets.all(16)
+                              : EdgeInsets.zero,
                           decoration: ShapeDecoration(
-                            color: controller.userModel.value.driverVehicleDetails != null ? AppThemData.primary50 : AppThemData.white,
+                            color: controller.userModel.value.driverVehicleDetails != null
+                                ? AppThemData.primary50
+                                : AppThemData.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -150,7 +161,9 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: controller.userModel.value.driverVehicleDetails == null ? const EdgeInsets.only(top: 16, bottom: 16) : EdgeInsets.zero,
+                                padding: controller.userModel.value.driverVehicleDetails == null
+                                    ? const EdgeInsets.only(top: 16, bottom: 16)
+                                    : EdgeInsets.zero,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -168,7 +181,9 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            controller.userModel.value.driverVehicleDetails != null ? 'Vehicle Details'.tr : 'Add Your Vehicle Details'.tr,
+                                            controller.userModel.value.driverVehicleDetails != null
+                                                ? 'Vehicle Details'.tr
+                                                : 'Add Your Vehicle Details'.tr,
                                             style: GoogleFonts.inter(
                                               color: AppThemData.grey950,
                                               fontSize: 16,
@@ -179,11 +194,15 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
                                             Row(
                                               children: [
                                                 Text(
-                                                  (controller.userModel.value.driverVehicleDetails!.isVerified ?? false) ? 'Verified'.tr : 'Not Verified'.tr,
+                                                  (controller.userModel.value.driverVehicleDetails!.isVerified ?? false)
+                                                      ? 'Verified'.tr
+                                                      : 'Not Verified'.tr,
                                                   style: GoogleFonts.inter(
-                                                    color: (controller.userModel.value.driverVehicleDetails!.isVerified ?? false)
-                                                        ? AppThemData.success500
-                                                        : AppThemData.danger500,
+                                                    color:
+                                                        (controller.userModel.value.driverVehicleDetails!.isVerified ??
+                                                                false)
+                                                            ? AppThemData.success500
+                                                            : AppThemData.danger500,
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.w400,
                                                   ),
@@ -195,12 +214,17 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
                                                     clipBehavior: Clip.antiAlias,
                                                     decoration: BoxDecoration(
                                                       borderRadius: BorderRadius.circular(16),
-                                                      color: (controller.userModel.value.driverVehicleDetails!.isVerified ?? false)
+                                                      color: (controller
+                                                                  .userModel.value.driverVehicleDetails!.isVerified ??
+                                                              false)
                                                           ? AppThemData.success500
                                                           : AppThemData.danger500,
                                                     ),
                                                     child: Icon(
-                                                      (controller.userModel.value.driverVehicleDetails!.isVerified ?? false) ? Icons.check : Icons.close,
+                                                      (controller.userModel.value.driverVehicleDetails!.isVerified ??
+                                                              false)
+                                                          ? Icons.check
+                                                          : Icons.close,
                                                       size: 12,
                                                       color: AppThemData.white,
                                                     ))
@@ -266,7 +290,9 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
                                     padding: isUploaded ? EdgeInsets.zero : const EdgeInsets.only(top: 16, bottom: 16),
                                     child: Row(
                                       children: [
-                                        isUploaded ? SvgPicture.asset("assets/icon/ic_vehicle_details.svg") : SvgPicture.asset("assets/icon/ic_upload_document.svg"),
+                                        isUploaded
+                                            ? SvgPicture.asset("assets/icon/ic_vehicle_details.svg")
+                                            : SvgPicture.asset("assets/icon/ic_upload_document.svg"),
                                         const SizedBox(width: 18),
                                         Expanded(
                                           child: Column(
@@ -274,7 +300,9 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                isUploaded ? controller.documentList[index].title : "Upload ${controller.documentList[index].title}",
+                                                isUploaded
+                                                    ? controller.documentList[index].title
+                                                    : "Upload ${controller.documentList[index].title}",
                                                 style: GoogleFonts.inter(
                                                   color: AppThemData.grey950,
                                                   fontSize: 16,
@@ -287,7 +315,8 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
                                                     Text(
                                                       isVerified ? 'Verified'.tr : 'Not Verified'.tr,
                                                       style: GoogleFonts.inter(
-                                                        color: isVerified ? AppThemData.success500 : AppThemData.danger500,
+                                                        color:
+                                                            isVerified ? AppThemData.success500 : AppThemData.danger500,
                                                         fontSize: 14,
                                                         fontWeight: FontWeight.w400,
                                                       ),
@@ -299,7 +328,9 @@ class VerifyDocumentsView extends GetView<VerifyDocumentsController> {
                                                         clipBehavior: Clip.antiAlias,
                                                         decoration: BoxDecoration(
                                                           borderRadius: BorderRadius.circular(16),
-                                                          color: isVerified ? AppThemData.success500 : AppThemData.danger500,
+                                                          color: isVerified
+                                                              ? AppThemData.success500
+                                                              : AppThemData.danger500,
                                                         ),
                                                         child: Icon(
                                                           isVerified ? Icons.check : Icons.close,

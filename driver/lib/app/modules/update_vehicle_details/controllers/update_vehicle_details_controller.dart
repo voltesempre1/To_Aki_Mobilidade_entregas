@@ -10,6 +10,7 @@ import 'package:driver/constant_widgets/show_toast_dialog.dart';
 import 'package:driver/utils/fire_store_utils.dart';
 
 class UpdateVehicleDetailsController extends GetxController {
+  RxString selectedVehicleTypeId = "".obs;
   Rx<VehicleTypeModel> vehicleTypeModel = VehicleTypeModel(
       id: "",
       image: "",
@@ -32,22 +33,53 @@ class UpdateVehicleDetailsController extends GetxController {
 
   @override
   Future<void> onReady() async {
+    // Inicializa a lista de tipos de veículos
+    vehicleTypeList = Constant.vehicleTypeList ?? [];
+    
+    // Inicializa o modelo de tipo de veículo apenas se a lista não estiver vazia
     if (vehicleTypeList.isNotEmpty) {
+      selectedVehicleTypeId.value = vehicleTypeList[0].id;
       vehicleTypeModel.value = vehicleTypeList[0];
     }
+    
+    // Carrega as marcas de veículos
     vehicleBrandList.value = await FireStoreUtils.getVehicleBrand();
+    
+    // Atualiza os dados do usuário
     updateData();
     super.onReady();
   }
 
   void updateData() {
-    VerifyDocumentsController uploadDocumentsController = Get.find<VerifyDocumentsController>();
-    if (uploadDocumentsController.userModel.value.driverVehicleDetails != null) {
-      int typeIndex = vehicleTypeList.indexWhere((element) => element.id == uploadDocumentsController.userModel.value.driverVehicleDetails!.vehicleTypeId);
-      if (typeIndex != -1) vehicleTypeModel.value = vehicleTypeList[typeIndex];
-      vehicleBrandController.text = uploadDocumentsController.userModel.value.driverVehicleDetails!.brandName ?? '';
-      vehicleModelController.text = uploadDocumentsController.userModel.value.driverVehicleDetails!.modelName ?? '';
-      vehicleNumberController.text = uploadDocumentsController.userModel.value.driverVehicleDetails!.vehicleNumber ?? '';
+    try {
+      VerifyDocumentsController uploadDocumentsController = Get.find<VerifyDocumentsController>();
+      if (uploadDocumentsController.userModel.value.driverVehicleDetails != null) {
+        // Busca o índice do tipo de veículo pelo ID
+        String vehicleTypeId = uploadDocumentsController.userModel.value.driverVehicleDetails!.vehicleTypeId ?? '';
+        int typeIndex = vehicleTypeList.indexWhere((element) => element.id == vehicleTypeId);
+        
+        // Se encontrou o tipo de veículo na lista, atualiza o valor selecionado
+        if (typeIndex != -1) {
+          selectedVehicleTypeId.value = vehicleTypeList[typeIndex].id;
+          vehicleTypeModel.value = vehicleTypeList[typeIndex];
+        }
+        
+        // Atualiza os outros campos
+        vehicleBrandController.text = uploadDocumentsController.userModel.value.driverVehicleDetails!.brandName ?? '';
+        vehicleModelController.text = uploadDocumentsController.userModel.value.driverVehicleDetails!.modelName ?? '';
+        vehicleNumberController.text = uploadDocumentsController.userModel.value.driverVehicleDetails!.vehicleNumber ?? '';
+      }
+    } catch (e) {
+      print('Erro ao atualizar dados do veículo: $e');
+    }
+  }
+
+  VehicleTypeModel? getSelectedVehicleType() {
+    if (selectedVehicleTypeId.value.isEmpty) return null;
+    try {
+      return vehicleTypeList.firstWhere((element) => element.id == selectedVehicleTypeId.value);
+    } catch (e) {
+      return null;
     }
   }
 
@@ -60,6 +92,7 @@ class UpdateVehicleDetailsController extends GetxController {
     VerifyDocumentsController verifyDocumentsController = Get.find<VerifyDocumentsController>();
     DriverUserModel? userModel = await FireStoreUtils.getDriverUserProfile(FireStoreUtils.getCurrentUid());
     if (userModel == null) return;
+    VehicleTypeModel? selectedType = getSelectedVehicleType();
     DriverVehicleDetails driverVehicleDetails = DriverVehicleDetails(
       brandName: vehicleBrandModel.value.title,
       brandId: vehicleBrandModel.value.id,
@@ -67,8 +100,8 @@ class UpdateVehicleDetailsController extends GetxController {
       modelId: vehicleModelModel.value.id,
       vehicleNumber: vehicleNumberController.text,
       isVerified: Constant.isDocumentVerificationEnable == false ? true : false,
-      vehicleTypeName: vehicleTypeModel.value.title,
-      vehicleTypeId: vehicleTypeModel.value.id,
+      vehicleTypeName: selectedType?.title ?? '',
+      vehicleTypeId: selectedType?.id ?? '',
     );
     userModel.driverVehicleDetails = driverVehicleDetails;
 
