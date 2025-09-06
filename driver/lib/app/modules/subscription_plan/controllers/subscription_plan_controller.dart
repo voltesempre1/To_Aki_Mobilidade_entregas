@@ -67,7 +67,7 @@ class SubscriptionPlanController extends GetxController {
         paymentModel.value = payment;
         if (paymentModel.value.strip!.isActive == true) {
           Stripe.publishableKey = paymentModel.value.strip!.clientPublishableKey.toString();
-          Stripe.merchantIdentifier = 'Tô aki Mobilidade';
+          Stripe.merchantIdentifier = 'Tô aki Motoristas';
           Stripe.instance.applySettings();
         }
       }
@@ -188,7 +188,7 @@ class SubscriptionPlanController extends GetxController {
                     primary: AppThemData.primary500,
                   ),
                 ),
-                merchantDisplayName: 'Tô aki Mobilidade'));
+                merchantDisplayName: 'Tô aki Motoristas'));
         displayStripePaymentSheet(amount: amount);
       }
     } catch (e, s) {

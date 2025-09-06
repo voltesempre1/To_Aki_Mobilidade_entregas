@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>MyTaxi Driver</string>
+	<string>Tô Aki Motorista</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -73,5 +73,15 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app needs location access to get current location, receive ride requests, and complete trips efficiently.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs location access to get current location, receive ride requests, and complete trips efficiently.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to your gallery photo for profile pictures, document uploads.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs access to your camera for taking photos of documents.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs access to your microphone for recording audio of documents.</string>
 </dict>
 </plist>

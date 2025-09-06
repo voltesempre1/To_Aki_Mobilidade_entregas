@@ -31,11 +31,10 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:location/location.dart' as loc;
-
 import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:location/location.dart' as loc;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -56,7 +55,7 @@ class Constant {
 
   // User and app state
   static UserModel? userModel;
-  static String mapAPIKey = "";
+  static String mapAPIKey = "AIzaSyCeirQ0cj9Seryh32FU5V1JqqJMoieu59M";
   static String senderId = "";
   static String jsonFileURL = "";
   static String radius = "10";
@@ -114,7 +113,8 @@ class Constant {
   static RxList<TimeSlotsChargesModel> intercityPersonalDocuments = <TimeSlotsChargesModel>[].obs;
 
   static String getRandomString(int length) {
-    String randomString = String.fromCharCodes(Iterable.generate(length - 1, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
+    String randomString =
+        String.fromCharCodes(Iterable.generate(length - 1, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
     // print("Random String :- $randomString");
     int underScorePosition = _rnd.nextInt(length);
     // print("UnderScore Position :- $underScorePosition");
@@ -199,8 +199,8 @@ class Constant {
   static Future<LanguageModel> getLanguage() async {
     final String language = await Preferences.getString(Preferences.languageCodeKey);
     if (language.isEmpty) {
-      await Preferences.setString(
-          Preferences.languageCodeKey, json.encode({"active": true, "code": "en", "id": "CcrGiUvJbPTXaU31s5l8", "name": "English"}));
+      await Preferences.setString(Preferences.languageCodeKey,
+          json.encode({"active": true, "code": "en", "id": "CcrGiUvJbPTXaU31s5l8", "name": "English"}));
       return LanguageModel.fromJson({"active": true, "code": "en", "id": "CcrGiUvJbPTXaU31s5l8", "name": "English"});
     }
     Map<String, dynamic> languageMap = jsonDecode(language);
@@ -293,8 +293,8 @@ class Constant {
   }
 
   static Future<List<String>> uploadSupportImage(List<String> images) async {
-    var imageUrls = await Future.wait(images.map(
-        (image) => uploadUserImageToFireStorage(File(image), "supportImages/${FireStoreUtils.getCurrentUid()}", File(image).path.split("/").last)));
+    var imageUrls = await Future.wait(images.map((image) => uploadUserImageToFireStorage(
+        File(image), "supportImages/${FireStoreUtils.getCurrentUid()}", File(image).path.split("/").last)));
     return imageUrls;
   }
 
@@ -359,7 +359,8 @@ class Constant {
         contentPadding: const EdgeInsets.all(12),
         insetPadding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
         title: const Text('Permission Required'),
-        content: const Text('Location permission has been permanently denied. Please enable it in the app settings to continue.'),
+        content: const Text(
+            'Location permission has been permanently denied. Please enable it in the app settings to continue.'),
         actions: [
           TextButton(
             onPressed: () async {
@@ -405,11 +406,14 @@ class Constant {
     for (var element in (bookingModel.taxList ?? [])) {
       taxAmount.value = (double.parse(taxAmount.value) +
               Constant.calculateTax(
-                  amount: ((double.parse(bookingModel.subTotal ?? '0.0')) - double.parse((bookingModel.discount ?? '0.0').toString())).toString(),
+                  amount: ((double.parse(bookingModel.subTotal ?? '0.0')) -
+                          double.parse((bookingModel.discount ?? '0.0').toString()))
+                      .toString(),
                   taxModel: element))
           .toStringAsFixed(Constant.currencyModel!.decimalDigits!);
     }
-    return (double.parse(bookingModel.subTotal ?? '0.0') - double.parse((bookingModel.discount ?? '0.0').toString())) + double.parse(taxAmount.value);
+    return (double.parse(bookingModel.subTotal ?? '0.0') - double.parse((bookingModel.discount ?? '0.0').toString())) +
+        double.parse(taxAmount.value);
   }
 
   static double calculateInterCityFinalAmount(IntercityModel interCityModel) {
@@ -417,11 +421,14 @@ class Constant {
     for (var element in (interCityModel.taxList ?? [])) {
       taxAmount.value = (double.parse(taxAmount.value) +
               Constant.calculateTax(
-                  amount: ((double.parse(interCityModel.subTotal ?? '0.0')) - double.parse((interCityModel.discount ?? '0.0').toString())).toString(),
+                  amount: ((double.parse(interCityModel.subTotal ?? '0.0')) -
+                          double.parse((interCityModel.discount ?? '0.0').toString()))
+                      .toString(),
                   taxModel: element))
           .toStringAsFixed(Constant.currencyModel!.decimalDigits!);
     }
-    return (double.parse(interCityModel.subTotal ?? '0.0') - double.parse((interCityModel.discount ?? '0.0').toString())) +
+    return (double.parse(interCityModel.subTotal ?? '0.0') -
+            double.parse((interCityModel.discount ?? '0.0').toString())) +
         double.parse(taxAmount.value);
   }
 
@@ -430,11 +437,14 @@ class Constant {
     for (var element in (parcelModel.taxList ?? [])) {
       taxAmount.value = (double.parse(taxAmount.value) +
               Constant.calculateTax(
-                  amount: ((double.parse(parcelModel.subTotal ?? '0.0')) - double.parse((parcelModel.discount ?? '0.0').toString())).toString(),
+                  amount: ((double.parse(parcelModel.subTotal ?? '0.0')) -
+                          double.parse((parcelModel.discount ?? '0.0').toString()))
+                      .toString(),
                   taxModel: element))
           .toStringAsFixed(Constant.currencyModel!.decimalDigits!);
     }
-    return (double.parse(parcelModel.subTotal ?? '0.0') - double.parse((parcelModel.discount ?? '0.0').toString())) + double.parse(taxAmount.value);
+    return (double.parse(parcelModel.subTotal ?? '0.0') - double.parse((parcelModel.discount ?? '0.0').toString())) +
+        double.parse(taxAmount.value);
   }
 
   Future<Uint8List> getBytesFromAsset(String path, int width) async {
@@ -445,34 +455,71 @@ class Constant {
   }
 
   static Future<MapModel?> getDurationDistance(LatLng departureLatLong, LatLng destinationLatLong) async {
+    // Verificar se a chave da API está vazia
+    if (mapAPIKey.isEmpty) {
+      await checkAndLoadGoogleMapAPIKey();
+      if (mapAPIKey.isEmpty) {
+        log("ERRO: Chave da API do Google Maps continua vazia após tentativa de carregamento");
+        return null;
+      }
+    }
+    
     String url = 'https://maps.googleapis.com/maps/api/distancematrix/json';
-    http.Response distanceData = await http.get(Uri.parse('$url?units=metric&origins=${departureLatLong.latitude},'
-        '${departureLatLong.longitude}&destinations=${destinationLatLong.latitude},${destinationLatLong.longitude}&key=${Constant.mapAPIKey}'));
+    try {
+      http.Response distanceData = await http.get(Uri.parse('$url?units=metric&origins=${departureLatLong.latitude},'
+          '${departureLatLong.longitude}&destinations=${destinationLatLong.latitude},${destinationLatLong.longitude}&key=${Constant.mapAPIKey}'));
 
-    log(departureLatLong.toJson().toString());
-    log(destinationLatLong.toJson().toString());
-    log(distanceData.body.toString());
-    MapModel mapModel = MapModel.fromJson(jsonDecode(distanceData.body));
+      log(departureLatLong.toJson().toString());
+      log(destinationLatLong.toJson().toString());
+      log(distanceData.body.toString());
+      
+      MapModel mapModel = MapModel.fromJson(jsonDecode(distanceData.body));
 
-    if (mapModel.status == 'OK' && mapModel.rows!.first.elements!.first.status == "OK") {
-      return mapModel;
-    } else {
-      ShowToastDialog.showToast(mapModel.errorMessage);
+      if (mapModel.status == 'OK' && mapModel.rows != null && mapModel.rows!.isNotEmpty && 
+          mapModel.rows!.first.elements != null && mapModel.rows!.first.elements!.isNotEmpty && 
+          mapModel.rows!.first.elements!.first.status == "OK") {
+        return mapModel;
+      } else {
+        String errorMsg = mapModel.errorMessage ?? "Erro ao obter informações de rota";
+        ShowToastDialog.showToast(errorMsg);
+        log("Erro na resposta da API: $errorMsg");
+      }
+    } catch (e) {
+      log("Exceção ao obter distância: $e");
+      ShowToastDialog.showToast("Erro ao calcular rota. Por favor, tente novamente.");
     }
     return null;
   }
 
   static Future<LatLng?> getLatLongFromPlaceId(String placeId) async {
+    // Verificar se a chave da API está vazia
+    if (mapAPIKey.isEmpty) {
+      await checkAndLoadGoogleMapAPIKey();
+      if (mapAPIKey.isEmpty) {
+        log("ERRO: Chave da API do Google Maps continua vazia após tentativa de carregamento");
+        ShowToastDialog.showToast("Erro ao carregar a chave da API do Google Maps. Por favor, tente novamente mais tarde.");
+        return null;
+      }
+    }
+    
     String url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=$placeId&key=${Constant.mapAPIKey}';
 
-    http.Response latLongData = await http.get(Uri.parse(url));
-    log(latLongData.body.toString());
-    Map<String, dynamic> responseData = json.decode(latLongData.body);
+    try {
+      http.Response latLongData = await http.get(Uri.parse(url));
+      log(latLongData.body.toString());
+      Map<String, dynamic> responseData = json.decode(latLongData.body);
 
-    if (responseData["status"] == 'OK') {
-      return LatLng(responseData["result"]['geometry']['location']['lat'], responseData["result"]['geometry']['location']['lng']);
-    } else {
-      ShowToastDialog.showToast(responseData["error_message"]);
+      if (responseData['status'] == 'OK') {
+        Map<String, dynamic> location = responseData['result']['geometry']['location'];
+        return LatLng(location['lat'], location['lng']);
+      } else {
+        String errorMsg = responseData['error_message'] ?? "Erro ao obter localização";
+        ShowToastDialog.showToast(errorMsg);
+        log("Erro na resposta da API Places: $errorMsg");
+      }
+    } catch (e) {
+      log("Exceção ao obter localização do placeId: $e");
+      ShowToastDialog.showToast("Erro ao obter localização. Por favor, tente novamente.");
     }
     return null;
   }
@@ -547,6 +594,14 @@ class Constant {
       }
     }
     return taxAmount;
+  }
+
+  static Future<void> checkAndLoadGoogleMapAPIKey() async {
+    if (mapAPIKey.isEmpty) {
+      log("Carregando chave da API do Google Maps...");
+      await FireStoreUtils().getSettings();
+      log("Chave da API do Google Maps carregada: ${mapAPIKey.isNotEmpty ? 'Sim' : 'Não'}");
+    }
   }
 
 //   static String? googleMapStyle = '''

@@ -18,13 +18,13 @@ import 'package:provider/provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    name: "MyTaxi".tr,
+    name: "Tô Aki Motorista".tr,
     options: DefaultFirebaseOptions.currentPlatform,
   );
   configLoading();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: 'Tô aki Mobilidade',
+    title: 'Tô Aki Motorista',
     theme: ThemeData(
       primarySwatch: Colors.amber,
       textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1),
@@ -109,7 +109,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               }
             },
             child: GetMaterialApp(
-                title: 'Tô aki Mobilidade'.tr,
+                title: 'Tô aki Motoristas'.tr,
                 debugShowCheckedModeBanner: false,
                 theme: Styles.themeData(
                     themeChangeProvider.darkTheme == 0

@@ -12,7 +12,6 @@ import 'package:driver/app/models/admin_commission.dart';
 import 'package:driver/app/models/booking_model.dart';
 import 'package:driver/app/models/currencies_model.dart';
 import 'package:driver/app/models/driver_user_model.dart';
-import 'package:driver/app/models/time_slots_charge_model.dart';
 import 'package:driver/app/models/intercity_model.dart';
 import 'package:driver/app/models/language_model.dart';
 import 'package:driver/app/models/location_lat_lng.dart';
@@ -20,6 +19,7 @@ import 'package:driver/app/models/map_model.dart';
 import 'package:driver/app/models/parcel_model.dart';
 import 'package:driver/app/models/payment_method_model.dart';
 import 'package:driver/app/models/tax_model.dart';
+import 'package:driver/app/models/time_slots_charge_model.dart';
 import 'package:driver/app/models/vehicle_type_model.dart';
 import 'package:driver/constant_widgets/show_toast_dialog.dart';
 import 'package:driver/extension/string_extensions.dart';
@@ -34,6 +34,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:location/location.dart' as loc;
 import 'package:lottie/lottie.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
@@ -41,14 +42,15 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 
 import '../utils/preferences.dart';
-import 'package:location/location.dart' as loc;
 
 class Constant {
   static const String phoneLoginType = "phone";
   static const String googleLoginType = "google";
   static const String appleLoginType = "apple";
-  static const String profileConstant = "https://firebasestorage.googleapis.com/v0/b/gocab-a8627.appspot.com/o/constant_assets%2F59.png?alt=media&token=a0b1aebd-9c01-45f6-9569-240c4bc08e23";
-  static const String placeHolder = "https://firebasestorage.googleapis.com/v0/b/mytaxi-a8627.appspot.com/o/constant_assets%2Fno-image.png?alt=media&token=e3dc71ac-b600-45aa-8161-5eac1f58d68c";
+  static const String profileConstant =
+      "https://firebasestorage.googleapis.com/v0/b/gocab-a8627.appspot.com/o/constant_assets%2F59.png?alt=media&token=a0b1aebd-9c01-45f6-9569-240c4bc08e23";
+  static const String placeHolder =
+      "https://firebasestorage.googleapis.com/v0/b/to-aki-mobilidade-e-entregas.appspot.com/o/constant_assets%2Fno-image.png?alt=media&token=e3dc71ac-b600-45aa-8161-5eac1f58d68c";
   static String appName = '';
   static String? appColor;
   static DriverUserModel? userModel;
@@ -73,7 +75,8 @@ class Constant {
   static String? referralAmount = "0.0";
   static List<VehicleTypeModel>? vehicleTypeList;
   static String driverLocationUpdate = "10";
-  static CurrencyModel? currencyModel = CurrencyModel(id: "", code: "USD", decimalDigits: 2, active: true, name: "US Dollar", symbol: "\$", symbolAtRight: false);
+  static CurrencyModel? currencyModel = CurrencyModel(
+      id: "", code: "USD", decimalDigits: 2, active: true, name: "US Dollar", symbol: "\$", symbolAtRight: false);
   static List<dynamic> cancellationReason = [];
 
   static List<TaxModel>? taxList;
@@ -109,7 +112,8 @@ class Constant {
   static final math.Random _rnd = math.Random();
 
   static String getRandomString(int length) {
-    String randomString = String.fromCharCodes(Iterable.generate(length - 1, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
+    String randomString =
+        String.fromCharCodes(Iterable.generate(length - 1, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
     // print("Random String :- $randomString");
     int underScorePosition = _rnd.nextInt(length);
     // print("UnderScore Position :- $underScorePosition");
@@ -217,7 +221,8 @@ class Constant {
         contentPadding: const EdgeInsets.all(12),
         insetPadding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
         title: const Text('Permission Required'),
-        content: const Text('Location permission has been permanently denied. Please enable it in the app settings to continue.'),
+        content: const Text(
+            'Location permission has been permanently denied. Please enable it in the app settings to continue.'),
         actions: [
           TextButton(
             onPressed: () async {
@@ -279,7 +284,6 @@ class Constant {
     return (sum / count).toStringAsFixed(1);
   }
 
-
   static String amountToShow({required String? amount}) {
     if (Constant.currencyModel!.symbolAtRight == true) {
       return "${double.parse(amount.toString()).toStringAsFixed(Constant.currencyModel!.decimalDigits!)}${Constant.currencyModel!.symbol.toString()}";
@@ -312,30 +316,47 @@ class Constant {
     RxString taxAmount = "0.0".obs;
     for (var element in (bookingModel.taxList ?? [])) {
       taxAmount.value = (double.parse(taxAmount.value) +
-              Constant.calculateTax(amount: ((double.parse(bookingModel.subTotal ?? '0.0')) - double.parse((bookingModel.discount ?? '0.0').toString())).toString(), taxModel: element))
+              Constant.calculateTax(
+                  amount: ((double.parse(bookingModel.subTotal ?? '0.0')) -
+                          double.parse((bookingModel.discount ?? '0.0').toString()))
+                      .toString(),
+                  taxModel: element))
           .toStringAsFixed(Constant.currencyModel!.decimalDigits!);
     }
-    return (double.parse(bookingModel.subTotal ?? '0.0') - double.parse((bookingModel.discount ?? '0.0').toString())) + double.parse(taxAmount.value);
+    return (double.parse(bookingModel.subTotal ?? '0.0') - double.parse((bookingModel.discount ?? '0.0').toString())) +
+        double.parse(taxAmount.value);
   }
 
   static double calculateInterCityFinalAmount(IntercityModel interCityModel) {
     RxString taxAmount = "0.0".obs;
     for (var element in (interCityModel.taxList ?? [])) {
       taxAmount.value = (double.parse(taxAmount.value) +
-              Constant.calculateTax(amount: ((double.parse(interCityModel.subTotal ?? '0.0')) - double.parse((interCityModel.discount ?? '0.0').toString())).toString(), taxModel: element))
+              Constant.calculateTax(
+                  amount: ((double.parse(interCityModel.subTotal ?? '0.0')) -
+                          double.parse((interCityModel.discount ?? '0.0').toString()))
+                      .toString(),
+                  taxModel: element))
           .toStringAsFixed(Constant.currencyModel!.decimalDigits!);
     }
-    return (double.parse(interCityModel.subTotal ?? '0.0') - double.parse((interCityModel.discount ?? '0.0').toString())) + double.parse(taxAmount.value);
+    return (double.parse(interCityModel.subTotal ?? '0.0') -
+            double.parse((interCityModel.discount ?? '0.0').toString())) +
+        double.parse(taxAmount.value);
   }
 
   static double calculateParcelFinalAmount(ParcelModel interCityModel) {
     RxString taxAmount = "0.0".obs;
     for (var element in (interCityModel.taxList ?? [])) {
       taxAmount.value = (double.parse(taxAmount.value) +
-              Constant.calculateTax(amount: ((double.parse(interCityModel.subTotal ?? '0.0')) - double.parse((interCityModel.discount ?? '0.0').toString())).toString(), taxModel: element))
+              Constant.calculateTax(
+                  amount: ((double.parse(interCityModel.subTotal ?? '0.0')) -
+                          double.parse((interCityModel.discount ?? '0.0').toString()))
+                      .toString(),
+                  taxModel: element))
           .toStringAsFixed(Constant.currencyModel!.decimalDigits!);
     }
-    return (double.parse(interCityModel.subTotal ?? '0.0') - double.parse((interCityModel.discount ?? '0.0').toString())) + double.parse(taxAmount.value);
+    return (double.parse(interCityModel.subTotal ?? '0.0') -
+            double.parse((interCityModel.discount ?? '0.0').toString())) +
+        double.parse(taxAmount.value);
   }
 
   static String getUuid() {
@@ -362,7 +383,8 @@ class Constant {
   static Future<LanguageModel> getLanguage() async {
     final String language = await Preferences.getString(Preferences.languageCodeKey);
     if (language.isEmpty) {
-      await Preferences.setString(Preferences.languageCodeKey, json.encode({"active": true, "code": "pt", "id": "PTBRLang123", "name": "Português"}));
+      await Preferences.setString(Preferences.languageCodeKey,
+          json.encode({"active": true, "code": "pt", "id": "PTBRLang123", "name": "Português"}));
       return LanguageModel.fromJson({"active": true, "code": "pt", "id": "PTBRLang123", "name": "Português"});
     }
     Map<String, dynamic> languageMap = jsonDecode(language);
@@ -389,7 +411,8 @@ class Constant {
   }
 
   String? validateEmail(String? value) {
-    String pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    String pattern =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regExp = RegExp(pattern);
     if (value == null || value.isEmpty) {
       return "Email is Required";
@@ -426,7 +449,8 @@ class Constant {
   }
 
   static Future<List<String>> uploadSupportImage(List<String> images) async {
-    var imageUrls = await Future.wait(images.map((image) => uploadUserImageToFireStorage(File(image), "supportImages/${FireStoreUtils.getCurrentUid()}", File(image).path.split("/").last)));
+    var imageUrls = await Future.wait(images.map((image) => uploadUserImageToFireStorage(
+        File(image), "supportImages/${FireStoreUtils.getCurrentUid()}", File(image).path.split("/").last)));
     return imageUrls;
   }
 
@@ -456,7 +480,8 @@ class Constant {
 
   static Future<MapModel?> getDurationDistance(LatLng departureLatLong, LatLng destinationLatLong) async {
     String url = 'https://maps.googleapis.com/maps/api/distancematrix/json';
-    http.Response restaurantToCustomerTime = await http.get(Uri.parse('$url?units=metric&origins=${departureLatLong.latitude},'
+    http.Response restaurantToCustomerTime = await http.get(Uri.parse(
+        '$url?units=metric&origins=${departureLatLong.latitude},'
         '${departureLatLong.longitude}&destinations=${destinationLatLong.latitude},${destinationLatLong.longitude}&key=${Constant.mapAPIKey}'));
 
     log(restaurantToCustomerTime.body.toString());

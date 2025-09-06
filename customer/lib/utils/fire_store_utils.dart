@@ -244,7 +244,14 @@ class FireStoreUtils {
   Future<void> getSettings() async {
     await fireStore.collection(CollectionName.settings).doc("constant").get().then((value) {
       if (value.exists) {
-        Constant.mapAPIKey = value.data()!["googleMapKey"];
+        // Só sobrescrever a chave se o valor do Firestore não estiver vazio
+        String? firestoreApiKey = value.data()!["googleMapKey"];
+        if (firestoreApiKey != null && firestoreApiKey.isNotEmpty) {
+          Constant.mapAPIKey = firestoreApiKey;
+          log("Chave da API carregada do Firestore: ${firestoreApiKey.substring(0, 10)}...");
+        } else {
+          log("Chave da API do Firestore está vazia, mantendo valor hardcoded");
+        }
         Constant.senderId = value.data()!["notification_senderId"];
         Constant.jsonFileURL = value.data()!["jsonFileURL"];
         Constant.minimumAmountToWithdrawal = value.data()!["minimum_amount_withdraw"];

@@ -92,7 +92,7 @@ class IntroScreenView extends StatelessWidget {
                         IntroScreenPage(
                           title: " Fast and Reliable".tr,
                           body:
-                              "MyTaxi ensures prompt and reliable rides, getting you to your destination with speed and efficiency.",
+                              "Tô Aki Motorista ensures prompt and reliable rides, getting you to your destination with speed and efficiency.",
                           image: "assets/icon/intro_image_two.svg",
                         ),
                         IntroScreenPage(

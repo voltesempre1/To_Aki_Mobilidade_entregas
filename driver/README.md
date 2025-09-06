@@ -1,16 +1,26 @@
-# driver
+# Tô Aki Mobilidade - Driver App
 
-A new Flutter project.
+Aplicativo para motoristas da plataforma Tô Aki Mobilidade, oferecendo serviços de transporte urbano e entrega de encomendas.
 
-## Getting Started
+## Funcionalidades
 
-This project is a starting point for a Flutter application.
+- Recebimento e gerenciamento de corridas
+- Navegação GPS integrada
+- Sistema de pagamentos múltiplos
+- Histórico de viagens
+- Suporte a múltiplos idiomas (PT-BR, EN, AR, HI)
+- Notificações push em tempo real
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologias
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter 3.2.6+
+- Firebase (Auth, Firestore, Storage, Messaging)
+- Google Maps API
+- Stripe, Razorpay, Mercado Pago
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Configuração
+
+1. Configure as chaves de API necessárias
+2. Execute `flutter pub get`
+3. Configure Firebase para Android e iOS
+4. Execute `flutter run`

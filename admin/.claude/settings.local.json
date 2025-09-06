@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(C:\\Projetos\\Flutter\\Freelancer\\RafaelAgenciaAnucio\\To_Aki_Mobilidade_entregas/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

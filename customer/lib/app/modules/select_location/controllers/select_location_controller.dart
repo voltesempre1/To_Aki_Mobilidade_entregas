@@ -2,18 +2,9 @@
 
 import 'dart:async';
 import 'dart:developer';
-import 'package:customer/app/models/cab_time_slots_charges_model.dart';
-import 'package:customer/constant_widgets/place_picker/selected_location_model.dart';
-import 'package:customer/services/recent_location_search.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_polyline_points/flutter_polyline_points.dart';
-import 'package:geocoding/geocoding.dart';
-import 'package:geoflutterfire2/geoflutterfire2.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:get/get.dart';
+
 import 'package:customer/app/models/booking_model.dart';
+import 'package:customer/app/models/cab_time_slots_charges_model.dart';
 import 'package:customer/app/models/coupon_model.dart';
 import 'package:customer/app/models/distance_model.dart';
 import 'package:customer/app/models/location_lat_lng.dart';
@@ -23,10 +14,20 @@ import 'package:customer/app/models/tax_model.dart';
 import 'package:customer/app/models/vehicle_type_model.dart';
 import 'package:customer/constant/booking_status.dart';
 import 'package:customer/constant/constant.dart';
+import 'package:customer/constant_widgets/place_picker/selected_location_model.dart';
 import 'package:customer/constant_widgets/show_toast_dialog.dart';
+import 'package:customer/services/recent_location_search.dart';
 import 'package:customer/theme/app_them_data.dart';
 import 'package:customer/utils/fire_store_utils.dart';
 import 'package:customer/utils/utils.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geoflutterfire2/geoflutterfire2.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 
@@ -72,7 +73,8 @@ class SelectLocationController extends GetxController {
       double finalPrice = updateCalculation(bookingModel.value.vehicleType!.id);
       bookingModel.value.subTotal = finalPrice.toString();
     } else {
-      bookingModel.value.subTotal = amountShow(Constant.vehicleTypeList![selectVehicleTypeIndex.value], mapModel.value!);
+      bookingModel.value.subTotal =
+          amountShow(Constant.vehicleTypeList![selectVehicleTypeIndex.value], mapModel.value!);
     }
     if (bookingModel.value.coupon != null) {
       bookingModel.value.discount = applyCoupon().toString();
@@ -82,18 +84,20 @@ class SelectLocationController extends GetxController {
 
   @override
   void onInit() {
-    getData();
-    getRecentSearches();
+    super.onInit();
+    Constant.checkAndLoadGoogleMapAPIKey().then((_) {
+      getData();
+      getRecentSearches();
+    });
+
     pickupLocationController.addListener(() {
       getRecentSearches();
       update();
     });
-
     dropLocationController.addListener(() {
       getRecentSearches();
       update();
     });
-    super.onInit();
   }
 
   Future<void> getRecentSearches() async {
@@ -112,15 +116,27 @@ class SelectLocationController extends GetxController {
 
   Future<void> getData() async {
     currentLocationPosition = await Utils.getCurrentLocation();
-    Constant.country = (await placemarkFromCoordinates(currentLocationPosition!.latitude, currentLocationPosition!.longitude))[0].country ?? 'Unknown';
+    Constant.country =
+        (await placemarkFromCoordinates(currentLocationPosition!.latitude, currentLocationPosition!.longitude))[0]
+                .country ??
+            'Unknown';
     getTax();
     sourceLocation = LatLng(currentLocationPosition!.latitude, currentLocationPosition!.longitude);
     await addMarkerSetup();
     if (destination != null && sourceLocation != null) {
-      getPolyline(sourceLatitude: sourceLocation!.latitude, sourceLongitude: sourceLocation!.longitude, destinationLatitude: destination!.latitude, destinationLongitude: destination!.longitude);
+      getPolyline(
+          sourceLatitude: sourceLocation!.latitude,
+          sourceLongitude: sourceLocation!.longitude,
+          destinationLatitude: destination!.latitude,
+          destinationLongitude: destination!.longitude);
     } else {
       if (destination != null) {
-        addMarker(latitude: destination!.latitude, longitude: destination!.longitude, id: "drop", descriptor: dropIcon!, rotation: 0.0);
+        addMarker(
+            latitude: destination!.latitude,
+            longitude: destination!.longitude,
+            id: "drop",
+            descriptor: dropIcon!,
+            rotation: 0.0);
         updateCameraLocation(destination!, destination!, mapController);
       } else {
         MarkerId markerId = const MarkerId("drop");
@@ -130,7 +146,12 @@ class SelectLocationController extends GetxController {
         log("==> ${markers.containsKey(markerId)}");
       }
       if (sourceLocation != null) {
-        addMarker(latitude: sourceLocation!.latitude, longitude: sourceLocation!.longitude, id: "pickUp", descriptor: pickUpIcon!, rotation: 0.0);
+        addMarker(
+            latitude: sourceLocation!.latitude,
+            longitude: sourceLocation!.longitude,
+            id: "pickUp",
+            descriptor: pickUpIcon!,
+            rotation: 0.0);
         updateCameraLocation(sourceLocation!, sourceLocation!, mapController);
       } else {
         MarkerId markerId = const MarkerId("pickUp");
@@ -151,9 +172,12 @@ class SelectLocationController extends GetxController {
     } else {
       bookingModel.value.customerId = FireStoreUtils.getCurrentUid();
       bookingModel.value.bookingStatus = BookingStatus.bookingPlaced;
-      bookingModel.value.pickUpLocation = LocationLatLng(latitude: sourceLocation!.latitude, longitude: sourceLocation!.longitude);
-      bookingModel.value.dropLocation = LocationLatLng(latitude: destination!.latitude, longitude: destination!.longitude);
-      GeoFirePoint position = GeoFlutterFire().point(latitude: sourceLocation!.latitude, longitude: sourceLocation!.longitude);
+      bookingModel.value.pickUpLocation =
+          LocationLatLng(latitude: sourceLocation!.latitude, longitude: sourceLocation!.longitude);
+      bookingModel.value.dropLocation =
+          LocationLatLng(latitude: destination!.latitude, longitude: destination!.longitude);
+      GeoFirePoint position =
+          GeoFlutterFire().point(latitude: sourceLocation!.latitude, longitude: sourceLocation!.longitude);
 
       bookingModel.value.position = Positions(geoPoint: position.geoPoint, geohash: position.hash);
 
@@ -171,7 +195,8 @@ class SelectLocationController extends GetxController {
 
         bookingModel.value.subTotal = finalPrice.toString();
       } else {
-        bookingModel.value.subTotal = amountShow(Constant.vehicleTypeList![selectVehicleTypeIndex.value], mapModel.value!);
+        bookingModel.value.subTotal =
+            amountShow(Constant.vehicleTypeList![selectVehicleTypeIndex.value], mapModel.value!);
       }
       bookingModel.value.otp = Constant.getOTPCode();
       bookingModel.value.paymentType = Constant.paymentModel!.cash!.name;
@@ -184,55 +209,94 @@ class SelectLocationController extends GetxController {
 
   Future<void> updateData() async {
     if (destination != null && sourceLocation != null) {
-      getPolyline(sourceLatitude: sourceLocation!.latitude, sourceLongitude: sourceLocation!.longitude, destinationLatitude: destination!.latitude, destinationLongitude: destination!.longitude);
-      ShowToastDialog.showLoader("Please wait".tr);
-      mapModel.value = await Constant.getDurationDistance(sourceLocation!, destination!);
-      bookingModel.value.dropLocationAddress = mapModel.value!.destinationAddresses!.first;
-      bookingModel.value.pickUpLocationAddress = mapModel.value!.originAddresses!.first;
-      bookingModel.value = BookingModel.fromJson(bookingModel.value.toJson());
+      getPolyline(
+          sourceLatitude: sourceLocation!.latitude,
+          sourceLongitude: sourceLocation!.longitude,
+          destinationLatitude: destination!.latitude,
+          destinationLongitude: destination!.longitude);
+      ShowToastDialog.showLoader("Aguarde por favor".tr);
+      
+      // Verificar se a chave da API está vazia antes de fazer a chamada
+      if (Constant.mapAPIKey.isEmpty) {
+        await Constant.checkAndLoadGoogleMapAPIKey();
+        if (Constant.mapAPIKey.isEmpty) {
+          ShowToastDialog.closeLoader();
+          ShowToastDialog.showToast("Erro ao carregar a chave da API do Google Maps. Por favor, tente novamente mais tarde.");
+          return;
+        }
+      }
+      
+      try {
+        mapModel.value = await Constant.getDurationDistance(sourceLocation!, destination!);
+        
+        if (mapModel.value == null || 
+            mapModel.value!.destinationAddresses == null || 
+            mapModel.value!.originAddresses == null || 
+            mapModel.value!.destinationAddresses!.isEmpty || 
+            mapModel.value!.originAddresses!.isEmpty) {
+          ShowToastDialog.closeLoader();
+          popupIndex.value = 0;
+          ShowToastDialog.showToast("Erro ao obter informações de rota. Por favor, tente novamente.");
+          return;
+        }
+        
+        bookingModel.value.dropLocationAddress = mapModel.value!.destinationAddresses!.first;
+        bookingModel.value.pickUpLocationAddress = mapModel.value!.originAddresses!.first;
+        bookingModel.value = BookingModel.fromJson(bookingModel.value.toJson());
 
-      distanceOfKm.value = DistanceModel(
-        distance: distanceCalculate(mapModel.value),
-        distanceType: Constant.distanceType,
-      );
+        distanceOfKm.value = DistanceModel(
+          distance: distanceCalculate(mapModel.value),
+          distanceType: Constant.distanceType,
+        );
 
-      // updateCalculation();
-
-      ShowToastDialog.closeLoader();
-      log("Data : ${mapModel.value!.toJson()}");
-      if (mapModel.value == null) {
-        popupIndex.value = 0;
-        ShowToastDialog.showToast("Something went wrong!,Please select location again");
-      } else {
+        ShowToastDialog.closeLoader();
+        log("Data : ${mapModel.value!.toJson()}");
+        
         if (sourceLocation != null && destination != null) {
           if (popupIndex.value == 0) popupIndex.value = 1;
           setBookingData(false);
         } else {
-          ShowToastDialog.showToast(sourceLocation == null ? "Please select Pickup Location" : "Please select Drop Location");
+          ShowToastDialog.showToast(
+              sourceLocation == null ? "Por favor, selecione o local de partida" : "Por favor, selecione o destino");
         }
+      } catch (e) {
+        ShowToastDialog.closeLoader();
+        log("Erro ao processar dados do mapa: $e");
+        popupIndex.value = 0;
+        ShowToastDialog.showToast("Algo deu errado! Por favor, selecione o local novamente.");
       }
     } else {
       if (destination != null) {
-        addMarker(latitude: destination!.latitude, longitude: destination!.longitude, id: "drop", descriptor: dropIcon!, rotation: 0.0);
+        addMarker(
+            latitude: destination!.latitude,
+            longitude: destination!.longitude,
+            id: "drop",
+            descriptor: dropIcon!,
+            rotation: 0.0);
         updateCameraLocation(destination!, destination!, mapController);
       } else {
         MarkerId markerId = const MarkerId("drop");
         if (markers.containsKey(markerId)) {
           markers.removeWhere((key, value) => key == markerId);
-          updateCameraLocation(
-              LatLng(currentLocationPosition!.latitude, currentLocationPosition!.longitude), LatLng(currentLocationPosition!.latitude, currentLocationPosition!.longitude), mapController);
+          updateCameraLocation(LatLng(currentLocationPosition!.latitude, currentLocationPosition!.longitude),
+              LatLng(currentLocationPosition!.latitude, currentLocationPosition!.longitude), mapController);
         }
         log("==> ${markers.containsKey(markerId)}");
       }
       if (sourceLocation != null) {
-        addMarker(latitude: sourceLocation!.latitude, longitude: sourceLocation!.longitude, id: "pickUp", descriptor: pickUpIcon!, rotation: 0.0);
+        addMarker(
+            latitude: sourceLocation!.latitude,
+            longitude: sourceLocation!.longitude,
+            id: "pickUp",
+            descriptor: pickUpIcon!,
+            rotation: 0.0);
         updateCameraLocation(sourceLocation!, sourceLocation!, mapController);
       } else {
         MarkerId markerId = const MarkerId("pickUp");
         if (markers.containsKey(markerId)) {
           markers.removeWhere((key, value) => key == markerId);
-          updateCameraLocation(
-              LatLng(currentLocationPosition!.latitude, currentLocationPosition!.longitude), LatLng(currentLocationPosition!.latitude, currentLocationPosition!.longitude), mapController);
+          updateCameraLocation(LatLng(currentLocationPosition!.latitude, currentLocationPosition!.longitude),
+              LatLng(currentLocationPosition!.latitude, currentLocationPosition!.longitude), mapController);
         }
         log("==> ${markers.containsKey(markerId)}");
       }
@@ -374,8 +438,31 @@ class SelectLocationController extends GetxController {
   BitmapDescriptor? pickUpIcon;
   BitmapDescriptor? dropIcon;
 
-  void getPolyline({required double? sourceLatitude, required double? sourceLongitude, required double? destinationLatitude, required double? destinationLongitude}) async {
-    if (sourceLatitude != null && sourceLongitude != null && destinationLatitude != null && destinationLongitude != null) {
+  void getPolyline(
+      {required double? sourceLatitude,
+      required double? sourceLongitude,
+      required double? destinationLatitude,
+      required double? destinationLongitude}) async {
+    if (sourceLatitude != null &&
+        sourceLongitude != null &&
+        destinationLatitude != null &&
+        destinationLongitude != null) {
+      // Log para debug da chave da API
+      log("Valor atual da chave da API: '${Constant.mapAPIKey}'");
+      log("Chave está vazia? ${Constant.mapAPIKey.isEmpty}");
+      
+      if (Constant.mapAPIKey.isEmpty) {
+        log("ERRO: Chave da API do Google Maps está vazia - tentando carregar do Firestore");
+        await Constant.checkAndLoadGoogleMapAPIKey();
+        log("Após carregamento - Chave da API: '${Constant.mapAPIKey}'");
+        
+        if (Constant.mapAPIKey.isEmpty) {
+          log("ERRO: Chave da API continua vazia após tentativa de carregamento");
+          ShowToastDialog.showToast("Erro ao carregar a chave da API do Google Maps. Por favor, tente novamente mais tarde.");
+          return;
+        }
+      }
+      
       List<LatLng> polylineCoordinates = [];
       PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
         googleApiKey: Constant.mapAPIKey,
@@ -394,17 +481,32 @@ class SelectLocationController extends GetxController {
         log(result.errorMessage.toString());
       }
 
-      addMarker(latitude: sourceLatitude, longitude: sourceLongitude, id: "pickUp", descriptor: pickUpIcon!, rotation: 0.0);
-      addMarker(latitude: destinationLatitude, longitude: destinationLongitude, id: "drop", descriptor: dropIcon!, rotation: 0.0);
+      addMarker(
+          latitude: sourceLatitude, longitude: sourceLongitude, id: "pickUp", descriptor: pickUpIcon!, rotation: 0.0);
+      addMarker(
+          latitude: destinationLatitude,
+          longitude: destinationLongitude,
+          id: "drop",
+          descriptor: dropIcon!,
+          rotation: 0.0);
       _addPolyLine(polylineCoordinates);
     }
   }
 
   RxMap<MarkerId, Marker> markers = <MarkerId, Marker>{}.obs;
 
-  void addMarker({required double? latitude, required double? longitude, required String id, required BitmapDescriptor descriptor, required double? rotation}) {
+  void addMarker(
+      {required double? latitude,
+      required double? longitude,
+      required String id,
+      required BitmapDescriptor descriptor,
+      required double? rotation}) {
     MarkerId markerId = MarkerId(id);
-    Marker marker = Marker(markerId: markerId, icon: descriptor, position: LatLng(latitude ?? 0.0, longitude ?? 0.0), rotation: rotation ?? 0.0);
+    Marker marker = Marker(
+        markerId: markerId,
+        icon: descriptor,
+        position: LatLng(latitude ?? 0.0, longitude ?? 0.0),
+        rotation: rotation ?? 0.0);
     markers[markerId] = marker;
   }
 
@@ -483,16 +585,20 @@ class SelectLocationController extends GetxController {
     if (Constant.distanceType == "Km") {
       var distance = (value.rows!.first.elements!.first.distance!.value!.toInt() / 1000);
       if (distance > double.parse(vehicleType.charges.fareMinimumChargesWithinKm)) {
-        return Constant.amountCalculate(vehicleType.charges.farePerKm.toString(), distance.toString()).toStringAsFixed(Constant.currencyModel!.decimalDigits!);
+        return Constant.amountCalculate(vehicleType.charges.farePerKm.toString(), distance.toString())
+            .toStringAsFixed(Constant.currencyModel!.decimalDigits!);
       } else {
-        return Constant.amountCalculate(vehicleType.charges.farMinimumCharges.toString(), distance.toString()).toStringAsFixed(Constant.currencyModel!.decimalDigits!);
+        return Constant.amountCalculate(vehicleType.charges.farMinimumCharges.toString(), distance.toString())
+            .toStringAsFixed(Constant.currencyModel!.decimalDigits!);
       }
     } else {
       var distance = (value.rows!.first.elements!.first.distance!.value!.toInt() / 1609.34);
       if (distance > double.parse(vehicleType.charges.fareMinimumChargesWithinKm)) {
-        return Constant.amountCalculate(vehicleType.charges.farePerKm.toString(), distance.toString()).toStringAsFixed(Constant.currencyModel!.decimalDigits!);
+        return Constant.amountCalculate(vehicleType.charges.farePerKm.toString(), distance.toString())
+            .toStringAsFixed(Constant.currencyModel!.decimalDigits!);
       } else {
-        return Constant.amountCalculate(vehicleType.charges.farMinimumCharges.toString(), distance.toString()).toStringAsFixed(Constant.currencyModel!.decimalDigits!);
+        return Constant.amountCalculate(vehicleType.charges.farMinimumCharges.toString(), distance.toString())
+            .toStringAsFixed(Constant.currencyModel!.decimalDigits!);
       }
     }
   }
@@ -511,7 +617,9 @@ class SelectLocationController extends GetxController {
         if (bookingModel.value.coupon!.isFix == true) {
           return double.parse(bookingModel.value.coupon!.amount.toString());
         } else {
-          return double.parse(bookingModel.value.subTotal ?? '0.0') * double.parse(bookingModel.value.coupon!.amount.toString()) / 100;
+          return double.parse(bookingModel.value.subTotal ?? '0.0') *
+              double.parse(bookingModel.value.coupon!.amount.toString()) /
+              100;
         }
       } else {
         return 0.0;

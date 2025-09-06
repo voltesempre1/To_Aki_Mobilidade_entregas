@@ -1,7 +1,7 @@
 name: driver
 version: 1.0.0+1
 publish_to: none
-description: A new Flutter project.
+description: Aplicativo para motoristas da plataforma Tô Aki Mobilidade - serviços de transporte e entrega.
 environment:
   sdk: '>=3.2.6 <4.0.0'
 
