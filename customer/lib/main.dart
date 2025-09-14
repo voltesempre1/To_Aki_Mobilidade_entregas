@@ -1,15 +1,14 @@
-
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:get/get.dart';
 import 'package:customer/app/modules/splash_screen/views/splash_screen_view.dart';
 import 'package:customer/firebase_options.dart';
 import 'package:customer/global_setting_controller.dart';
 import 'package:customer/services/localization_service.dart';
 import 'package:customer/theme/styles.dart';
 import 'package:customer/utils/dark_theme_provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import 'app/routes/app_pages.dart';
@@ -22,7 +21,7 @@ Future<void> main() async {
   configLoading();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: '"Tô Aki Mobilidade e Entregas"',
+    title: 'Tô Aki Mobilidade e Entregas'.tr,
     theme: ThemeData(
       primarySwatch: Colors.amber,
       textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1),

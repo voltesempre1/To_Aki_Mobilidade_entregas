@@ -48,15 +48,24 @@ class SignupView extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(top: Responsive.height(5, context), bottom: 32),
-                          child: Center(child: SvgPicture.asset(themeChange.isDarkTheme() ? "assets/icon/splash_logo.svg" : "assets/icon/logo_black.svg")),
+                          child: Center(
+                              child: SvgPicture.asset(themeChange.isDarkTheme()
+                                  ? "assets/icon/splash_logo.svg"
+                                  : "assets/icon/logo_black.svg")),
                         ),
                         Text(
                           "Create Account".tr,
-                          style: GoogleFonts.inter(fontSize: 24, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w700),
+                          style: GoogleFonts.inter(
+                              fontSize: 24,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w700),
                         ),
                         Text(
-                          "Create an account to start ride rides.".tr,
-                          style: GoogleFonts.inter(fontSize: 14, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black, fontWeight: FontWeight.w400),
+                          "Create an account to start ride.".tr,
+                          style: GoogleFonts.inter(
+                              fontSize: 14,
+                              color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                              fontWeight: FontWeight.w400),
                         ),
                         const SizedBox(height: 36),
                         TextFieldWithTitle(
@@ -78,8 +87,8 @@ class SignupView extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
                         TextFieldWithTitle(
-                          title: "Phone Number".tr,
-                          hintText: "Enter Phone Number".tr,
+                          title: "Enter your Phone Number".tr,
+                          hintText: "Enter your Phone Number".tr,
                           prefixIcon: CountryCodeSelectorView(
                             isCountryNameShow: false,
                             countryCodeController: controller.countryCodeController,
@@ -139,7 +148,10 @@ class SignupView extends StatelessWidget {
                           children: [
                             Text(
                               "Gender".tr,
-                              style: GoogleFonts.inter(fontSize: 14, color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.grey950, fontWeight: FontWeight.w500),
+                              style: GoogleFonts.inter(
+                                  fontSize: 14,
+                                  color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.grey950,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),

@@ -20,7 +20,14 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 class LoginController extends GetxController {
   TextEditingController countryCodeController = TextEditingController(text: '+55');
   TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   Rx<GlobalKey<FormState>> formKey = GlobalKey<FormState>().obs;
+  Rx<GlobalKey<FormState>> emailFormKey = GlobalKey<FormState>().obs;
+
+  RxInt selectedLoginMethod = 0.obs; // 0 = phone, 1 = email
+  RxBool isPasswordVisible = false.obs;
 
   @override
   void onInit() {
@@ -33,11 +40,81 @@ class LoginController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    emailController.dispose();
+    passwordController.dispose();
+  }
+
+  void toggleLoginMethod(int method) {
+    selectedLoginMethod.value = method;
+    update();
+  }
+
+  void togglePasswordVisibility() {
+    isPasswordVisible.value = !isPasswordVisible.value;
+    update();
+  }
+
+  void goToSignup() {
+    Get.to(() => const SignupView());
+  }
+
+  void goToForgotPassword() {
+    // Implementar navegação para tela de recuperação de senha
+    ShowToastDialog.showToast("Feature not implemented yet".tr);
+  }
+
+  Future<void> loginWithEmail() async {
+    try {
+      ShowToastDialog.showLoader("please_wait".tr);
+
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text,
+      );
+
+      ShowToastDialog.closeLoader();
+
+      if (credential.user != null) {
+        FireStoreUtils.userExistOrNot(credential.user!.uid).then((userExit) async {
+          if (userExit == true) {
+            UserModel? userModel = await FireStoreUtils.getUserProfile(credential.user!.uid);
+            if (userModel != null) {
+              if (userModel.isActive == true) {
+                Get.offAll(const HomeView());
+              } else {
+                await FirebaseAuth.instance.signOut();
+                ShowToastDialog.showToast("user_disable_admin_contact".tr);
+              }
+            }
+          } else {
+            ShowToastDialog.showToast("Account not found. Please sign up first.".tr);
+            await FirebaseAuth.instance.signOut();
+          }
+        });
+      }
+    } on FirebaseAuthException catch (e) {
+      ShowToastDialog.closeLoader();
+      if (e.code == 'user-not-found') {
+        ShowToastDialog.showToast('No user found for this email.'.tr);
+      } else if (e.code == 'wrong-password') {
+        ShowToastDialog.showToast('Wrong password provided.'.tr);
+      } else if (e.code == 'invalid-email') {
+        ShowToastDialog.showToast('Invalid email address.'.tr);
+      } else if (e.code == 'user-disabled') {
+        ShowToastDialog.showToast('User account has been disabled.'.tr);
+      } else {
+        ShowToastDialog.showToast(e.message ?? 'Login failed.'.tr);
+      }
+    } catch (e) {
+      ShowToastDialog.closeLoader();
+      ShowToastDialog.showToast('Something went wrong!'.tr);
+    }
+  }
 
   Future<void> sendCode() async {
     try {
-      ShowToastDialog.showLoader("Please wait".tr);
+      ShowToastDialog.showLoader("please_wait".tr);
       await FirebaseAuth.instance
           .verifyPhoneNumber(
         phoneNumber: countryCodeController.value.text + phoneNumberController.value.text,
@@ -141,7 +218,7 @@ class LoginController extends GetxController {
   }
 
   Future<void> loginWithGoogle() async {
-    ShowToastDialog.showLoader("Please wait".tr);
+    ShowToastDialog.showLoader("please_wait".tr);
     await signInWithGoogle().then((value) {
       ShowToastDialog.closeLoader();
       if (value != null) {
@@ -189,7 +266,7 @@ class LoginController extends GetxController {
   }
 
   Future<void> loginWithApple() async {
-    ShowToastDialog.showLoader("Please wait".tr);
+    ShowToastDialog.showLoader("please_wait".tr);
     await signInWithApple().then((value) {
       ShowToastDialog.closeLoader();
       if (value != null) {

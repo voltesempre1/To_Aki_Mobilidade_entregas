@@ -480,13 +480,13 @@ class Constant {
           mapModel.rows!.first.elements!.first.status == "OK") {
         return mapModel;
       } else {
-        String errorMsg = mapModel.errorMessage ?? "Erro ao obter informações de rota";
+        String errorMsg = mapModel.errorMessage ?? "Erro ao obter informações de rota".tr;
         ShowToastDialog.showToast(errorMsg);
         log("Erro na resposta da API: $errorMsg");
       }
     } catch (e) {
       log("Exceção ao obter distância: $e");
-      ShowToastDialog.showToast("Erro ao calcular rota. Por favor, tente novamente.");
+      ShowToastDialog.showToast("Erro ao calcular rota. Por favor, tente novamente.".tr);
     }
     return null;
   }
@@ -497,7 +497,7 @@ class Constant {
       await checkAndLoadGoogleMapAPIKey();
       if (mapAPIKey.isEmpty) {
         log("ERRO: Chave da API do Google Maps continua vazia após tentativa de carregamento");
-        ShowToastDialog.showToast("Erro ao carregar a chave da API do Google Maps. Por favor, tente novamente mais tarde.");
+        ShowToastDialog.showToast("Erro ao carregar a chave da API do Google Maps. Por favor, tente novamente mais tarde.".tr);
         return null;
       }
     }
@@ -513,13 +513,13 @@ class Constant {
         Map<String, dynamic> location = responseData['result']['geometry']['location'];
         return LatLng(location['lat'], location['lng']);
       } else {
-        String errorMsg = responseData['error_message'] ?? "Erro ao obter localização";
+        String errorMsg = responseData['error_message'] ?? "Erro ao obter localização".tr;
         ShowToastDialog.showToast(errorMsg);
         log("Erro na resposta da API Places: $errorMsg");
       }
     } catch (e) {
       log("Exceção ao obter localização do placeId: $e");
-      ShowToastDialog.showToast("Erro ao obter localização. Por favor, tente novamente.");
+      ShowToastDialog.showToast("Erro ao obter localização. Por favor, tente novamente.".tr);
     }
     return null;
   }

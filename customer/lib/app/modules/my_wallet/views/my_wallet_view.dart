@@ -97,13 +97,17 @@ class MyWalletView extends StatelessWidget {
                                   color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
                                 ),
                                 const SizedBox(width: 8),
-                                Text(
-                                  'Add Money'.tr,
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.inter(
-                                    color: themeChange.isDarkTheme() ? AppThemData.grey50 : AppThemData.grey950,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
+                                Flexible(
+                                  child: Text(
+                                    'Add Money'.tr,
+                                    textAlign: TextAlign.center,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.inter(
+                                      color: themeChange.isDarkTheme() ? AppThemData.grey50 : AppThemData.grey950,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -165,7 +169,9 @@ class MyWalletView extends StatelessWidget {
                                           child: SvgPicture.asset(
                                             "assets/icon/ic_my_wallet.svg",
                                             colorFilter: ColorFilter.mode(
-                                                (walletTransactionModel.isCredit ?? false) ? AppThemData.success500 : AppThemData.danger500,
+                                                (walletTransactionModel.isCredit ?? false)
+                                                    ? AppThemData.success500
+                                                    : AppThemData.danger500,
                                                 BlendMode.srcIn),
                                           ),
                                         ),
@@ -177,7 +183,9 @@ class MyWalletView extends StatelessWidget {
                                             border: Border(
                                               bottom: BorderSide(
                                                 width: 1,
-                                                color: themeChange.isDarkTheme() ? AppThemData.grey800 : AppThemData.grey100,
+                                                color: themeChange.isDarkTheme()
+                                                    ? AppThemData.grey800
+                                                    : AppThemData.grey100,
                                               ),
                                             ),
                                           ),
@@ -195,7 +203,9 @@ class MyWalletView extends StatelessWidget {
                                                     child: Text(
                                                       walletTransactionModel.note ?? '',
                                                       style: GoogleFonts.inter(
-                                                        color: themeChange.isDarkTheme() ? AppThemData.grey50 : AppThemData.grey950,
+                                                        color: themeChange.isDarkTheme()
+                                                            ? AppThemData.grey50
+                                                            : AppThemData.grey950,
                                                         fontSize: 16,
                                                         fontWeight: FontWeight.w400,
                                                       ),
@@ -206,8 +216,9 @@ class MyWalletView extends StatelessWidget {
                                                     Constant.amountToShow(amount: walletTransactionModel.amount ?? ''),
                                                     textAlign: TextAlign.right,
                                                     style: GoogleFonts.inter(
-                                                      color:
-                                                          (walletTransactionModel.isCredit ?? false) ? AppThemData.success500 : AppThemData.danger500,
+                                                      color: (walletTransactionModel.isCredit ?? false)
+                                                          ? AppThemData.success500
+                                                          : AppThemData.danger500,
                                                       fontSize: 16,
                                                       fontWeight: FontWeight.w600,
                                                     ),
@@ -227,9 +238,13 @@ class MyWalletView extends StatelessWidget {
                                                       crossAxisAlignment: CrossAxisAlignment.center,
                                                       children: [
                                                         Text(
-                                                          (walletTransactionModel.createdDate ?? Timestamp.now()).toDate().dateMonthYear(),
+                                                          (walletTransactionModel.createdDate ?? Timestamp.now())
+                                                              .toDate()
+                                                              .dateMonthYear(),
                                                           style: GoogleFonts.inter(
-                                                            color: themeChange.isDarkTheme() ? AppThemData.grey400 : AppThemData.grey500,
+                                                            color: themeChange.isDarkTheme()
+                                                                ? AppThemData.grey400
+                                                                : AppThemData.grey500,
                                                             fontSize: 14,
                                                             fontWeight: FontWeight.w400,
                                                           ),
@@ -242,16 +257,22 @@ class MyWalletView extends StatelessWidget {
                                                               side: BorderSide(
                                                                 width: 1,
                                                                 strokeAlign: BorderSide.strokeAlignCenter,
-                                                                color: themeChange.isDarkTheme() ? AppThemData.grey800 : AppThemData.grey100,
+                                                                color: themeChange.isDarkTheme()
+                                                                    ? AppThemData.grey800
+                                                                    : AppThemData.grey100,
                                                               ),
                                                             ),
                                                           ),
                                                         ),
                                                         const SizedBox(width: 8),
                                                         Text(
-                                                          (walletTransactionModel.createdDate ?? Timestamp.now()).toDate().time(),
+                                                          (walletTransactionModel.createdDate ?? Timestamp.now())
+                                                              .toDate()
+                                                              .time(),
                                                           style: GoogleFonts.inter(
-                                                            color: themeChange.isDarkTheme() ? AppThemData.grey400 : AppThemData.grey500,
+                                                            color: themeChange.isDarkTheme()
+                                                                ? AppThemData.grey400
+                                                                : AppThemData.grey500,
                                                             fontSize: 14,
                                                             fontWeight: FontWeight.w400,
                                                           ),

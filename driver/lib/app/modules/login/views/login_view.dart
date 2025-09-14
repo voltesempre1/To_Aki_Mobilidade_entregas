@@ -339,13 +339,14 @@ class LoginView extends StatelessWidget {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "Don't have an account? ".tr,
+                                  text: "Don't have an account?".tr,
                                   style: GoogleFonts.inter(
                                     fontSize: 14,
                                     color: themeChange.isDarkTheme() ? AppThemData.grey300 : AppThemData.grey600,
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
+                                const TextSpan(text: " "),
                                 TextSpan(
                                   text: "Sign Up".tr,
                                   style: GoogleFonts.inter(

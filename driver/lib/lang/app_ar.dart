@@ -240,15 +240,40 @@ const Map<String, String> lnAr = {
   "Your account will be deleted permanently. Your Data will not be Restored Again":
       "سيتم حذف حسابك نهائيا. لن تتم استعادة بياناتك مرة أخرى",
   "Account Deleted Successfully..": "تم حذف الحساب بنجاح..",
+  "Alert!": "تنبيه!",
+  "Would you like to cancel this payment?": "هل ترغب في إلغاء هذا الدفع؟",
+  "Continue to Paypal": "متابعة إلى باي بال",
+  "Tô Aki Mobilidade e Entregas": "تو آكي للتنقل والتوصيل",
+  "Yes": "نعم",
+  "Dark Mode": "الوضع المظلم",
+  "System Mode": "وضع النظام",
+  "Verify OTP": "التحقق من OTP",
+  "Phone": "هاتف",
+  "Please enter your email": "الرجاء إدخال بريدك الإلكتروني",
+  "Please enter a valid email": "الرجاء إدخال بريد إلكتروني صحيح",
+  "Enter your email": "أدخل بريدك الإلكتروني",
+  "Enter your password": "أدخل كلمة المرور الخاصة بك",
+  "Please enter your password": "الرجاء إدخال كلمة المرور الخاصة بك",
+  "password_min_length_login": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
+  "Forgot Password?": "نسيت كلمة المرور؟",
+  "Please fill all fields correctly": "يرجى ملء جميع الحقول بشكل صحيح",
+  "Don't have an account?": "ليس لديك حساب؟",
+  "Erro ao obter informações de rota": "خطأ في الحصول على معلومات الطريق",
+  "Erro ao calcular rota. Por favor, tente novamente.": "خطأ في حساب الطريق. يرجى المحاولة مرة أخرى.",
+  "Erro ao carregar a chave da API do Google Maps. Por favor, tente novamente mais tarde.":
+      "خطأ في تحميل مفتاح واجهة برمجة تطبيقات خرائط جوجل. يرجى المحاولة مرة أخرى لاحقًا.",
+  "Erro ao obter localização": "خطأ في الحصول على الموقع",
+  "Erro ao obter localização. Por favor, tente novamente.": "خطأ في الحصول على الموقع. يرجى المحاولة مرة أخرى.",
   "Delete": "يمسح",
   "Your Subscription": "اشتراكك",
   "Subscription Plan": "خطة الاشتراك",
   "Delete Account": "حذف الحساب",
-  
+
   // نصوص وحدة تغيير كلمة المرور
   "Change Password": "تغيير كلمة المرور",
   "Password Change Not Available": "تغيير كلمة المرور غير متاح",
-  "You signed up using Google or Apple. Password changes are not available for social login accounts.": "لقد قمت بالتسجيل باستخدام Google أو Apple. تغييرات كلمة المرور غير متاحة لحسابات تسجيل الدخول الاجتماعية.",
+  "You signed up using Google or Apple. Password changes are not available for social login accounts.":
+      "لقد قمت بالتسجيل باستخدام Google أو Apple. تغييرات كلمة المرور غير متاحة لحسابات تسجيل الدخول الاجتماعية.",
   "Security": "الأمان",
   "Update your password to keep your account secure": "قم بتحديث كلمة المرور الخاصة بك للحفاظ على أمان حسابك",
   "Current password": "كلمة المرور الحالية",
@@ -258,8 +283,8 @@ const Map<String, String> lnAr = {
   "• At least 6 characters": "• 6 أحرف على الأقل",
   "• Different from current password": "• مختلفة عن كلمة المرور الحالية",
   "Update Password": "تحديث كلمة المرور",
-  "Please fill all fields correctly": "يرجى ملء جميع الحقول بشكل صحيح",
-  
+  // "Please fill all fields correctly": "يرجى ملء جميع الحقول بشكل صحيح",
+
   // نصوص وحدة تحكم تغيير كلمة المرور
   "User not logged in": "المستخدم غير مسجل الدخول",
   "Password updated successfully": "تم تحديث كلمة المرور بنجاح",
@@ -273,28 +298,40 @@ const Map<String, String> lnAr = {
   "Failed to update password": "فشل تحديث كلمة المرور",
   "Please enter your current password": "يرجى إدخال كلمة المرور الحالية",
   "Please enter a new password": "يرجى إدخال كلمة مرور جديدة",
-  "Password must be at least 6 characters": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
-  "New password must be different from current password": "يجب أن تكون كلمة المرور الجديدة مختلفة عن كلمة المرور الحالية",
+  "password_min_length_change": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
+  "New password must be different from current password":
+      "يجب أن تكون كلمة المرور الجديدة مختلفة عن كلمة المرور الحالية",
   "Please confirm your new password": "يرجى تأكيد كلمة المرور الجديدة",
   "Passwords do not match": "كلمات المرور غير متطابقة",
 
-  // نصوص وحدة تسجيل الدخول
-  "Phone": "هاتف",
-  "Enter your email": "أدخل بريدك الإلكتروني",
-  "Enter your password": "أدخل كلمة المرور الخاصة بك",
-  "Forgot Password?": "نسيت كلمة المرور؟",
-  "Don't have an account? ": "ليس لديك حساب؟ ",
-  "Please enter your email": "يرجى إدخال بريدك الإلكتروني",
-  "Please enter a valid email": "يرجى إدخال بريد إلكتروني صالح",
-  "Please enter your password": "يرجى إدخال كلمة المرور الخاصة بك",
+  // نصوص وحدة التسجيل بالبريد الإلكتروني
+  "Please fill in the information to create your account": "يرجى ملء المعلومات لإنشاء حسابك",
+  "Confirm your password": "تأكيد كلمة المرور الخاصة بك",
+  "Already have an account? ": "هل لديك حساب بالفعل؟ ",
+  "Please confirm your password": "يرجى تأكيد كلمة المرور الخاصة بك",
+  "The password provided is too weak.": "كلمة المرور المقدمة ضعيفة جداً.",
+  "The account already exists for that email.": "الحساب موجود بالفعل لهذا البريد الإلكتروني.",
+  "The email address is not valid.": "عنوان البريد الإلكتروني غير صالح.",
+  "Email/password accounts are not enabled.": "حسابات البريد الإلكتروني/كلمة المرور غير ممكنة.",
+  "An error occurred during signup.": "حدث خطأ أثناء التسجيل.",
+  
+  "login_phone": "هاتف",
+  "login_enter_email": "أدخل بريدك الإلكتروني",
+  "login_enter_password": "أدخل كلمة المرور الخاصة بك",
+  "login_forgot_password": "نسيت كلمة المرور؟",
+  "login_no_account": "ليس لديك حساب؟",
+  "login_please_enter_email": "يرجى إدخال بريدك الإلكتروني",
+  "login_please_enter_valid_email": "يرجى إدخال بريد إلكتروني صحيح",
+  "login_please_enter_password": "يرجى إدخال كلمة المرور الخاصة بك",
   "No user found for this email.": "لم يتم العثور على مستخدم لهذا البريد الإلكتروني.",
   "Wrong password provided.": "تم تقديم كلمة مرور خاطئة.",
   "Login failed.": "فشل تسجيل الدخول.",
   "Account not found. Please sign up first.": "لم يتم العثور على الحساب. يرجى التسجيل أولاً.",
   "something_went_wrong": "حدث خطأ ما",
-  
+
   // نصوص وحدة نسيان كلمة المرور
-  "Enter your email address and we'll send you a password reset link": "أدخل عنوان بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور",
+  "Enter your email address and we'll send you a password reset link":
+      "أدخل عنوان بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور",
   "Send Reset Email": "إرسال بريد إعادة التعيين",
   "Remember your password? ": "تتذكر كلمة المرور الخاصة بك؟ ",
   "Back to Login": "العودة إلى تسجيل الدخول",

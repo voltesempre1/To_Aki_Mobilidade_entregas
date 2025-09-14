@@ -1,4 +1,3 @@
-
 import 'package:auto_size_text_field/auto_size_text_field.dart';
 import 'package:customer/app/modules/my_wallet/controllers/my_wallet_controller.dart';
 import 'package:customer/constant/constant.dart';
@@ -83,7 +82,8 @@ class AddMoneyDialogView extends StatelessWidget {
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           isDense: true,
-                          suffixIconConstraints: const BoxConstraints(maxHeight: 20, maxWidth: 20, minHeight: 20, minWidth: 20),
+                          suffixIconConstraints:
+                              const BoxConstraints(maxHeight: 20, maxWidth: 20, minHeight: 20, minWidth: 20),
                           suffixIcon: SizedBox(
                               height: 20,
                               width: 20,
@@ -98,7 +98,8 @@ class AddMoneyDialogView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Visibility(
-                            visible: controller.paymentModel.value.paypal != null && controller.paymentModel.value.paypal!.isActive == true,
+                            visible: controller.paymentModel.value.paypal != null &&
+                                controller.paymentModel.value.paypal!.isActive == true,
                             child: Column(
                               children: [
                                 Container(
@@ -128,7 +129,8 @@ class AddMoneyDialogView extends StatelessWidget {
                                       ],
                                     ),
                                     onChanged: (value) {
-                                      controller.selectedPaymentMethod.value = Constant.paymentModel!.paypal!.name.toString();
+                                      controller.selectedPaymentMethod.value =
+                                          Constant.paymentModel!.paypal!.name.toString();
                                     },
                                   ),
                                 ),
@@ -141,7 +143,8 @@ class AddMoneyDialogView extends StatelessWidget {
                             ),
                           ),
                           Visibility(
-                            visible: controller.paymentModel.value.strip != null && controller.paymentModel.value.strip!.isActive == true,
+                            visible: controller.paymentModel.value.strip != null &&
+                                controller.paymentModel.value.strip!.isActive == true,
                             child: Column(
                               children: [
                                 Container(
@@ -171,7 +174,8 @@ class AddMoneyDialogView extends StatelessWidget {
                                       ],
                                     ),
                                     onChanged: (value) {
-                                      controller.selectedPaymentMethod.value = Constant.paymentModel!.strip!.name.toString();
+                                      controller.selectedPaymentMethod.value =
+                                          Constant.paymentModel!.strip!.name.toString();
                                     },
                                   ),
                                 ),
@@ -184,7 +188,8 @@ class AddMoneyDialogView extends StatelessWidget {
                             ),
                           ),
                           Visibility(
-                            visible: controller.paymentModel.value.razorpay != null && controller.paymentModel.value.razorpay!.isActive == true,
+                            visible: controller.paymentModel.value.razorpay != null &&
+                                controller.paymentModel.value.razorpay!.isActive == true,
                             child: Column(
                               children: [
                                 Container(
@@ -214,7 +219,8 @@ class AddMoneyDialogView extends StatelessWidget {
                                       ],
                                     ),
                                     onChanged: (value) {
-                                      controller.selectedPaymentMethod.value = Constant.paymentModel!.razorpay!.name.toString();
+                                      controller.selectedPaymentMethod.value =
+                                          Constant.paymentModel!.razorpay!.name.toString();
                                     },
                                   ),
                                 ),
@@ -227,7 +233,8 @@ class AddMoneyDialogView extends StatelessWidget {
                             ),
                           ),
                           Visibility(
-                            visible: controller.paymentModel.value.flutterWave != null && controller.paymentModel.value.flutterWave!.isActive == true,
+                            visible: controller.paymentModel.value.flutterWave != null &&
+                                controller.paymentModel.value.flutterWave!.isActive == true,
                             child: Column(
                               children: [
                                 Container(
@@ -257,7 +264,8 @@ class AddMoneyDialogView extends StatelessWidget {
                                       ],
                                     ),
                                     onChanged: (value) {
-                                      controller.selectedPaymentMethod.value = Constant.paymentModel!.flutterWave!.name.toString();
+                                      controller.selectedPaymentMethod.value =
+                                          Constant.paymentModel!.flutterWave!.name.toString();
                                     },
                                   ),
                                 ),
@@ -270,7 +278,8 @@ class AddMoneyDialogView extends StatelessWidget {
                             ),
                           ),
                           Visibility(
-                            visible: controller.paymentModel.value.payStack != null && controller.paymentModel.value.payStack!.isActive == true,
+                            visible: controller.paymentModel.value.payStack != null &&
+                                controller.paymentModel.value.payStack!.isActive == true,
                             child: Column(
                               children: [
                                 Container(
@@ -300,7 +309,8 @@ class AddMoneyDialogView extends StatelessWidget {
                                       ],
                                     ),
                                     onChanged: (value) {
-                                      controller.selectedPaymentMethod.value = Constant.paymentModel!.payStack!.name.toString();
+                                      controller.selectedPaymentMethod.value =
+                                          Constant.paymentModel!.payStack!.name.toString();
                                     },
                                   ),
                                 ),
@@ -313,7 +323,8 @@ class AddMoneyDialogView extends StatelessWidget {
                             ),
                           ),
                           Visibility(
-                            visible: controller.paymentModel.value.mercadoPago != null && controller.paymentModel.value.mercadoPago!.isActive == true,
+                            visible: controller.paymentModel.value.mercadoPago != null &&
+                                controller.paymentModel.value.mercadoPago!.isActive == true,
                             child: Column(
                               children: [
                                 Container(
@@ -343,7 +354,8 @@ class AddMoneyDialogView extends StatelessWidget {
                                       ],
                                     ),
                                     onChanged: (value) {
-                                      controller.selectedPaymentMethod.value = Constant.paymentModel!.mercadoPago!.name.toString();
+                                      controller.selectedPaymentMethod.value =
+                                          Constant.paymentModel!.mercadoPago!.name.toString();
                                     },
                                   ),
                                 ),
@@ -356,7 +368,8 @@ class AddMoneyDialogView extends StatelessWidget {
                             ),
                           ),
                           Visibility(
-                            visible: controller.paymentModel.value.payFast != null && controller.paymentModel.value.payFast!.isActive == true,
+                            visible: controller.paymentModel.value.payFast != null &&
+                                controller.paymentModel.value.payFast!.isActive == true,
                             child: Column(
                               children: [
                                 Container(
@@ -386,7 +399,8 @@ class AddMoneyDialogView extends StatelessWidget {
                                       ],
                                     ),
                                     onChanged: (value) {
-                                      controller.selectedPaymentMethod.value = Constant.paymentModel!.payFast!.name.toString();
+                                      controller.selectedPaymentMethod.value =
+                                          Constant.paymentModel!.payFast!.name.toString();
                                     },
                                   ),
                                 ),
@@ -408,34 +422,43 @@ class AddMoneyDialogView extends StatelessWidget {
                       onTap: () async {
                         if (controller.selectedPaymentMethod.value.isNotEmpty) {
                           if (controller.amountController.value.text.isNotEmpty) {
-                            if (double.parse(controller.amountController.value.text) >= double.parse(Constant.minimumAmountToDeposit.toString())) {
+                            if (double.parse(controller.amountController.value.text) >=
+                                double.parse(Constant.minimumAmountToDeposit.toString())) {
                               ShowToastDialog.showLoader("Please wait".tr);
                               if (controller.selectedPaymentMethod.value == Constant.paymentModel!.paypal!.name) {
-                                await controller.payPalPayment(amount:controller.amountController.text);
+                                await controller.payPalPayment(amount: controller.amountController.text);
                                 // await controller.paypalPaymentSheet(controller.amountController.text);
                                 Get.back();
                               } else if (controller.selectedPaymentMethod.value == Constant.paymentModel!.strip!.name) {
                                 await controller.stripeMakePayment(amount: controller.amountController.text);
                                 Get.back();
-                              } else if (controller.selectedPaymentMethod.value == Constant.paymentModel!.razorpay!.name) {
+                              } else if (controller.selectedPaymentMethod.value ==
+                                  Constant.paymentModel!.razorpay!.name) {
                                 await controller.razorpayMakePayment(amount: controller.amountController.text);
                                 Get.back();
-                              } else if (controller.selectedPaymentMethod.value == Constant.paymentModel!.flutterWave!.name) {
-                                await controller.flutterWaveInitiatePayment(context: context, amount: controller.amountController.text);
+                              } else if (controller.selectedPaymentMethod.value ==
+                                  Constant.paymentModel!.flutterWave!.name) {
+                                await controller.flutterWaveInitiatePayment(
+                                    context: context, amount: controller.amountController.text);
                                 Get.back();
-                              } else if (controller.selectedPaymentMethod.value == Constant.paymentModel!.payStack!.name) {
+                              } else if (controller.selectedPaymentMethod.value ==
+                                  Constant.paymentModel!.payStack!.name) {
                                 await controller.payStackPayment(controller.amountController.text);
                                 Get.back();
-                              } else if (controller.selectedPaymentMethod.value == Constant.paymentModel!.mercadoPago!.name) {
-                                controller.mercadoPagoMakePayment(context: context, amount: controller.amountController.text);
+                              } else if (controller.selectedPaymentMethod.value ==
+                                  Constant.paymentModel!.mercadoPago!.name) {
+                                controller.mercadoPagoMakePayment(
+                                    context: context, amount: controller.amountController.text);
                                 Get.back();
-                              } else if (controller.selectedPaymentMethod.value == Constant.paymentModel!.payFast!.name) {
+                              } else if (controller.selectedPaymentMethod.value ==
+                                  Constant.paymentModel!.payFast!.name) {
                                 controller.payFastPayment(context: context, amount: controller.amountController.text);
                                 Get.back();
                               }
                               ShowToastDialog.closeLoader();
                             } else {
-                              ShowToastDialog.showToast("${"Please Enter minimum amount of".tr}${Constant.amountToShow(amount: Constant.minimumAmountToDeposit)}");
+                              ShowToastDialog.showToast(
+                                  "${"Please Enter minimum amount of".tr}${Constant.amountToShow(amount: Constant.minimumAmountToDeposit)}");
                             }
                           } else {
                             ShowToastDialog.showToast("Please enter amount".tr);

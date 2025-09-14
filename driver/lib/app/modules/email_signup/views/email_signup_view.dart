@@ -84,9 +84,9 @@ class EmailSignupView extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    
+
                     const SizedBox(height: 32),
-                    
+
                     Form(
                       key: controller.formKey.value,
                       child: Column(
@@ -121,7 +121,7 @@ class EmailSignupView extends StatelessWidget {
                               ),
                             ),
                           ),
-                          
+
                           // Password Field
                           Container(
                             margin: const EdgeInsets.only(bottom: 16),
@@ -161,7 +161,7 @@ class EmailSignupView extends StatelessWidget {
                               ),
                             ),
                           ),
-                          
+
                           // Confirm Password Field
                           Container(
                             margin: const EdgeInsets.only(bottom: 24),
@@ -201,13 +201,13 @@ class EmailSignupView extends StatelessWidget {
                               ),
                             ),
                           ),
-                          
+
                           // Sign Up Button
                           RoundShapeButton(
-                            size: const Size(double.infinity, 50),
+                            size: Size(MediaQuery.of(context).size.width - 32, 50),
                             title: "Create Account".tr,
-                            buttonColor: AppThemData.primary500,
-                            buttonTextColor: AppThemData.black,
+                            buttonColor: themeChange.isDarkTheme() ? AppThemData.primary500 : AppThemData.primary500,
+                            buttonTextColor: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.white,
                             onTap: () {
                               if (controller.formKey.value.currentState!.validate()) {
                                 controller.signupWithEmail();
@@ -219,9 +219,9 @@ class EmailSignupView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    
+
                     const SizedBox(height: 24),
-                    
+
                     // Login Link
                     Center(
                       child: InkWell(
@@ -252,7 +252,7 @@ class EmailSignupView extends StatelessWidget {
                         ),
                       ),
                     ),
-                    
+
                     const SizedBox(height: 40),
                   ],
                 ),
