@@ -7,15 +7,11 @@ import 'package:admin/app/models/booking_model.dart';
 import 'package:admin/app/models/user_model.dart';
 import 'package:admin/app/models/wallet_transaction_model.dart';
 import 'package:admin/app/utils/fire_store_utils.dart';
-
 // ignore_for_file: depend_on_referenced_packages
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
-import '../../../routes/app_pages.dart';
 
 class CustomerDetailScreenController extends GetxController {
   RxString title = "Customer Detail".tr.obs;
@@ -58,7 +54,8 @@ class CustomerDetailScreenController extends GetxController {
     log("==============>${userModel.value.id}");
     totalItemPerPage.value = Constant.numOfPageIemList.first;
     await getBookings();
-    dateFiledController.value.text = "${DateFormat('yyyy-MM-dd').format(selectedDate.value.start)} to ${DateFormat('yyyy-MM-dd').format(selectedDate.value.end)}";
+    dateFiledController.value.text =
+        "${DateFormat('yyyy-MM-dd').format(selectedDate.value.start)} to ${DateFormat('yyyy-MM-dd').format(selectedDate.value.end)}";
     await getWalletTransactions();
     isLoading.value = false;
   }
@@ -134,7 +131,8 @@ class CustomerDetailScreenController extends GetxController {
     int itemPerPage = pageValue(page);
     totalPage.value = (bookingList.length / itemPerPage).ceil();
     startIndex.value = (currentPage.value - 1) * itemPerPage;
-    endIndex.value = (currentPage.value * itemPerPage) > bookingList.length ? bookingList.length : (currentPage.value * itemPerPage);
+    endIndex.value =
+        (currentPage.value * itemPerPage) > bookingList.length ? bookingList.length : (currentPage.value * itemPerPage);
     if (endIndex.value < startIndex.value) {
       currentPage.value = 1;
       setPagination(page);
@@ -214,7 +212,9 @@ class CustomerDetailScreenController extends GetxController {
     int itemPerPage = pageValue(page);
     totalPage.value = (walletTransactionList.length / itemPerPage).ceil();
     startIndex.value = (currentPage.value - 1) * itemPerPage;
-    endIndex.value = (currentPage.value * itemPerPage) > walletTransactionList.length ? walletTransactionList.length : (currentPage.value * itemPerPage);
+    endIndex.value = (currentPage.value * itemPerPage) > walletTransactionList.length
+        ? walletTransactionList.length
+        : (currentPage.value * itemPerPage);
     if (endIndex.value < startIndex.value) {
       currentPage.value = 1;
       setPagination(page);

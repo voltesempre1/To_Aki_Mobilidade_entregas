@@ -8,8 +8,6 @@ import 'package:admin/app/utils/fire_store_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../routes/app_pages.dart';
-
 class CabDetailController extends GetxController {
   RxString title = "Cab Detail".tr.obs;
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -33,7 +31,6 @@ class CabDetailController extends GetxController {
       await FireStoreUtils.getBookingByBookingId(bookingId).then((value) async {
         if (value != null) {
           bookingModel.value = value;
-
         }
         await FireStoreUtils.getDriverByDriverID(bookingModel.value.driverId.toString()).then((driver) {
           if (driver != null) {

@@ -1,7 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 import 'package:admin/app/modules/setting_screen/controllers/setting_screen_controller.dart';
 import 'package:admin/app/routes/app_pages.dart';
-import 'package:admin/app/services/shared_preferences/app_preference.dart';
 import 'package:admin/app/utils/app_colors.dart';
 import 'package:admin/app/utils/app_them_data.dart';
 import 'package:admin/app/utils/dark_theme_provider.dart';
@@ -10,15 +9,12 @@ import 'package:admin/widget/container_custom.dart';
 import 'package:admin/widget/global_widgets.dart';
 import 'package:admin/widget/text_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:provider/provider.dart';
-
-import '../utils/fire_store_utils.dart';
 
 // ignore: must_be_immutable
 class MenuWidget extends StatelessWidget {
@@ -131,12 +127,21 @@ class MenuWidget extends StatelessWidget {
                     ),
                     ExpansionTileItem(
                       title: 'Bookings'.tr,
-                      titleColor: ( Get.currentRoute == Routes.PARCEL_DETAIL || Get.currentRoute == Routes.PARCEL_HISTORY_SCREEN || Get.currentRoute == Routes.INTERCITY_DETAIL || Get.currentRoute == Routes.INTERCITY_HISTORY_SCREEN)
+                      titleColor: (Get.currentRoute == Routes.PARCEL_DETAIL ||
+                              Get.currentRoute == Routes.PARCEL_HISTORY_SCREEN ||
+                              Get.currentRoute == Routes.INTERCITY_DETAIL ||
+                              Get.currentRoute == Routes.INTERCITY_HISTORY_SCREEN)
                           ? AppThemData.primary500
                           : AppThemData.primary500,
-                      isSelected: ( Get.currentRoute == Routes.PARCEL_DETAIL || Get.currentRoute == Routes.PARCEL_HISTORY_SCREEN || Get.currentRoute == Routes.INTERCITY_DETAIL || Get.currentRoute == Routes.INTERCITY_HISTORY_SCREEN),
+                      isSelected: (Get.currentRoute == Routes.PARCEL_DETAIL ||
+                          Get.currentRoute == Routes.PARCEL_HISTORY_SCREEN ||
+                          Get.currentRoute == Routes.INTERCITY_DETAIL ||
+                          Get.currentRoute == Routes.INTERCITY_HISTORY_SCREEN),
                       icon: 'assets/icons/my_ride.svg',
-                      iconColor: ( Get.currentRoute == Routes.PARCEL_DETAIL || Get.currentRoute == Routes.PARCEL_HISTORY_SCREEN || Get.currentRoute == Routes.INTERCITY_DETAIL || Get.currentRoute == Routes.INTERCITY_HISTORY_SCREEN)
+                      iconColor: (Get.currentRoute == Routes.PARCEL_DETAIL ||
+                              Get.currentRoute == Routes.PARCEL_HISTORY_SCREEN ||
+                              Get.currentRoute == Routes.INTERCITY_DETAIL ||
+                              Get.currentRoute == Routes.INTERCITY_HISTORY_SCREEN)
                           ? AppThemData.primary500
                           : AppThemData.primary500,
                       themeChange: themeChange,
@@ -265,10 +270,20 @@ class MenuWidget extends StatelessWidget {
 
                     ExpansionTileItem(
                       title: 'Driver'.tr,
-                      titleColor: (Get.currentRoute == Routes.DRIVER_SCREEN || Get.currentRoute == Routes.VERIFY_DRIVER_SCREEN || Get.currentRoute == Routes.DRIVER_DETAIL_SCREEN) ? AppThemData.primary500 : AppThemData.primary500,
-                      isSelected: (Get.currentRoute == Routes.DRIVER_SCREEN || Get.currentRoute == Routes.VERIFY_DRIVER_SCREEN || Get.currentRoute == Routes.DRIVER_DETAIL_SCREEN),
+                      titleColor: (Get.currentRoute == Routes.DRIVER_SCREEN ||
+                              Get.currentRoute == Routes.VERIFY_DRIVER_SCREEN ||
+                              Get.currentRoute == Routes.DRIVER_DETAIL_SCREEN)
+                          ? AppThemData.primary500
+                          : AppThemData.primary500,
+                      isSelected: (Get.currentRoute == Routes.DRIVER_SCREEN ||
+                          Get.currentRoute == Routes.VERIFY_DRIVER_SCREEN ||
+                          Get.currentRoute == Routes.DRIVER_DETAIL_SCREEN),
                       icon: 'assets/icons/my_ride.svg',
-                      iconColor: (Get.currentRoute == Routes.DRIVER_SCREEN || Get.currentRoute == Routes.VERIFY_DRIVER_SCREEN || Get.currentRoute == Routes.DRIVER_DETAIL_SCREEN) ? AppThemData.primary500 : AppThemData.primary500,
+                      iconColor: (Get.currentRoute == Routes.DRIVER_SCREEN ||
+                              Get.currentRoute == Routes.VERIFY_DRIVER_SCREEN ||
+                              Get.currentRoute == Routes.DRIVER_DETAIL_SCREEN)
+                          ? AppThemData.primary500
+                          : AppThemData.primary500,
                       themeChange: themeChange,
                       children: [
                         ListItem(
@@ -306,10 +321,20 @@ class MenuWidget extends StatelessWidget {
                     )),
                     ExpansionTileItem(
                       title: 'Vehicle Details'.tr,
-                      titleColor: (Get.currentRoute == Routes.VEHICLE_BRAND_SCREEN || Get.currentRoute == Routes.VEHICLE_MODEL_SCREEN || Get.currentRoute == Routes.VEHICLE_TYPE_SCREEN) ? AppThemData.primary500 : AppThemData.primary500,
-                      isSelected: (Get.currentRoute == Routes.VEHICLE_BRAND_SCREEN || Get.currentRoute == Routes.VEHICLE_MODEL_SCREEN || Get.currentRoute == Routes.VEHICLE_TYPE_SCREEN),
+                      titleColor: (Get.currentRoute == Routes.VEHICLE_BRAND_SCREEN ||
+                              Get.currentRoute == Routes.VEHICLE_MODEL_SCREEN ||
+                              Get.currentRoute == Routes.VEHICLE_TYPE_SCREEN)
+                          ? AppThemData.primary500
+                          : AppThemData.primary500,
+                      isSelected: (Get.currentRoute == Routes.VEHICLE_BRAND_SCREEN ||
+                          Get.currentRoute == Routes.VEHICLE_MODEL_SCREEN ||
+                          Get.currentRoute == Routes.VEHICLE_TYPE_SCREEN),
                       icon: 'assets/icons/my_ride.svg',
-                      iconColor: (Get.currentRoute == Routes.VEHICLE_BRAND_SCREEN || Get.currentRoute == Routes.VEHICLE_MODEL_SCREEN || Get.currentRoute == Routes.VEHICLE_TYPE_SCREEN) ? AppThemData.primary500 : AppThemData.primary500,
+                      iconColor: (Get.currentRoute == Routes.VEHICLE_BRAND_SCREEN ||
+                              Get.currentRoute == Routes.VEHICLE_MODEL_SCREEN ||
+                              Get.currentRoute == Routes.VEHICLE_TYPE_SCREEN)
+                          ? AppThemData.primary500
+                          : AppThemData.primary500,
                       themeChange: themeChange,
                       children: [
                         ListItem(
@@ -351,10 +376,17 @@ class MenuWidget extends StatelessWidget {
 
                     ExpansionTileItem(
                       title: 'Subscriptions'.tr,
-                      titleColor: (Get.currentRoute == Routes.SUBSCRIPTION_PLAN || Get.currentRoute == Routes.SUBSCRIPTION_HISTORY) ? AppThemData.primary500 : AppThemData.primary500,
-                      isSelected: (Get.currentRoute == Routes.SUBSCRIPTION_PLAN || Get.currentRoute == Routes.SUBSCRIPTION_HISTORY),
+                      titleColor: (Get.currentRoute == Routes.SUBSCRIPTION_PLAN ||
+                              Get.currentRoute == Routes.SUBSCRIPTION_HISTORY)
+                          ? AppThemData.primary500
+                          : AppThemData.primary500,
+                      isSelected: (Get.currentRoute == Routes.SUBSCRIPTION_PLAN ||
+                          Get.currentRoute == Routes.SUBSCRIPTION_HISTORY),
                       icon: "assets/icons/ic_subscription_history.svg",
-                      iconColor: (Get.currentRoute == Routes.SUBSCRIPTION_PLAN || Get.currentRoute == Routes.SUBSCRIPTION_HISTORY) ? AppThemData.primary500 : AppThemData.primary500,
+                      iconColor: (Get.currentRoute == Routes.SUBSCRIPTION_PLAN ||
+                              Get.currentRoute == Routes.SUBSCRIPTION_HISTORY)
+                          ? AppThemData.primary500
+                          : AppThemData.primary500,
                       themeChange: themeChange,
                       children: [
                         ListItem(
@@ -445,10 +477,12 @@ class MenuWidget extends StatelessWidget {
 
                     ExpansionTileItem(
                       title: 'Settings'.tr,
-                      titleColor: (Get.currentRoute == Routes.SETTING_SCREEN) ? AppThemData.primary500 : AppThemData.primary500,
+                      titleColor:
+                          (Get.currentRoute == Routes.SETTING_SCREEN) ? AppThemData.primary500 : AppThemData.primary500,
                       isSelected: (Get.currentRoute == Routes.SETTING_SCREEN),
                       icon: "assets/icons/ic_settings.svg",
-                      iconColor: (Get.currentRoute == Routes.SETTING_SCREEN) ? AppThemData.primary500 : AppThemData.primary500,
+                      iconColor:
+                          (Get.currentRoute == Routes.SETTING_SCREEN) ? AppThemData.primary500 : AppThemData.primary500,
                       themeChange: themeChange,
                       children: [
                         ListView.builder(
@@ -478,7 +512,9 @@ class MenuWidget extends StatelessWidget {
                                 child: ContainerCustom(
                                   radius: 12,
                                   color: isSelected
-                                      ? (themeChange.isDarkTheme() ? AppThemData.greyShade900 : AppThemData.greyShade100)
+                                      ? (themeChange.isDarkTheme()
+                                          ? AppThemData.greyShade900
+                                          : AppThemData.greyShade100)
                                       : null,
                                   child: Row(
                                     children: [
@@ -496,9 +532,6 @@ class MenuWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-
-
-
                   ],
                 ),
               ),
@@ -513,18 +546,30 @@ class MenuWidget extends StatelessWidget {
                 builder: (context) => AlertDialog(
                   title: Text(
                     'Logout?'.tr,
-                    style: const TextStyle(fontFamily: AppThemeData.medium, fontSize: 18, color: AppThemData.greyShade950, fontWeight: FontWeight.w600),
+                    style: const TextStyle(
+                        fontFamily: AppThemeData.medium,
+                        fontSize: 18,
+                        color: AppThemData.greyShade950,
+                        fontWeight: FontWeight.w600),
                   ),
                   content: Text(
                     'Are you sure you want to logout?'.tr,
-                    style: const TextStyle(fontFamily: AppThemeData.medium, fontSize: 16, color: AppThemData.textGrey, fontWeight: FontWeight.w400),
+                    style: const TextStyle(
+                        fontFamily: AppThemeData.medium,
+                        fontSize: 16,
+                        color: AppThemData.textGrey,
+                        fontWeight: FontWeight.w400),
                   ),
                   actions: [
                     TextButton(
                       onPressed: () => Get.back(),
                       child: Text(
                         'Cancel'.tr,
-                        style: const TextStyle(fontFamily: AppThemeData.medium, fontSize: 14, color: AppThemData.textBlack, fontWeight: FontWeight.w600),
+                        style: const TextStyle(
+                            fontFamily: AppThemeData.medium,
+                            fontSize: 14,
+                            color: AppThemData.textBlack,
+                            fontWeight: FontWeight.w600),
                       ),
                     ),
                     TextButton(
@@ -534,7 +579,11 @@ class MenuWidget extends StatelessWidget {
                       },
                       child: Text(
                         'Log out'.tr,
-                        style: const TextStyle(fontFamily: AppThemeData.medium, fontSize: 14, color: AppThemData.red800, fontWeight: FontWeight.w600),
+                        style: const TextStyle(
+                            fontFamily: AppThemeData.medium,
+                            fontSize: 14,
+                            color: AppThemData.red800,
+                            fontWeight: FontWeight.w600),
                       ),
                     ),
                   ],
@@ -577,7 +626,9 @@ class LogoutListItem extends StatelessWidget {
         // borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20)),
         color: buttonColor,
         boxShadow: [
-          BoxShadow(color: AppThemData.black07, offset: textColor == AppThemData.black07 ? const Offset(4, 0) : const Offset(0, 0)),
+          BoxShadow(
+              color: AppThemData.black07,
+              offset: textColor == AppThemData.black07 ? const Offset(4, 0) : const Offset(0, 0)),
         ],
       ),
       child: ListTile(
@@ -677,7 +728,15 @@ class ExpansionTileItem extends StatelessWidget {
   final bool? isSelected;
   final DarkThemeProvider themeChange;
 
-  const ExpansionTileItem({super.key, this.title, this.icon, this.children, this.isSelected, required this.themeChange, required titleColor, required iconColor});
+  const ExpansionTileItem(
+      {super.key,
+      this.title,
+      this.icon,
+      this.children,
+      this.isSelected,
+      required this.themeChange,
+      required titleColor,
+      required iconColor});
 
   @override
   Widget build(BuildContext context) {

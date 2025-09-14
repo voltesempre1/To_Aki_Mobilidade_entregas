@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:driver/app/models/vehicle_type_model.dart';
 import 'package:driver/constant/custom_search_dialog.dart';
 import 'package:driver/constant_widgets/app_bar_with_border.dart';
@@ -9,6 +7,8 @@ import 'package:driver/constant_widgets/text_field_with_title.dart';
 import 'package:driver/theme/app_them_data.dart';
 import 'package:driver/theme/responsive.dart';
 import 'package:driver/utils/dark_theme_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -117,7 +117,8 @@ class UpdateVehicleDetailsView extends StatelessWidget {
                                             height: 10,
                                           ),
                                           Visibility(
-                                              visible: controller.vehicleTypeList.indexOf(value) != (controller.vehicleTypeList.length - 1),
+                                              visible: controller.vehicleTypeList.indexOf(value) !=
+                                                  (controller.vehicleTypeList.length - 1),
                                               child: const Divider())
                                         ],
                                       ),
@@ -138,8 +139,10 @@ class UpdateVehicleDetailsView extends StatelessWidget {
                                             }
                                           }
                                         },
-                                  value: controller.selectedVehicleTypeId.value.isEmpty ? null : controller.selectedVehicleTypeId.value,
-                          ),
+                                  value: controller.selectedVehicleTypeId.value.isEmpty
+                                      ? null
+                                      : controller.selectedVehicleTypeId.value,
+                                ),
                         ),
                       ),
                     ),

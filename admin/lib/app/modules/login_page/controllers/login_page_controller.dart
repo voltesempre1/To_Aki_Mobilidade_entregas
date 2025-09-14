@@ -3,12 +3,10 @@ import 'package:admin/app/constant/collection_name.dart';
 import 'package:admin/app/constant/constants.dart';
 import 'package:admin/app/models/admin_model.dart';
 import 'package:admin/app/routes/app_pages.dart';
-import 'package:admin/app/services/shared_preferences/app_preference.dart';
 import 'package:admin/app/utils/fire_store_utils.dart';
 import 'package:admin/app/utils/toast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,8 +26,9 @@ class LoginPageController extends GetxController {
   void onInit() {
     getData();
     super.onInit();
-   // _initializeData();
+    // _initializeData();
   }
+
   Future<void> checkAndLoginOrCreateAdmin() async {
     ShowToastDialog.showLoader("Please wait...".tr);
 
@@ -64,9 +63,7 @@ class LoginPageController extends GetxController {
         Get.offAllNamed(Routes.DASHBOARD_SCREEN);
       } else {
         // Normal login flow
-        await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: email, password: password)
-            .then((value) async {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) async {
           final AdminModel? adminData = await FireStoreUtils.getAdminProfile(value.user!.uid);
 
           if (adminData != null) {
@@ -126,5 +123,4 @@ class LoginPageController extends GetxController {
     await Constant.getCurrencyData();
     await Constant.getLanguageData();
   }
-
 }

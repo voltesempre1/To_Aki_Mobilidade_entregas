@@ -196,7 +196,9 @@ class ChatScreenView extends StatelessWidget {
                       style: GoogleFonts.inter(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
-                        color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                        color: isMe
+                            ? AppThemData.white
+                            : themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
                       ),
                     ),
                   ],
@@ -208,7 +210,9 @@ class ChatScreenView extends StatelessWidget {
                     style: GoogleFonts.inter(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: themeChange.isDarkTheme() ? AppThemData.white : AppThemData.black,
+                      color: isMe
+                          ? AppThemData.white.withOpacity(0.8)
+                          : themeChange.isDarkTheme() ? AppThemData.white.withOpacity(0.7) : AppThemData.grey600,
                     ))
               ],
             ),

@@ -10,7 +10,6 @@ import 'package:admin/app/utils/responsive.dart';
 import 'package:admin/widget/common_ui.dart';
 import 'package:admin/widget/global_widgets.dart';
 import 'package:admin/widget/text_widget.dart';
-import 'package:excel/excel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -133,7 +132,9 @@ class AdminProfileView extends GetView<AdminProfileController> {
                                 children: [
                                   Container(
                                     padding: const EdgeInsets.all(12),
-                                    decoration: BoxDecoration(color: themeChange.isDarkTheme() ? AppThemData.red950 : AppThemData.red100, borderRadius: BorderRadius.circular(12)),
+                                    decoration: BoxDecoration(
+                                        color: themeChange.isDarkTheme() ? AppThemData.red950 : AppThemData.red100,
+                                        borderRadius: BorderRadius.circular(12)),
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -150,7 +151,8 @@ class AdminProfileView extends GetView<AdminProfileController> {
                                         ),
                                         spaceH(height: 6),
                                         const TextCustom(
-                                          title: "2. If you want to Update password, We'll send a password reset link to your email address. Click the link to securely set a new password.",
+                                          title:
+                                              "2. If you want to Update password, We'll send a password reset link to your email address. Click the link to securely set a new password.",
                                           fontSize: 14,
                                           color: AppThemData.red500,
                                         ),

@@ -1,5 +1,5 @@
 name: driver
-version: 1.0.0+1
+version: 1.0.1+2
 publish_to: none
 description: Aplicativo para motoristas da plataforma Tô Aki Mobilidade - serviços de transporte e entrega.
 environment:
